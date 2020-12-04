@@ -1,0 +1,13 @@
+.next
+node_modules
+yarn.lock
+
+*.log
+*.swp
+
+# editors
+.idea/
+.vscode/
+
+# os
+.DS_Store
