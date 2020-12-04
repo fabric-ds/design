@@ -1,3 +1,79 @@
-.nav {
+.sidenav {
   background: #f6f8fb;
+  background: var(--troika-marble);
+  width: 256px;
+  padding: 0 24px;
+  font-size: 14px;
+}
+
+.sidenav ul{
+  margin: 0;
+  padding: 0;
+}
+
+.sidenav li {
+  list-style-type: none;
+  margin: 4px 0;
+  font-weight: bold;
+}
+.sidenav a{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: left;
+  box-sizing: border-box;
+
+  width: 100%;
+  min-height: 32px;
+  padding: 5px 12px;
+
+  border-radius: 4px;
+  border: 1px solid rgba(0,0,0,0);
+  text-decoration: none;
+
+  word-break: break-word;
+  hyphens: auto;
+
+  cursor: pointer;
+
+  transition: background-color 130ms ease-out, color 130ms ease-out;
+}
+
+.sidenav a {
+  background-color: transparent;
+  color: rgb(75, 75, 75);
+}
+.sidenav a:hover,
+.sidenav a:focus-visible {
+  background-color: rgba(44,44,44,0.06);
+  color: rgb(44, 44, 44);
+}
+
+.sidenav a:focus {
+    outline: none;
+}
+.sidenav a:focus-visible{
+  box-shadow: 0 0 0 1px var(--troika-primary-blue); 
+  border:1px solid  var(--troika-primary-blue);
+}
+
+.sidenav li.is-selected > a {
+  color: rgb(44, 44, 44);
+  background-color: rgba(44,44,44,0.06);
+}
+
+.sidenav .multilevel li{
+  font-weight: normal;
+}
+
+.sidenav .multilevel a{
+  padding-left: 24px;
+}
+
+.sidenav__heading {
+  height: 40px;
+  line-height: 40px;
+
+  margin: 20px 0 5px 0;
+  padding: 0 15px;
 }
