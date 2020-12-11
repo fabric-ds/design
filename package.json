@@ -1,5 +1,5 @@
 {
-  "name": "fabric-design",
+  "name": "@finn-no/fabric-design",
   "version": "0.0.0",
   "description": "Fabric design system design documentation",
   "private": "true",
@@ -16,6 +16,9 @@
   },
   "license": "ISC",
   "dependencies": {
+    "@finn-no/fabric-icons": "0.1.0-alpha.1",
+    "@finn-no/troika-css-panel": "^1.3.0",
+    "@finn-no/troika-react-textfield": "^2.0.6",
     "@mdx-js/loader": "^1.6.22",
     "@next/mdx": "^10.0.3",
     "next": "^10.0.3",

@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import { MDXProvider } from '@mdx-js/react';
 
 import { Bad } from '../components/Bad';
@@ -11,18 +12,23 @@ const shortcodes = {
 
 function App({ Component, pageProps }) {
   return (
-    <MDXProvider components={shortcodes}>
-      <div className={classes.layout}>
-        <Nav />
+    <>
+      <Head>
+        <title>Fabric</title>
+      </Head>
+      <MDXProvider components={shortcodes}>
+        <div className={classes.layout}>
+          <Nav />
 
-        <div className={classes.content}>
-          <main>
-            <Component {...pageProps} />
-          </main>
-          <footer>This footer is suspiciously empty</footer>
+          <div className={classes.content}>
+            <main>
+              <Component {...pageProps} />
+            </main>
+            <footer>This footer is suspiciously empty</footer>
+          </div>
         </div>
-      </div>
-    </MDXProvider>
+      </MDXProvider>
+    </>
   );
 }
 
