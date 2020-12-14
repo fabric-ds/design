@@ -14,7 +14,7 @@ export default function Icons({ icons }) {
   return (
     <>
       <Head>
-        <title>Icons | Fabric</title>
+        <title>Icons | FINN Fabric</title>
       </Head>
 
       <h1 className="u-mb16">Icons</h1>

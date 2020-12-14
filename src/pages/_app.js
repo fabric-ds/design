@@ -14,7 +14,7 @@ function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Fabric</title>
+        <title>FINN Fabric</title>
       </Head>
       <MDXProvider components={shortcodes}>
         <div className={classes.layout}>
