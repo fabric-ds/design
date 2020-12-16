@@ -1,69 +1,55 @@
 .sidenav {
-  background: #f6f8fb;
-  background: var(--troika-marble);
   width: 256px;
   padding: 0 24px;
-  font-size: 14px;
+  @apply text-base bg-gray-50; 
 }
 
 .sidenav ul{
-  margin: 0;
-  padding: 0;
+  @apply m-0 p-0;
 }
 
 .sidenav li {
   list-style-type: none;
   margin: 4px 0;
-  font-weight: bold;
+  @apply font-bold;
 }
 .sidenav a{
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: left;
-  box-sizing: border-box;
+  @apply relative inline-flex items-center box-border w-full;
 
-  width: 100%;
   min-height: 32px;
   padding: 5px 12px;
-
   border-radius: 4px;
-  border: 1px solid rgba(0,0,0,0);
-  text-decoration: none;
 
-  word-break: break-word;
+  @apply border border-solid border-transparent;
+  @apply no-underline;
+  @apply break-words;
   hyphens: auto;
-
-  cursor: pointer;
-
+  @apply cursor-pointer;
   transition: background-color 130ms ease-out, color 130ms ease-out;
+  @apply bg-transparent;
+  @apply text-gray-700;
 }
 
-.sidenav a {
-  background-color: transparent;
-  color: rgb(75, 75, 75);
-}
-.sidenav a:hover,
-.sidenav a:focus-visible {
-  background-color: rgba(44,44,44,0.06);
-  color: rgb(44, 44, 44);
+.sidenav a:hover{
+  @apply bg-gray-100;
+  @apply border-gray-200;
 }
 
-.sidenav a:focus {
-    outline: none;
+.sidenav a:focus{
+outline: none;
 }
+
 .sidenav a:focus-visible{
-  box-shadow: 0 0 0 1px var(--troika-primary-blue); 
-  border:1px solid  var(--troika-primary-blue);
+  border-color: var(--troika-primary-blue);
 }
 
-.sidenav li.is-selected > a {
-  color: rgb(44, 44, 44);
-  background-color: rgba(44,44,44,0.06);
+.sidenav a:focus:not(:focus-visible){
+  @apply bg-gray-100;
+  @apply border-gray-200;
 }
 
 .sidenav .multilevel li{
-  font-weight: normal;
+  @apply font-normal;
 }
 
 .sidenav .multilevel a{
@@ -73,7 +59,6 @@
 .sidenav__heading {
   height: 40px;
   line-height: 40px;
-
   margin: 20px 0 5px 0;
   padding: 0 15px;
 }

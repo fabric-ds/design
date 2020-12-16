@@ -9,13 +9,13 @@ export function Nav() {
       <div className={classes.sidenav__heading}>[Tottallyawsome logo]</div>
       <ul>
         <li>
-          <Link href="/">
+          <Link alt="Home" href="/">
             <a>Home</a>
           </Link>
           <div className={classes.multilevel}>
             <ul>
               <li>
-                <Link href="/">
+                <Link alt="Principles"  href="/">
                   <a>Principles</a>
                 </Link>
               </li>
