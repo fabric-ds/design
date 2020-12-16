@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import { MDXProvider } from '@mdx-js/react';
 
+import 'tailwindcss/tailwind.css';
 import { Bad } from '../components/Bad';
 import { Nav } from '../components/Nav';
 import classes from '../components/App.module.css';
