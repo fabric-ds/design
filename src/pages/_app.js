@@ -4,11 +4,11 @@ import { MDXProvider } from '@mdx-js/react';
 
 import 'tailwindcss/tailwind.css';
 import { Bad } from '../components/Bad';
+import { Good } from '../components/Good';
 import { Nav } from '../components/Nav';
 import classes from '../components/App.module.css';
-
 const shortcodes = {
-  Bad,
+  Bad, Good,
 };
 
 function App({ Component, pageProps }) {
@@ -22,7 +22,7 @@ function App({ Component, pageProps }) {
           <Nav />
 
           <div className={classes.content}>
-            <main>
+            <main className={classes.md}>
               <Component {...pageProps} />
             </main>
             <footer>This footer is suspiciously empty</footer>
