@@ -41,27 +41,38 @@
 }
 
 .md h1 {
-  @apply leading-tight border-b text-4xl font-bold mb-4 mt-6 pb-2;
+  @apply leading-tight border-b text-4xl font-bold pb-2;
+  margin-bottom: 0.5rem;
+  margin-top: 3rem;
 }
 
 .md h2 {
-  @apply leading-tight border-b text-2xl font-bold mb-4 mt-6 pb-2;
+  @apply leading-tight border-b text-2xl font-bold pb-2;
 }
 
 .md h3 {
-  @apply leading-snug text-lg font-bold mb-4 mt-6;
+  @apply leading-snug text-lg font-bold ;
 }
 
 .md h4 {
-  @apply leading-none text-base font-bold mb-4 mt-6;
+  @apply leading-none text-base font-bold ;
 }
 
 .md h5 {
-  @apply leading-tight text-sm font-bold mb-4 mt-6;
+  @apply leading-tight text-sm font-bold ;
 }
 
 .md h6 {
-  @apply leading-tight text-sm font-bold text-gray-600 mb-4 mt-6;
+  @apply leading-tight text-sm font-bold text-gray-600;
+}
+
+.md h1, 
+.md h2,
+.md h3,
+.md h4,
+.md h5,
+.md h6 {
+    @apply mb-2 mt-12;
 }
 
 .md blockquote {

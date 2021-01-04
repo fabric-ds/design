@@ -5,10 +5,11 @@ import { MDXProvider } from '@mdx-js/react';
 import 'tailwindcss/tailwind.css';
 import { Bad } from '../components/Bad';
 import { Good } from '../components/Good';
+import { Fig } from '../components/Fig';
 import { Nav } from '../components/Nav';
 import classes from '../components/App.module.css';
 const shortcodes = {
-  Bad, Good,
+  Bad, Good, Fig,
 };
 
 function App({ Component, pageProps }) {
