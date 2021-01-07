@@ -10,7 +10,7 @@ import '@finn-no/troika-css-panel/dist/panel.css';
 import '@finn-no/troika-react-textfield/style.css';
 import '@finn-no/fabric-icons';
 
-export default function Icons({ icons }) {
+export default function Icons({ iconsBySize, iconSizes }) {
   return (
     <>
       <Head>
@@ -28,18 +28,13 @@ export default function Icons({ icons }) {
         to understand how to use our icons.
       </p>
 
-      <FilterableIconGrid icons={icons} />
+      <FilterableIconGrid iconsBySize={iconsBySize} iconSizes={iconSizes} />
     </>
   );
 }
 
-const FilterableIconGrid = ({ icons }) => {
+const FilterableIconGrid = ({ iconsBySize, iconSizes }) => {
   const [filterText, setFilterText] = React.useState('');
-
-  const filteredIcons =
-    filterText.trim() !== ''
-      ? icons.filter((icon) => icon.name.includes(filterText))
-      : icons;
 
   return (
     <>
@@ -49,47 +44,88 @@ const FilterableIconGrid = ({ icons }) => {
         onChange={(e) => setFilterText(e.target.value)}
         value={filterText}
       />
-      <div className="panel panel--neutral u-mh0">
-        <div
-          className="u-mt16"
-          style={{
-            display: 'grid',
-            gap: '35px',
-            gridTemplateColumns: 'repeat(auto-fill, 100px)',
-            justifyContent: 'center',
-          }}
-        >
-          {filteredIcons.map((icon) => (
-            <div className="u-text-center" key={icon.name}>
-              <div
-                className="u-mha u-mb16"
-                dangerouslySetInnerHTML={{ __html: icon.data }}
-                style={{ width: 24, height: 24 }}
-              />
-
-              <div className="u-d1">{icon.name}</div>
-            </div>
-          ))}
-        </div>
+      <div
+        className="panel panel--neutral u-mh0"
+        style={{ display: 'grid', gap: '3rem' }}
+      >
+        {iconSizes.map((size, i) => (
+          <IconsForSize
+            icons={iconsBySize[i]}
+            size={size}
+            key={size}
+            filterText={filterText}
+          />
+        ))}
       </div>
     </>
   );
 };
 
+const IconsForSize = ({ icons, size, filterText }) => {
+  const filteredIcons =
+    filterText.trim() !== ''
+      ? icons.filter((icon) => icon.name.includes(filterText))
+      : icons;
+
+  return (
+    <section>
+      <h2
+        // FIXME: use inline styles here, as the CSS meant to apply to markdown pages hits this page as well :(
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          margin: 0,
+          marginBottom: '2rem',
+        }}
+      >
+        {size}
+        &nbsp;
+        <span className="u-d1">
+          ({filteredIcons.length}/{icons.length})
+        </span>
+      </h2>
+      <div
+        style={{
+          display: 'grid',
+          gap: '35px',
+          gridTemplateColumns: 'repeat(auto-fill, 100px)',
+          justifyContent: 'center',
+        }}
+      >
+        {filteredIcons.map((icon) => (
+          <div className="u-text-center" key={icon.name}>
+            <div
+              className="u-mha u-mb16"
+              dangerouslySetInnerHTML={{ __html: icon.data }}
+            />
+
+            <div className="u-d1">{icon.name}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
 export function getStaticProps() {
-  const iconNames = fs.readdirSync(iconsPath);
+  const iconSizes = fs.readdirSync(iconsPath);
 
-  const icons = iconNames.map((fileName) => {
-    const svgPath = path.join(iconsPath, fileName);
-    const data = fs.readFileSync(svgPath, 'utf-8');
+  const iconsBySize = iconSizes.map((size) => {
+    const iconNames = fs.readdirSync(path.join(iconsPath, size));
 
-    return {
-      name: path.parse(svgPath).name,
-      data,
-    };
+    return iconNames.map((fileName) => {
+      const svgPath = path.join(iconsPath, size, fileName);
+      const data = fs.readFileSync(svgPath, 'utf-8');
+
+      return {
+        name: path.parse(svgPath).name,
+        data,
+      };
+    });
   });
 
   return {
-    props: { icons },
+    props: { iconsBySize, iconSizes },
   };
 }
