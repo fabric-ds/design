@@ -39,7 +39,7 @@
 .md strong a {
   @apply font-bold;
 }
-
+/*
 .md h1 {
   @apply leading-tight border-b text-4xl font-bold pb-2;
   margin-bottom: 0.5rem;
@@ -74,7 +74,7 @@
 .md h6 {
     @apply mb-2 mt-12;
 }
-
+*/
 .md blockquote {
   @apply text-base border-l-4 border-gray-300 pl-4 pr-4 text-gray-600;
 }
