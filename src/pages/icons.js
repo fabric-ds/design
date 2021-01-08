@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import fs from 'fs';
 import path from 'path';
+import { Fig } from '../components/Fig';
 import { iconsPath } from '@finn-no/fabric-icons';
 import { TextField } from '@finn-no/troika-react-textfield';
 
@@ -39,15 +40,12 @@ const FilterableIconGrid = ({ iconsBySize, iconSizes }) => {
   return (
     <>
       <TextField
-        className="u-size1of3"
+        className="u-size1of3 u-mb16"
         label="Filter icons"
         onChange={(e) => setFilterText(e.target.value)}
         value={filterText}
       />
-      <div
-        className="panel panel--neutral u-mh0"
-        style={{ display: 'grid', gap: '3rem' }}
-      >
+
         {iconSizes.map((size, i) => (
           <IconsForSize
             icons={iconsBySize[i]}
@@ -56,7 +54,7 @@ const FilterableIconGrid = ({ iconsBySize, iconSizes }) => {
             filterText={filterText}
           />
         ))}
-      </div>
+   
     </>
   );
 };
@@ -68,35 +66,34 @@ const IconsForSize = ({ icons, size, filterText }) => {
       : icons;
 
   return (
-    <section>
-      <h2
-        // FIXME: use inline styles here, as the CSS meant to apply to markdown pages hits this page as well :(
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          margin: 0,
-          marginBottom: '2rem',
-        }}
-      >
+    <Fig>
+      <h2 className="u-mt0 u-mb16 text-lg">
         {size}
         &nbsp;
-        <span className="u-d1">
+        <span className="u-b1 u-stone">
           ({filteredIcons.length}/{icons.length})
         </span>
       </h2>
       <div
         style={{
           display: 'grid',
-          gap: '35px',
+          gap: '26px',
           gridTemplateColumns: 'repeat(auto-fill, 100px)',
-          justifyContent: 'center',
         }}
       >
         {filteredIcons.map((icon) => (
           <div className="u-text-center" key={icon.name}>
             <div
-              className="u-mha u-mb16"
+              className="u-mha u-mb8"
+              style={{
+                backgroundColor: 'white',
+                borderRadius: '4px',
+                height: '52px', 
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
               dangerouslySetInnerHTML={{ __html: icon.data }}
             />
 
@@ -104,7 +101,7 @@ const IconsForSize = ({ icons, size, filterText }) => {
           </div>
         ))}
       </div>
-    </section>
+    </Fig>
   );
 };
 
