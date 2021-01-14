@@ -30,5 +30,9 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "tailwindcss": "^2.0.2"
+  },
+  "devDependencies": {
+    "ora": "^5.2.0",
+    "prompts": "^2.4.0"
   }
 }

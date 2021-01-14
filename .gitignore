@@ -6,6 +6,8 @@ out/
 *.log
 *.swp
 
+.FIGMA_TOKEN
+
 # editors
 .idea/
 .vscode/
