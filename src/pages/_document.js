@@ -5,12 +5,8 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <link
+            href="https://assets.finn.no/pkg/@finn-no/fabric-css/v0/fabric.min.css"
             rel="stylesheet"
-            href="https://assets.finn.no/pkg/troika-css-core/v1/core.css"
-          />
-          <link
-            rel="stylesheet"
-            href="https://assets.finn.no/pkg/troika-css-utilities/v1/utilities.css"
           />
         </Head>
         <body>

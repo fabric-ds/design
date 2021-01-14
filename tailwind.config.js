@@ -1,16 +1,6 @@
-// tailwind.config.js
+// We don't actually use tailwind in our postcss setup, because we use the global fabric styles
+// the only reason this file is here is because we want the tailwind intellisense plugin to work with our tailwind config
 module.exports = {
-  purge: ['./src/**/*.js', './src/**/*.mdx'],
-  darkMode: false,
-  corePlugins: {
-    // We use the reset styles from Troika
-    preflight: false,
-  },
-  theme: {
-    extend: {},
-  },
-  variants: {
-    extend: {},
-  },
-  plugins: [],
+  presets: [require('@finn-no/fabric-tailwind-config')],
+  purge: false,
 };

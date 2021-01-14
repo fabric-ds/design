@@ -1,17 +1,3 @@
-.layout {
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  height: 100vh;
-}
-
-.content {
-  display: grid;
-  grid-template-rows: 1fr auto;
-  grid-template-columns: minmax(auto, 900px);
-  justify-content: center;
-  padding: 40px;
-}
-
 .md {
   @apply text-gray-900 leading-normal break-words;
 }

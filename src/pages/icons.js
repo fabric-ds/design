@@ -18,9 +18,9 @@ export default function Icons({ iconsBySize, iconSizes }) {
         <title>Icons | FINN Fabric</title>
       </Head>
 
-      <h1 className="u-mb16">Icons</h1>
+      <h1 className="mb-16">Icons</h1>
 
-      <p className="u-t4 u-mb64">
+      <p className="u-t4 mb-64">
         Fabric's icon set is designed to help users understand actions,
         information and draw attention to elements. Review the{' '}
         <Link href="/iconography">
@@ -40,21 +40,20 @@ const FilterableIconGrid = ({ iconsBySize, iconSizes }) => {
   return (
     <>
       <TextField
-        className="u-size1of3 u-mb16"
+        className="w-1/3 u-mb16"
         label="Filter icons"
         onChange={(e) => setFilterText(e.target.value)}
         value={filterText}
       />
 
-        {iconSizes.map((size, i) => (
-          <IconsForSize
-            icons={iconsBySize[i]}
-            size={size}
-            key={size}
-            filterText={filterText}
-          />
-        ))}
-   
+      {iconSizes.map((size, i) => (
+        <IconsForSize
+          icons={iconsBySize[i]}
+          size={size}
+          key={size}
+          filterText={filterText}
+        />
+      ))}
     </>
   );
 };
@@ -67,7 +66,7 @@ const IconsForSize = ({ icons, size, filterText }) => {
 
   return (
     <Fig>
-      <h2 className="u-mt0 u-mb16 text-lg">
+      <h2 className="mb-16 text-lg">
         {size}
         &nbsp;
         <span className="u-b1 u-stone">
@@ -82,13 +81,13 @@ const IconsForSize = ({ icons, size, filterText }) => {
         }}
       >
         {filteredIcons.map((icon) => (
-          <div className="u-text-center" key={icon.name}>
+          <div className="text-center" key={icon.name}>
             <div
-              className="u-mha u-mb8"
+              className="mx-auto mb-8"
               style={{
                 backgroundColor: 'white',
                 borderRadius: '4px',
-                height: '52px', 
+                height: '52px',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',

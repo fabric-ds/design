@@ -1,47 +1,28 @@
 import React from 'react';
 import Link from 'next/link';
-
-import classes from './Nav.module.css';
+import Image from 'next/image';
 
 export function Nav() {
   return (
-    <nav className={classes.sidenav}>
-      <div className={classes.sidenav__heading}>[Tottallyawsome logo]</div>
+    <nav className="bg-blueGray-100 px-24">
+      <h1 className="grid gap-8 grid-flow-col justify-start items-center my-24">
+        <Image src="/FINN-logo-icon.svg" height="40" width="80" />{' '}
+        <span className="text-lg">Fabric</span>
+      </h1>
       <ul>
         <li>
-          <Link alt="Home" href="/">
-            <a>Home</a>
-          </Link>
-          <div className={classes.multilevel}>
-            <ul>
-              <li>
-                <Link alt="Principles"  href="/">
-                  <a>Principles</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/">
-                  <a>Changelog</a>
-                </Link>
-              </li>
-            </ul>
-          </div>
+          <A alt="Home" href="/">
+            Home
+          </A>
         </li>
         <li>
-          <Link href="/">
-            <a>Foundation</a>
-          </Link>
-          <div className={classes.multilevel}>
+          <div>
             <ul>
               <li>
-                <Link href="/color">
-                  <a>Color</a>
-                </Link>
+                <A href="/color">Color</A>
               </li>
               <li>
-                <Link href="/icons">
-                  <a>Icons</a>
-                </Link>
+                <A href="/icons">Icons</A>
               </li>
             </ul>
           </div>
@@ -50,3 +31,9 @@ export function Nav() {
     </nav>
   );
 }
+
+const A = ({ href, ...props }) => (
+  <Link href={href}>
+    <a {...props} />
+  </Link>
+);
