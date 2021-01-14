@@ -19,7 +19,7 @@ export default function Footer(props) {
             role="img"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 448 512"
-            class="w-20 h-20"
+            className="w-20 h-20"
           >
             <path
               fill="currentColor"

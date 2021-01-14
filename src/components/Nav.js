@@ -1,12 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 export function Nav() {
   return (
     <nav className="bg-blueGray-100 px-24">
       <h1 className="grid gap-8 grid-flow-col justify-start items-center my-24">
-        <Image src="/FINN-logo-icon.svg" height="40" width="80" />{' '}
+        <img src="/FINN-logo-icon.svg" height="40" width="80" alt="FINN logo" />
         <span className="text-lg">Fabric</span>
       </h1>
       <ul>
