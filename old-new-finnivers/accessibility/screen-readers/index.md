@@ -1,0 +1,45 @@
+---
+title: Screen readers
+---
+
+A screen reader is software that facilitates navigation within text content on the screen and converts it into speech and/or braille in real-time. Although most modern screen readers have OCR capabilities (Optical Character Recognition), they rely on the DOM (Document Object Model) / Accessibility Tree of a web page to provide information about its structure as well as its content. UX for users of screen readers is therefore mostly determined by the quality of the markup. In this article we will highlight some of the concepts that are of utmost importance for a good experience with screen readers.
+
+## Headings
+
+Surveys (like [WebAIM Screen Reader User Survey 2019](https://webaim.org/projects/screenreadersurvey8/)) have shown over and over that navigating by headings is the preferred method of locating content on web pages by a vast majority of screen reader users. A good heading structure is also important for SEO (Search Engine Optimization). On FINN, we apply the following guidelines in regards to headings on web pages:
+
+- The first level 1 heading (h1) should be located where the main content of interest starts in the DOM. This is not necessarily the same as the beginning of the main element in HTML. For example, search result pages on FINN.no have the first h1 located at the beginning of the result list, even though the main element also covers all the search filters above the result list.
+- Heading levels should not be skipped. This means that a heading should never be two or more levels lower (higher number) than the previous heading. The other way around is fine. For example, an h3 could be followed by an h1, but an h1 should not be followed by an h3.
+- All sections of content should start with a heading. If it is not desirable to have a visual heading for a particular section, then use the u-screen-reader-only class from Troika to hide the heading visually.
+- Use CSS to set heading sizes as described in [the Sizes section of the Typography page](/guidelines/typography/design/#sizes).
+
+## Alternative text for graphical elements
+
+Images (img elements) must always have an alt attribute. The alt attribute should be a description of the image, or an empty string (alt="") if the image is merely for decorative purposes and is not important for context or interaction.
+
+An alt text should be a clear and concise description of the graphical element, not an interpretation of the meaning of the element.
+For example, the alt text of the heart icon we use on FINN reflects that it is a heart rather than saying "Save to Favorites". This reduces potential confusion when sighted users want to help non-sighted users and vice versa.
+Isolating blind users from how sighted users perceive the world only widens the gap in experience between these groups of people.
+
+Do not start the alt text by stating that it is "An image of" something. This is already implied by the semantics of the img element.
+
+You may resort to metadata as alt text if it is technically impossible to describe the content of a significant image. For example, "Profile picture for Ola Nordmann" or "Uploaded image 2020-07-22 20:00:16" are both valid uses.
+
+Regarding SVGs, if the content/presence of an SVG element is significant, then you can use the [Title Tag in SVG](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/title) and/or the [ARIA img role with a label](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Role_Img) to set an alt text. If not, then set aria-hidden on the svg element to ensure that screen readers don't expose a nonsensical representation of the SVG to the user.
+
+## Landmarks
+
+Landmarks (or sectioning elements) are semantical wrapper elements that provide screen readers with topographical information about a web page. Examples include
+[main](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main),
+[header](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header),
+[footer](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer),
+[nav](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav),
+[section](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section), and
+[article](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article).
+
+Assuming you have basic knowledge of those semantic elements in HTML, here are a few extra things worth noting:
+
+- Nav and section elements should be labelled using [aria-label](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute) or [aria-labelledby](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-labelledby_attribute) atrributes.
+- First palpable child element of a landmark (except header) should be a heading element (h1...6). Use the u-screen-reader-only class on the heading element if it must be hidden visually.
+- To help you differentiate between section and article, think of the article element as a self-contained item with content that technically doesn't depend on its surrounding environment. On FINN, this is typically ads. For example, each result item on the search result page is wrapped in an article element.
+- Header and footer elements are included in FINN's [header](https://github.schibsted.io/finn/header) and [footer](https://github.schibsted.io/finn/footer) podlets.

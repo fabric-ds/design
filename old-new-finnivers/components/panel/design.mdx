@@ -1,0 +1,35 @@
+---
+title: Panel
+---
+
+The panel concept is what provides the correct spacing between both pieces of content and out to the banneriffic world. Panel is meant to work together with pageholder. 30px/2 = 15px (dictated by the banner formats)+ 16px from panel itself for the correct 31px of visual space between banner and content
+
+import Variants from '../../../src/components/Variants';
+
+<Variants
+  className="panel"
+  classNames={{
+    Variants: {
+      Success: 'panel--success',
+      Warning: 'panel--warning',
+      Error: 'panel--error',
+      Info: 'panel--info',
+      Tips: 'panel--tips',
+      New: 'panel--new',
+      Bleed: 'panel--bleed',
+      Bright: 'panel--bright',
+      Neutral: 'panel--neutral',
+      Bordered: 'panel--bordered',
+    },
+    State: { 'is-clickable': 'panel--is-clickable' },
+    Behavior: { 'is-roomy': 'panel--is-roomy' },
+    Helpers: {
+      'kill-last-margin': 'panel--kill-last-margin',
+    },
+  }}
+>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada dui
+    in commodo dapibus.
+  </p>
+</Variants>
