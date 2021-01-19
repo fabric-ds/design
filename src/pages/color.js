@@ -13,9 +13,9 @@ export default function ColorPage({ colors }) {
         <title>Color | FINN Fabric</title>
       </Head>
 
-      <h1 className="mb-16">Colors</h1>
+      <h1>Colors</h1>
 
-      <p className="u-t4 mb-32">
+      <p>
         Fabric colors are designed to be clear and accessible. They come in
         different color ranges.
       </p>
@@ -66,9 +66,10 @@ function Palette({ colors }) {
 function ColorRange({ colors, colorName }) {
   return (
     <div>
-      <span className="block mb-16 font-bold text-lg">{colorName}</span>
+     
 
-      <div className="grid grid-cols-10 gap-10">
+      <div className="grid grid-cols-7 lg:grid-cols-12 gap-10">
+        <div className="col-span-2 row-span-2 lg:row-span-1 text-lg">{colorName}</div>
         {typeof colors === 'string' ? (
           // Not all colors are ranges
           <Color colorHex={colors} />
@@ -90,11 +91,11 @@ function Color({ token, colorHex }) {
         style={{ backgroundColor: colorHex }}
       />
 
-      <span className="block mt-10 text-gray-500 font-bold text-sm">
+      <div className="mt-8 text-gray-500 font-bold text-sm">
         {token}
-      </span>
+      </div>
 
-      <span className="block mt-8 text-sm font-bold">{colorHex}</span>
+      <div className="mt-4 text-xs font-bold uppercase text-gray-680">{colorHex}</div>
     </div>
   );
 }

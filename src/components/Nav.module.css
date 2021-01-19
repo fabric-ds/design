@@ -1,55 +1,61 @@
+
 .sidenav {
   width: 256px;
-  padding: 0 24px;
-  @apply text-base bg-gray-50; 
+  padding: 0 24px; 
+  background-color: #fafafa;
 }
 
 .sidenav ul{
-  @apply m-0 p-0;
+  margin: 0;
+  padding: 0;;
 }
 
 .sidenav li {
   list-style-type: none;
   margin: 4px 0;
-  @apply font-bold;
+  font-weight: bold;
 }
 .sidenav a{
-  @apply relative inline-flex items-center box-border w-full;
-
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
   min-height: 32px;
   padding: 5px 12px;
   border-radius: 4px;
-
-  @apply border border-solid border-transparent;
-  @apply no-underline;
-  @apply break-words;
+  border-color: transparent;
+  box-sizing: border-box;
+  border: 2px solid transparent;
+  text-decoration: none;
+  overflow-wrap: break-word;
   hyphens: auto;
-  @apply cursor-pointer;
+  cursor: pointer;
   transition: background-color 130ms ease-out, color 130ms ease-out;
-  @apply bg-transparent;
-  @apply text-gray-700;
+  background-color: transparent;
+  color: #404040;
 }
 
+.sidenav a.is-selected,
 .sidenav a:hover{
-  @apply bg-gray-100;
-  @apply border-gray-200;
+  background-color: #eee;
+  border-color: #eee;
 }
 
 .sidenav a:focus{
-outline: none;
+  outline: none;
 }
 
 .sidenav a:focus-visible{
-  border-color: var(--troika-primary-blue);
+  border-color: #2563eb;
 }
 
 .sidenav a:focus:not(:focus-visible){
-  @apply bg-gray-100;
-  @apply border-gray-200;
+  background-color: #eee;
+  border-color: #eee;
 }
 
 .sidenav .multilevel li{
-  @apply font-normal;
+  font-weight: normal;
 }
 
 .sidenav .multilevel a{
