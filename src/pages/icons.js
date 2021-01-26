@@ -66,7 +66,7 @@ const IconsForSize = ({ icons, size, filterText }) => {
 
   return (
     <Fig>
-      <h2 className="mb-16 text-lg">
+      <h2 className="mb-16 text-22">
         {size}
         &nbsp;
         <span className="u-b1 u-stone">

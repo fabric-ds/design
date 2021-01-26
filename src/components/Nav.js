@@ -13,7 +13,7 @@ export function Nav() {
           width="80"
           alt="FINN logo"
         />
-        <span className="text-lg">Fabric</span>
+        <span className="text-22">Fabric</span>
       </h1>
       <ul>
         <li>
@@ -56,7 +56,7 @@ export function Nav() {
 const A = ({ href, ...props }) => (
   <Link href={href}>
     <a
-      className="py-4 px-12 rounded-md relative inline-flex items-center box-border w-full border border-solid border-transparent no-underline break-words cursor-pointer bg-transparent text-gray-700 hover:bg-gray-100 hover:border-gray-200"
+      className="py-4 px-12 rounded-8 relative inline-flex items-center box-border w-full border border-solid border-transparent no-underline break-words cursor-pointer bg-transparent text-gray-700 hover:bg-gray-100 hover:border-gray-200"
       {...props}
     />
   </Link>

@@ -66,10 +66,10 @@ function Palette({ colors }) {
 function ColorRange({ colors, colorName }) {
   return (
     <div>
-     
-
       <div className="grid grid-cols-7 lg:grid-cols-12 gap-10">
-        <div className="col-span-2 row-span-2 lg:row-span-1 text-lg">{colorName}</div>
+        <div className="col-span-2 row-span-2 lg:row-span-1 text-lg">
+          {colorName}
+        </div>
         {typeof colors === 'string' ? (
           // Not all colors are ranges
           <Color colorHex={colors} />
@@ -87,15 +87,15 @@ function Color({ token, colorHex }) {
   return (
     <div>
       <div
-        className="w-48 h-48 rounded shadow"
+        className="w-48 h-48 rounded-4 shadow"
         style={{ backgroundColor: colorHex }}
       />
 
-      <div className="mt-8 text-gray-500 font-bold text-sm">
-        {token}
-      </div>
+      <div className="mt-8 text-gray-500 font-bold text-sm">{token}</div>
 
-      <div className="mt-4 text-xs font-bold uppercase text-gray-680">{colorHex}</div>
+      <div className="mt-4 text-12 font-bold uppercase text-gray-680">
+        {colorHex}
+      </div>
     </div>
   );
 }

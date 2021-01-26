@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 export function AssetLinks(props) {
-  return <div {...props} className="my-16 rounded max-w-max"></div>;
+  return <div {...props} className="my-16 max-w-max"></div>;
 }
 
 export function AssetLink({ href }) {
@@ -16,7 +16,7 @@ export function AssetLink({ href }) {
   return (
     <a
       href={href}
-      className="border rounded-lg inline-flex items-center align-middle no-underline hover:no-underline text-gray-800"
+      className="border rounded-4 inline-flex items-center align-middle no-underline hover:no-underline text-gray-800"
     >
       <div className="w-48 h-48 p-8 border-r flex">
         <Logo />

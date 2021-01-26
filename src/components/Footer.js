@@ -5,7 +5,7 @@ const linkClass =
 
 export default function Footer(props) {
   return (
-    <footer className="mt-32 text-sm text-gray-600" {...props}>
+    <footer className="mt-32 text-12 text-gray-600" {...props}>
       <hr className="mb-40" />
       <div className="grid grid-flow-col justify-end gap-24">
         <a
