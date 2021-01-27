@@ -87,7 +87,7 @@ function Color({ token, colorHex }) {
   return (
     <div>
       <div
-        className="w-48 h-48 rounded-4 shadow"
+        className="width-max-width h-48 rounded shadow"
         style={{ backgroundColor: colorHex }}
       />
 

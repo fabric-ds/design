@@ -23,26 +23,14 @@ const shortcodes = {
   h5: (props) => <h5 className="mt-32" {...props} />,
   h6: (props) => <h6 className="mt-32" {...props} />,
   p: (props) => <p className="pb-16" {...props} />,
-  ul: (props) => <ul className="pb-16 list-disc list-inside" {...props} />,
-  ol: (props) => <ol className="pb-16 list-decimal list-inside" {...props} />,
-  dl: (props) => <dl className="pb-16" {...props} />,
-  li: (props) => <li className="pb-16" {...props} />,
-  table: (props) => <table className="mb-16 p-0" {...props} />,
-  tr: (props) => (
-    <tr className="border-t border-gray-300 bg-white m-0 p-0" {...props} />
-  ),
-  th: (props) => (
-    <th
-      className="border border-gray-300 bg-white m-0 py-6 px-14 text-left"
-      {...props}
-    />
-  ),
-  td: (props) => (
-    <td
-      className="border border-gray-300 bg-white m-0 py-6 px-14 text-left"
-      {...props}
-    />
-  ),
+  ul: (props) => <ul className="pb-16 list-disc list-inside" {...props} />, 
+  ol: (props) => <ol className="pb-16 list-decimal list-inside" {...props} />, 
+  dl: (props) => <dl className="pb-16" {...props} />, 
+  li: (props) => <li className="pb-4" {...props} />, 
+  table: (props) => <table className="mb-16 p-0 w-full" {...props} />,
+  tr: (props) => <tr className="border-t border-gray-300 bg-white m-0 p-0" {...props} />,
+  th: (props) => <th className="border border-gray-300 bg-white m-0 py-6 px-14 text-left" {...props} />,
+  td: (props) => <td className="border border-gray-300 bg-white m-0 py-6 px-14 text-left" {...props} />,  
   pre: (props) => <pre className="pb-16" {...props} />,
   main: (props) => <main className="break-words" {...props} />,
   strong: (props) => <strong className="strong" {...props} />,
@@ -71,7 +59,7 @@ function App({ Component, pageProps }) {
               gridTemplateRows: '1fr auto',
             }}
           >
-            <main className={classes.markdown}>
+            <main>
               <Component {...pageProps} />
             </main>
 

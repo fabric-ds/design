@@ -23,6 +23,9 @@ export function Nav() {
           <A href="/">Foundation</A>
           <div>
             <ul className={classes.multilevel}>
+            <li>
+                <A href="/typography">Typography</A>
+              </li>
               <li>
                 <A href="/color">Color</A>
               </li>
