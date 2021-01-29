@@ -36,6 +36,16 @@ export function Nav() {
           </div>
         </li>
         <li>
+          <A href="/">Components</A>
+          <div>
+            <ul className={classes.multilevel}>
+            <li>
+                <A href="/utility-button">Utility button</A>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
           <A href="/">Content</A>
           <ul className={classes.multilevel}>
             <li>
