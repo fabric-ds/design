@@ -34,3 +34,5 @@ Is a visual response to something you have clicked on.
 To show the states above, we use a low opacity background with a low opacity border. This makes it possible to show an interactive element with another interactive element inside, for example an ad preview with a favorite option. It can be used in different shapes, and should have a minimum of 8px border radius.
 
 How to show selected, unselected, error, and disabled states is described on each component.
+
+Note: Using disabled state is an anti-pattern. Even if we (developers and designers) think it is obvious why an element is disabled, there will ALWAYS be users who don't understand. Please consider more informative alternatives before choosing to use disabled state on an element.
