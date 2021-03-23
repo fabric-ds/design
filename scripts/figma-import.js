@@ -7,14 +7,15 @@ const prompts = require('prompts');
 const { promisify } = require('util');
 const { pipeline } = require('stream');
 const { createWriteStream } = require('fs');
+const slugify = require('@sindresorhus/slugify');
 
 const streamPipeline = promisify(pipeline);
 
 // The figma project where we can find the images
-const FIGMA_PROJECT_ID = 'xsiFr7BReeN66qqrdqnV5C';
+const FIGMA_PROJECT_ID = 'GS0SUFtIEC0qnrXZjPlbZv';
 
 // The id of the page where the images are found
-const CANVAS_ID = '27:67';
+const CANVAS_ID = '2:15';
 
 // Where we store the Figma token
 const FIGMA_TOKEN_PATH = path.join(__dirname, '../', '.FIGMA_TOKEN');
@@ -90,7 +91,7 @@ const FIGMA_TOKEN_PATH = path.join(__dirname, '../', '.FIGMA_TOKEN');
     Object.entries(urls.images).map(async ([id, url]) => {
       const imageName = images.find((i) => i.id === id).name;
 
-      await downloadPngImage({ imageName, url });
+      await downloadSvgImage({ imageName, url });
 
       count = count + 1;
       spinner.text = `Downloading images: ${count}/${images.length}`;
@@ -133,7 +134,7 @@ async function fetchImageUrls(images, figmaToken) {
   const url = new URL(`https://api.figma.com/v1/images/${FIGMA_PROJECT_ID}/`);
 
   url.searchParams.set('ids', images.map((i) => i.id).join(','));
-  url.searchParams.set('format', 'png');
+  url.searchParams.set('format', 'svg');
 
   const res = await fetch(url, {
     headers: {
@@ -151,15 +152,16 @@ async function fetchImageUrls(images, figmaToken) {
 }
 
 /**
- * Get the PNG image
+ * Get the SVG image
+ * - Note: this was PNG, but the quality was _awful_
  */
-async function downloadPngImage({ imageName, url }) {
+async function downloadSvgImage({ imageName, url }) {
   const res = await fetch(url);
   //   const svg = await res.blob();
 
-  const name = imageName.replaceAll(' ', '-');
+  const name = slugify(imageName);
 
-  const path = `${__dirname}/../public/figma/${name}.png`;
+  const path = `${__dirname}/../public/figma/${name}.svg`;
 
   return streamPipeline(res.body, createWriteStream(path));
 }
