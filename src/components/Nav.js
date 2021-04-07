@@ -35,12 +35,96 @@ export function Nav() {
             </ul>
           </div>
         </li>
+        
         <li>
-          <A href="/">Components</A>
+          <A href="/">Layout</A>
+          <div>
+            <ul className={classes.multilevel}>
+              <li>
+                Pageholder
+              </li>
+              <li>
+                Grid
+              </li>
+              <li>
+                Panel
+              </li>
+              <li>
+                <A href="/modal">modal</A>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <A href="/">Actions</A>
           <div>
             <ul className={classes.multilevel}>
             <li>
-                <A href="/utility-button">Utility button</A>
+                <A href="/button">Button</A>
+              </li>
+              <li>
+                 <A href="/link">Link</A>
+              </li>
+            
+            </ul>
+            
+          </div>
+        </li>
+        <li>
+          <A href="/">Navigation</A>
+          <div>
+            <ul className={classes.multilevel}>
+            <li>
+                <A href="/breadcrumbs">Breadcrumbs</A>
+              </li>
+              <li>
+                <A href="/status-ribbon">Status ribbon</A>
+              </li>
+            </ul>
+            
+          </div>
+        </li>
+        <li>
+          <A href="/">Data structure</A>
+          <div>
+            <ul className={classes.multilevel}>
+            <li>
+                <A href="/lists">Lists</A>
+              </li>
+              <li>
+                <A href="/description-lists">Description lists</A>
+              </li>
+              <li>
+                <A href="/data-tables">Data tables</A>
+              </li>
+            </ul>
+            
+          </div>
+        </li>
+        <li>
+          <A href="/">Forms</A>
+          <div>
+            <ul className={classes.multilevel}>
+              <li>
+                <A href="/checkbox">Checkbox</A>
+              </li>
+              <li>
+                <A href="/input">Input</A>
+              </li>
+              <li>
+                <A href="/radio">Radio</A>
+              </li>
+              <li>
+                <A href="/search">Search</A>
+              </li>
+              <li>
+                <A href="/select">Select</A>
+              </li>
+              <li>
+                <A href="/slider">Slider</A>
+              </li>
+              <li>
+                <A href="/text-area">Text area</A>
               </li>
             </ul>
           </div>
