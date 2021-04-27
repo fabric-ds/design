@@ -1,52 +1,57 @@
 # Checkbox
 
-
 Checkboxes allow users to select multiple items from a list of individual items, or to mark one individual item as selected.
 
 ## Anatomy
 
 (Image coming soon)
 
-
 ## Options
 
 ### Label
+
 Checkboxes should always have a label. When the label is not defined, a checkbox becomes standalone. Standalone checkboxes are only used when their connection to other components is clear and they give sufficient context — for example, in application panels.
 
 ### Disabled
+
 A checkbox in a disabled state shows that a selection exists, but is not available in that circumstance. This can be used to maintain layout continuity and communicate that an action may become available later.
 
 ### Error
+
 Checkboxes can be marked as having an error to show that a selection needs to be made in order to move forward, or that a selection that was made is invalid. For example, in a form that requires a user to acknowledge legal terms before proceeding, the checkbox would show an unchecked error to communicate that it needs to be selected.
 
 ### Read only
-Checkboxes have a read-only option for when they’re in the disabled state but still need their labels to be shown. This allows for content to be copied, but not interacted with or changed.
 
+Checkboxes have a read-only option for when they’re in the disabled state but still need their labels to be shown. This allows for content to be copied, but not interacted with or changed.
 
 ## Behaviors
 
 ### Keyboard focus
+
 A checkbox can be navigated using a keyboard. The keyboard focus state takes the checkbox’s visual hover state and adds a blue ring to the checkbox in focus.
 
 ### Text overflow
+
 When the label is too long for the horizontal space available, it wraps to form another line.
 
 ### Mixed value
-When a checkbox presents multiple values that are not identical, the checkbox should appear as indeterminate. Any subsequent click or tap should select the checkbox, and update all values.
 
+When a checkbox presents multiple values that are not identical, the checkbox should appear as indeterminate. Any subsequent click or tap should select the checkbox, and update all values.
 
 ## Usage guidelines
 
 ### When to use a standalone checkbox
+
 Standalone checkboxes should be used in situations where the context is clear without an associated text label. For example, a checkbox connected to other controls inside a panel.
 
 ### Checkbox or radio button?
+
 Checkboxes and radio buttons are not interchangeable. A set of checkboxes should be used to select as many options as desired (or none). A set of radio buttons should be used to select only a single option from a list of mutually exclusive options.
 
 ### Checkbox or switch?
+
 Checkboxes are best used for communicating selection (e.g., multiple table rows) while switches are best used for communicating activation (e.g., on/off states). Checkboxes, unlike switches, can have an error state.
 
 ### Label groups of related checkboxes
+
 Sets of checkboxes should always have a clear label that describes what the list of options represents and guides users what to do. This is important for accessibility, since a screen reader will read the label before each option.
-
-
