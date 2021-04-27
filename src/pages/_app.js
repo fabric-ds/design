@@ -6,6 +6,7 @@ import { Bad } from '../components/Bad';
 import { Good } from '../components/Good';
 import { Fig } from '../components/Fig';
 import { Nav } from '../components/Nav';
+import { Guideline } from '../components/Guideline';
 import { AssetLink, AssetLinks } from '../components/AssetLink';
 import classes from '../components/App.module.css';
 import Footer from '../components/Footer';
@@ -15,6 +16,7 @@ const shortcodes = {
   AssetLinks,
   Bad,
   Good,
+  Guideline,
   Fig,
   h1: (props) => <h1 className="mt-32" {...props} />,
   h2: (props) => <h2 className="mt-32" {...props} />,

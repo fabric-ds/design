@@ -1,16 +1,17 @@
 import React from "react";
-import ReactMarkdown from 'react-markdown'
-
-function Markdown(props) {
-  return <ReactMarkdown className="guideline-description">{props.children}</ReactMarkdown>;
-}
+import { Good } from "./Good";
+import { Bad } from "./Bad";
 
 export function Guideline(props) {
-  const children = React.Children.map(props.children, (child, i) => {
-    console.log(child, i)
-    if (i === 0 && typeof child === "string")
-      return <Markdown>{child}</Markdown>;
-    return child;
-  });
-  return <div className="flex flex-row">{[]}</div>;
+  const { title, children, image, good, bad } = props;
+  let ImageComponent = () => (<div></div>);
+  if (good) ImageComponent = Good;
+  if (bad) ImageComponent = Bad;
+  return <div>
+    <h2>{title}</h2>
+    <p>{children}</p>
+    <ImageComponent>
+      <img src={`/figma/${image}`} alt="" />
+    </ImageComponent>
+  </div>;
 }
