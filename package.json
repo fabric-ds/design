@@ -41,6 +41,6 @@
     "prompts": "^2.4.0"
   },
   "lint-staged": {
-    "*.{mdx}": "prettier --write"
+    "pages/*.mdx": "prettier --write"
   }
 }
