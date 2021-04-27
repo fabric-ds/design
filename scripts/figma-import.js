@@ -15,7 +15,7 @@ const streamPipeline = promisify(pipeline);
 const FIGMA_PROJECT_ID = 'GS0SUFtIEC0qnrXZjPlbZv';
 
 // The id of the page where the images are found
-const CANVAS_ID = '2:15';
+const CANVAS_ID = '8:2834';
 
 // Where we store the Figma token
 const FIGMA_TOKEN_PATH = path.join(__dirname, '../', '.FIGMA_TOKEN');
