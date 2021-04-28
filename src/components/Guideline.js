@@ -12,7 +12,7 @@ export function Guideline(props) {
   else if (image) ImageComponent = Fig;
 
   return <div className={`grid md:grid-cols-2 mb-16 ${title ? "mt-48" : ""}`}>
-    <div className="col-span1">
+    <div className="col-span1 pr-48">
       <h3>{title}</h3>
       <p>{children}</p>
     </div>
