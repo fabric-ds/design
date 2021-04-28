@@ -7,9 +7,10 @@ import { Fig } from "./Fig";
 export function Guideline(props) {
   const { title, children, image, good, bad } = props;
   let ImageComponent = () => (<div></div>);
-  ImageComponent = Fig;
-  if (good) ImageComponent = Good;
-  if (bad) ImageComponent = Bad;
+  if (image && good) ImageComponent = Good;
+  else if (image && bad) ImageComponent = Bad;
+  else if (image) ImageComponent = Fig;
+
   return <div className={`grid md:grid-cols-2 mb-16 ${title ? "mt-48" : ""}`}>
     <div className="col-span1">
       <h3>{title}</h3>
