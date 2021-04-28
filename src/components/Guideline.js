@@ -10,7 +10,7 @@ export function Guideline(props) {
   ImageComponent = Fig;
   if (good) ImageComponent = Good;
   if (bad) ImageComponent = Bad;
-  return <div className="guideline grid grid-cols-2 mb-16 ">
+  return <div className={`grid md:grid-cols-2 mb-16 ${title ? "mt-48" : ""}`}>
     <div className="col-span1">
       <h3>{title}</h3>
       <p>{children}</p>
