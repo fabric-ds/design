@@ -1,14 +1,10 @@
 import React from 'react';
-
-const divStyle = {
-  minHeight: '200px',
-};
+import classes from '../components/Bad.module.css';
 
 export function Bad(props) {
   return (
     <section
-      className="relative border-solid border-0 border-l-4 border-red-500 bg-gray-100 p-5 rounded-r flex align-middle justify-center"
-      style={divStyle}
+      className={`${classes.bad} relative border-solid border-0 border-l-4 border-red-500 bg-gray-100 p-5 rounded-r flex align-middle justify-center`}
       {...props}
     >
       <svg className="block absolute top-12 left-12" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

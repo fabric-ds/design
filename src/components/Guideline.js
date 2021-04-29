@@ -2,7 +2,7 @@ import React from "react";
 import { Good } from "./Good";
 import { Bad } from "./Bad";
 import { Fig } from "./Fig";
-
+import classes from '../components/Guideline.module.css';
 
 export function Guideline(props) {
   const { title, children, image, good, bad } = props;
