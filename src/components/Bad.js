@@ -1,9 +1,10 @@
 import React from 'react';
+import classes from '../components/Bad.module.css';
 
 export function Bad(props) {
   return (
     <section
-      className="border-solid border-0 border-l-2 border-red-600 bg-gray-900 bg-opacity-5 p-5 rounded-r "
+      className={`${classes.bad} relative border-solid border-0 border-l-4 border-red-500 bg-gray-100 p-5 rounded-r flex align-middle justify-center`}
       {...props}
     />
   );

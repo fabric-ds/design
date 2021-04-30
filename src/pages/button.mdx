@@ -8,74 +8,81 @@ Buttons allow users to perform an action. They have multiple styles for various 
 
 ## Options
 
-### Label
+<Guideline title="Label" image="button-label.svg">
+    All buttons require a label for accessibility. 
+</Guideline>
 
-All buttons require a label for accessibility.
+<Guideline title="Primary CTA" image="button-primary-cta.svg">
+    The primary call to action button communicates strong emphasis and is reserved for actions that are essential to an experience. There should only be one visible call to action button per page. There is no flat style for this button because it is meant to be the most prominent element on the page.
+</Guideline>
 
-### Primary CTA
+<Guideline title="Secondary" image="button-secondary.svg">
+    The secondary button is for low emphasis. It is meant to be paired with other button types to surface less prominent actions. On pages where there are more than one important action, multiple secondary buttons can be used. If two buttons are equally weighted, both should be secondary buttons (or flat buttons).
+</Guideline>
 
-The primary call to action button communicates strong emphasis and is reserved for actions that are essential to an experience. There should only be one visible call to action button per page. There is no flat style for this button because it is meant to be the most prominent element on the page.
+<Guideline title="Flat" image="button-flat.svg">
+    By default, buttons have a visible stroke and fill. Flat buttons do not have this visible stroke or fill and should only be used for secondary actions within a button group. Flat buttons have the same padding rules as other action buttons and reveal a button-like background color when hovered.
+</Guideline>
 
-### Secondary
+<Guideline title="Destructive Variant" image="button-destructive.svg">
+    The destructive button is for emphasizing actions that can be destructive or have negative consequences if taken. It replaces the primary CTA button in these destructive situations and should be used sparingly. A destructive button and a primary CTA should never appear on the same screen. The destructive button can also exist as a flat button variant in cases where the consequence of the action is still destructive, but less critical.
+</Guideline>
 
-The secondary button is for low emphasis. It is meant to be paired with other button types to surface less prominent actions. On pages where there are more than one important action, multiple secondary buttons can be used. If two buttons are equally weighted, both should be secondary buttons (or flat buttons).
+<Guideline title="Icon" image="button-icon.svg">
+    Icons can be used in buttons when additional clarity is required. Icons should not be used for decoration. Only 16x16px sized icons should be used in buttons.
+</Guideline>
 
-### Flat
+<Guideline title="Size" image="button-size.svg">
+    Buttons come in two different sizes: defaault, and small. The default size is the most frequently used option, with the small variant being used when space is limited, or in cases where there are multiple buttons on a page and the default size becomes too overwhelming. When using buttons it's important to ensure you maintain a good visual hierachy on the page.
+</Guideline>
 
-By default, buttons have a visible stroke and fill. Flat buttons do not have this visible stroke or fill and should only be used for secondary actions within a button group. Flat buttons have the same padding rules as other action buttons and reveal a button-like background color when hovered.
+<Guideline title="Disabled" image="button-disabled.svg">    
+    As a rule, we try to avoid using disabled buttons, instead we try to communicate what is or isn't possible by other means, to avoid confusion when a user tries to interact with it. A button in a disabled state shows that an action exists, but is not available in that circumstance. This state can be used to maintain layout continuity and to communicate that an action may become available later. Use only as a last resort!
+</Guideline>
 
-### Destructive variant
-
-The destructive button is for emphasizing actions that can be destructive or have negative consequences if taken. It replaces the primary CTA button in these destructive situations and should be used sparingly. A destructive button and a primary CTA should never appear on the same screen. The destructive button can also exist as a flat button variant in cases where the consequence of the action is still destructive, but less critical.
-
-### Icon
-
-Icons can be used in buttons when additional clarity is required. Icons should not be used for decoration. Only 16x16px sized icons should be used in buttons.
-
-### Size
-
-Buttons come in two different sizes: defaault, and small. The default size is the most frequently used option, with the small variant being used when space is limited, or in cases where there are multiple buttons on a page and the default size becomes too overwhelming. When using buttons it's important to ensure you maintain a good visual hierachy on the page.
-
-### Disabled
-
-As a rule, we try to avoid using disabled buttons, instead we try to communicate what is or isn't possible by other means, to avoid confusion when a user tries to interact with it. A button in a disabled state shows that an action exists, but is not available in that circumstance. This state can be used to maintain layout continuity and to communicate that an action may become available later. Use only as a last resort!
-
-### Loading
-
-To show the user that the action they triggered has begun, buttons have an in progress or loading state.
+<Guideline title="Loading" image="button-loadong.svg">    
+    To show the user that the action they triggered has begun, buttons have an in progress or loading state.
+</Guideline>
 
 ## Behaviors
 
-### Keyboard focus
+<Guideline title="Keyboard focus" image="button-keyboard-focus.svg">    
+    A button can be navigated using a keyboard. The keyboard focus state takes the button’s visual hover state and adds a blue outer-stroke to the button in focus.
+</Guideline>
 
-A button can be navigated using a keyboard. The keyboard focus state takes the button’s visual hover state and adds a blue outer-stroke to the button in focus.
+<Guideline title="Flexible width" image="button-flexible-width.svg">    
+    The width of a button automatically adjusts to fit the text. The default padding on each side of the button is set to 16px, with the only exception to the rule being when buttons are used as full-width on mobile or in other containers when a full-width button makes sense.
+</Guideline>
 
-### Flexible width
-
-The width of a button automatically adjusts to fit the text. The default padding on each side of the button is set to 16px, with the only exception to the rule being when buttons are used as full-width on mobile or in other containers when a full-width button makes sense.
-
-### Text overflow
-
-When the button text is too long for the horizontal space available, it wraps to form another line. Best practice is to avoid text wrapping in buttons where possible, so if your text wraps over two lines, consider making your text it shorter and more concise.
+<Guideline title="Text overflow" image="button-text-overflow.svg">    
+    When the button text is too long for the horizontal space available, it wraps to form another line. Best practice is to avoid text wrapping in buttons where possible, so if your text wraps over two lines, consider making your text it shorter and more concise.
+</Guideline>
 
 ## Usage guidelines
 
-### Be concise
+<Guideline title="Be concise" image="button-be-concise-do.svg" good>Button text should be concise: 1 or 2 words, no longer than 4 words, with fewer than 20 characters including spaces. Don’t use punctuation marks such as periods or exclamation points, or other visual elemnts like emojis.</Guideline>
+<Guideline image="button-be-concise-dont.svg" bad></Guideline>
 
-Button text should be concise: 1 or 2 words, no longer than 4 words, with fewer than 20 characters including spaces. Don’t use punctuation marks such as periods or exclamation points, or other visual elemnts like emojis.
 
-### Use clear text
+<Guideline title="Use clear text" image="button-do-example-2.svg" good>
+    Button texts should be clear about the outcome of the action. Most buttons should start with a verb. For example, use “Agree” instead of “Yes” in a dialog or use “Sign Up” instead of “Submit” in a form.
+</Guideline>
+<Guideline image="button-don-t-example-2.svg" bad></Guideline>
 
-Button texts should be clear about the outcome of the action. Most buttons should start with a verb. For example, use “Agree” instead of “Yes” in a dialog or use “Sign Up” instead of “Submit” in a form.
+<Guideline title="Use sentence case" image="button-do-example-3.svg" good>
+    Button text should always be in sentence case. Capitalization should never be used to give more prominence to a specific button.
+</Guideline>
+<Guideline image="button-don-t-example-3.svg" bad></Guideline>
 
-### Use sentence case
+<Guideline title="Don't override color" image="button-do-example-4.svg" good>
+    Do not use custom colors for buttons. The colors of different button variations have been designed to be consistent and accessible across all design solutions.
+</Guideline>
+todo: Missing dont
+<Guideline image="" bad></Guideline>
 
-Button text should always be in sentence case. Capitalization should never be used to give more prominence to a specific button.
 
-### Don't override color
-
-Do not use custom colors for buttons. The colors of different button variations have been designed to be consistent and accessible across all design solutions.
-
-### Use icons only when neccessary
-
-Icons can be used in buttons when additional clarity is required and the icon is highly relevant to the action. Icons should not be used for decoration.
+todo: Missing do
+<Guideline title="Use icons only when neccessary" image="" good>
+    Icons can be used in buttons when additional clarity is required and the icon is highly relevant to the action. Icons should not be used for decoration.
+</Guideline>
+<Guideline image="button-don-t-example-4.svg" bad></Guideline>
