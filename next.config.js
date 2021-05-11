@@ -1,10 +1,9 @@
 const slug = require("rehype-slug");
-const toc = require("@jsdevtools/rehype-toc");
 
 const withMDX = require("@next/mdx")({
   extension: /\.mdx?$/,
   options: {
-    rehypePlugins: [slug, toc],
+    rehypePlugins: [slug],
   },
 });
 
