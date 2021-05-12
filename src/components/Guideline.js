@@ -18,7 +18,7 @@ export function Guideline(props) {
     </div>
     <div className="col-span1">
     <ImageComponent>
-      <img src={`/figma/${image}`} alt="" />
+      <img src={`./figma/${image}`} alt="" />
     </ImageComponent>
     </div>
   </div>;
