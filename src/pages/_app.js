@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import { MDXProvider } from '@mdx-js/react';
 
+import { TableOfContents } from '../components/TableOfContents';
 import { Bad } from '../components/Bad';
 import { Good } from '../components/Good';
 import { Fig } from '../components/Fig';
@@ -12,6 +13,7 @@ import classes from '../components/App.module.css';
 import Footer from '../components/Footer';
 
 const shortcodes = {
+  TableOfContents,
   AssetLink,
   AssetLinks,
   Bad,
