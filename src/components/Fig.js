@@ -7,7 +7,7 @@ const divStyle = {
 export function Fig(props) {
   return (
     <figure 
-      className="bg-gray-100 p-5 rounded-r flex align-middle justify-center " 
+      className="bg-gray-100 mb-16 flex align-middle justify-center " 
       style={divStyle}
       {...props} 
     />
