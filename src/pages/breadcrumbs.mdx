@@ -9,31 +9,30 @@ Breadcrumbs show hierarchy and navigational context for a user’s location with
 (Image coming soon)
 
 ## Options
-
-### Default
-
-By default, breadcrumbs are displayed inline with the hierarchy shown in reading order.
+<Guideline title="Default">
+    By default, breadcrumbs are displayed inline with the hierarchy shown in reading order.
+</Guideline>
 
 ## Behaviors
 
-### Overflow
-
-Breadcrumbs truncate when there is not enough room to display all levels of the breadcrumb list, or as a way of managing relevance of the visible breadcrumb items in a deeply nested hierarchy.
+<Guideline title="Overflow">
+    Breadcrumbs truncate when there is not enough room to display all levels of the breadcrumb list, or as a way of managing relevance of the visible breadcrumb items in a deeply nested hierarchy.
+</Guideline>
 
 ## Usage guidelines
 
-### Use breadcrumbs to show hierarchy
+<Guideline title="Use breadcrumbs to show hierarchy" image=" " good>
+    Breadcrumbs need a consistent hierarchical structure because they create a path for discovery and context for a user’s current location.
+</Guideline>
 
-Breadcrumbs need a consistent hierarchical structure because they create a path for discovery and context for a user’s current location.
+<Guideline title="Use breadcrumbs for hierarchical navigation">
+    Breadcrumbs should be a form of navigating a linear hierarchy. They should not be used for any other interactions, such as displaying filters.
+</Guideline>
 
-### Use breadcrumbs for hierarchical navigation
+<Guideline title="Don’t wrap breadcrumb list items" image=" " bad>
+    When list items are truncated into a menu but the label text is still too large for the horizontal space, truncate the text with an ellipsis. By default, truncation should occur at the end of the title. If your users need to see the end of truncated titles, truncating the middle of the title is acceptable.
+</Guideline>
 
-Breadcrumbs should be a form of navigating a linear hierarchy. They should not be used for any other interactions, such as displaying filters.
-
-### Don’t wrap breadcrumb list items
-
-When list items are truncated into a menu but the label text is still too large for the horizontal space, truncate the text with an ellipsis. By default, truncation should occur at the end of the title. If your users need to see the end of truncated titles, truncating the middle of the title is acceptable.
-
-### Icons in breadcrumbs
-
-Don't use icons within breadcrumbs. Since breadcrumbs are horizontally distributed, icons disrupt the rhythm and readability of the list.
+<Guideline title="Icons in breadcrumbs" image=" " bad>
+    Don't use icons within breadcrumbs. Since breadcrumbs are horizontally distributed, icons disrupt the rhythm and readability of the list.
+</Guideline>
