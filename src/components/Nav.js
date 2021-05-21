@@ -15,12 +15,8 @@ export function Nav() {
         />
         <span className="text-22">Fabric</span>
       </h1>
-      <ul>
-        <li>
-          <A href="/">Fabric</A>
-        </li>
-        <li>
-          <A href="/">Foundation</A>
+      <h2 class="h4 pt-24">Foundations</h2>
+
           <div>
             <ul className={classes.multilevel}>
             <li>
@@ -32,75 +28,31 @@ export function Nav() {
               <li>
                 <A href="/iconography">Iconography</A>
               </li>
+              <li>
+                <A href="/screenreaders">Accessibility</A>
+              </li>
+              
             </ul>
           </div>
-        </li>
-        
-        <li>
-          <A href="/">Layout</A>
-          <div>
-            <ul className={classes.multilevel}>
-              <li>
-                Pageholder
-              </li>
-              <li>
-                Grid
-              </li>
-              <li>
-                Panel
-              </li>
-              <li>
-                <A href="/modal">modal</A>
-              </li>
-            </ul>
-          </div>
-        </li>
+
+
+      <h2 class="h4 pt-24">Components</h2>
+      <ul>
         <li>
           <A href="/">Actions</A>
           <div>
             <ul className={classes.multilevel}>
-            <li>
-                <A href="/button">Button</A>
+              <li>
+                  <A href="/button">Button</A>
               </li>
               <li>
-                 <A href="/link">Link</A>
-              </li>
-            
-            </ul>
-            
-          </div>
-        </li>
-        <li>
-          <A href="/">Navigation</A>
-          <div>
-            <ul className={classes.multilevel}>
-            <li>
-                <A href="/breadcrumbs">Breadcrumbs</A>
-              </li>
-              <li>
-                <A href="/status-ribbon">Status ribbon</A>
+                  <A href="/utility-button">Button utility</A>
               </li>
             </ul>
-            
           </div>
         </li>
-        <li>
-          <A href="/">Data structure</A>
-          <div>
-            <ul className={classes.multilevel}>
-            <li>
-                <A href="/lists">Lists</A>
-              </li>
-              <li>
-                <A href="/description-lists">Description lists</A>
-              </li>
-              <li>
-                <A href="/data-tables">Data tables</A>
-              </li>
-            </ul>
-            
-          </div>
-        </li>
+
+
         <li>
           <A href="/">Forms</A>
           <div>
@@ -129,22 +81,72 @@ export function Nav() {
             </ul>
           </div>
         </li>
+
+
         <li>
-          <A href="/">Content</A>
-          <ul className={classes.multilevel}>
-            <li>
-              <A href="/screenreaders">Screen readers</A>
-            </li>
-          </ul>
+          <A href="/">Images and icons</A>
+          <div>
+            <ul className={classes.multilevel}>
+              <li>
+                <A href="/icons">Icon</A>
+              </li>
+            </ul>
+          </div>
         </li>
+
         <li>
-          <A href="/">Tools and resources</A>
-          <ul className={classes.multilevel}>
-            <li>
-              <A href="/icons">Icons</A>
-            </li>
-          </ul>
+          <A href="/">Feedback indicators</A>
+          <div>
+            <ul className={classes.multilevel}>
+              <li>
+                <A href="/status-ribbon">Status ribbon</A>
+              </li>
+            </ul>
+          </div>
         </li>
+
+        
+
+        <li>
+          <A href="/">Lists and tables</A>
+          <div>
+            <ul className={classes.multilevel}>
+              <li>
+                <A href="/data-table">Data table</A>
+              </li>
+              <li>
+                <A href="/description-list">Description list</A>
+              </li>
+              <li>
+                <A href="/list">List</A>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+
+        <li>
+          <A href="/">Navigation</A>
+          <div>
+            <ul className={classes.multilevel}>
+            <li>
+                <A href="/breadcrumbs">Breadcrumbs</A>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <li>
+          <A href="/">Overlays</A>
+          <div>
+            <ul className={classes.multilevel}>
+              <li>
+                <A href="/modal">modal</A>
+              </li>
+            </ul>
+          </div>
+        </li>
+        
       </ul>
     </nav>
   );
