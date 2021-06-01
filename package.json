@@ -14,13 +14,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.schibsted.io:finn/fabric-design.git"
+    "url": "git@github.com:finn-no/fabric-design.git"
   },
   "license": "ISC",
   "dependencies": {
-    "@finn-no/fabric-icons": "0.3.2",
-    "@finn-no/fabric-react-box": "0.0.2",
-    "@finn-no/fabric-tailwind-config": "^0.5.0",
+    "@finn-no/fabric-icons": "^0.3.2",
     "@mdx-js/loader": "^1.6.22",
     "@next/mdx": "^10.0.3",
     "@sindresorhus/slugify": "^1.1.0",
@@ -35,6 +33,7 @@
     "tailwindcss": "^2.0.2"
   },
   "devDependencies": {
+    "@finn-no/fabric-tailwind-config": "^0.5.14",
     "husky": "^6.0.0",
     "lint-staged": "^10.5.4",
     "ora": "^5.2.0",
