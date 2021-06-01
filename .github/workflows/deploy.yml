@@ -1,0 +1,33 @@
+name: Fabric Design
+
+on: push
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v2
+      -
+        name: Install Dependencies
+        run: |
+          npm install
+      -
+        name: Import from Figma
+        run: |
+          npm run import
+      -
+        name: Build Docs
+        run: |
+          npm run build
+      -
+        name: Deploy to GitHub Pages
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          target_branch: gh-pages
+          build_dir: out
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
