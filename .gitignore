@@ -16,3 +16,5 @@ out/
 .DS_Store
 
 .husky
+
+public/figma
