@@ -1,155 +1,179 @@
 #!/usr/bin/env node
-const ora = require('ora');
-const fs = require('fs-extra');
-const path = require('path');
-const fetch = require('node-fetch');
-const prompts = require('prompts');
-const { promisify } = require('util');
-const { pipeline } = require('stream');
-const { createWriteStream } = require('fs');
-const slugify = require('@sindresorhus/slugify');
+
+/**
+ * What this script does:
+ * 
+ * 1. Fetch all pages (canvases) for a project
+ * 2. Iterate over pages and fetch all nodes that are marked for export
+ * 3. Fetch all SVG image URLs for all these nodes
+ * 4. Fetch the SVGs from the URLs and save them to disk
+ */
+
+const ora = require("ora");
+const fs = require("fs-extra");
+const path = require("path");
+const fetch = require("node-fetch");
+const prompts = require("prompts");
+const { promisify } = require("util");
+const { pipeline } = require("stream");
+const { createWriteStream } = require("fs");
+const slugify = require("@sindresorhus/slugify");
 
 const streamPipeline = promisify(pipeline);
 
 // The figma project where we can find the images
-const FIGMA_PROJECT_ID = 'GS0SUFtIEC0qnrXZjPlbZv';
-
-// The id of the page where the images are found
-const CANVAS_ID = '8:2834';
+const FIGMA_PROJECT_ID = "GS0SUFtIEC0qnrXZjPlbZv";
 
 // Where we store the Figma token
-const FIGMA_TOKEN_PATH = path.join(__dirname, '../', '.FIGMA_TOKEN');
+const FIGMA_TOKEN_PATH = path.join(__dirname, "../", ".FIGMA_TOKEN");
 
 (async function main() {
   const spinner = ora(
-    'Reading Figma access token from ' + FIGMA_TOKEN_PATH
+    "Reading Figma access token from " + FIGMA_TOKEN_PATH
   ).start();
 
   let figmaToken = await readTokenFromDisk();
 
   if (figmaToken) {
-    spinner.succeed('Using Figma access token from ' + FIGMA_TOKEN_PATH);
+    spinner.succeed("Using Figma access token from " + FIGMA_TOKEN_PATH);
   } else {
-    spinner.warn('No Figma access token found');
+    spinner.warn("No Figma access token found");
 
     const tokenPrompt = await prompts({
-      type: 'text',
-      name: 'figmaToken',
+      type: "text",
+      name: "figmaToken",
       message:
-        'Enter your Figma access token (https://www.figma.com/developers/api#access-tokens)',
+        "Enter your Figma access token (https://www.figma.com/developers/api#access-tokens)",
     });
 
     figmaToken = tokenPrompt.figmaToken;
 
     const { saveToken } = await prompts({
-      type: 'confirm',
-      name: 'saveToken',
-      message: 'Would you like to save the token?',
+      type: "confirm",
+      name: "saveToken",
+      message: "Would you like to save the token?",
     });
 
     if (saveToken) {
       await writeTokenToDisk(figmaToken);
-      spinner.succeed('Saved token to ' + FIGMA_TOKEN_PATH);
+      spinner.succeed("Saved token to " + FIGMA_TOKEN_PATH);
     }
   }
 
-  spinner.start('Loading Figma project');
+  const fetchOptions = { headers: { "X-FIGMA-TOKEN": figmaToken } };
 
-  let project;
   try {
-    project = await fetchProject(figmaToken);
-    spinner.succeed();
-  } catch (e) {
-    spinner.fail('Unable to load Figma project: ' + e.message);
-    return;
+    // Fetch files for a project and then filter out everything that isn't
+    // of type CANVAS. In Figma speak, a CANVAS node is a "page".
+    spinner.start(`Retrieving files for project "${FIGMA_PROJECT_ID}"`);
+    const filesResult = await fetch(
+      `https://api.figma.com/v1/files/${FIGMA_PROJECT_ID}`,
+      fetchOptions
+    );
+    const files = await filesResult.json();
+
+    const canvasIds = files.document.children
+      .filter((child) => child.type === "CANVAS")
+      .map((child) => child.id);
+    spinner.succeed(
+      `Retrieved ${canvasIds.length} pages for project ${FIGMA_PROJECT_ID}`
+    );
+
+    // Use canvas ids (page ids) to fetch all nodes for all pages and then
+    // join them all into a single array of nodes filtering out any nodes
+    // that having been marked for export (presence of an exportSettings property)
+    spinner.start(`Retrieving export file nodes across all pages`);
+    const nodesUrl = new URL(
+      `https://api.figma.com/v1/files/${FIGMA_PROJECT_ID}/nodes`
+    );
+    nodesUrl.searchParams.set("ids", canvasIds.join(","));
+    const nodesResult = await fetch(nodesUrl, fetchOptions);
+    const fileNodes = await nodesResult.json();
+
+    const exportNodes = Object.values(fileNodes.nodes)
+      .flatMap((node) => node.document.children)
+      .filter((child) => !!child.exportSettings);
+    spinner.succeed(
+      `Retrieved ${exportNodes.length} total export nodes across all pages`
+    );
+
+    // Fetch a list of URLs to download the nodes from in SVG format.
+    spinner.start(`Retrieving image URLs for nodes.`);
+    const imagesUrl = new URL(
+      `https://api.figma.com/v1/images/${FIGMA_PROJECT_ID}/`
+    );
+    imagesUrl.searchParams.set("ids", exportNodes.map((i) => i.id).join(","));
+    imagesUrl.searchParams.set("format", "svg");
+    const imageUrlResult = await fetch(imagesUrl, fetchOptions);
+    const imageUrls = await imageUrlResult.json();
+    spinner.succeed(
+      `Retrieved ${Object.entries(imageUrls.images).length} image Urls`
+    );
+
+    // Download all SVGs from the URLs we fetched in the previous step
+    let count = 0;
+    spinner.start(`Downloading images: ${count}/${exportNodes.length}`);
+    await Promise.all(
+      Object.entries(imageUrls.images).map(async ([id, url]) => {
+        const imageName = exportNodes.find((i) => i.id === id).name;
+        await downloadSvgImage({ imageName, url });
+        count = count + 1;
+        spinner.text = `Downloading images: ${count}/${exportNodes.length}`;
+      })
+    );
+    spinner.succeed(`Sucessfully downloaded ${exportNodes.length} images!`);
+  } catch (err) {
+    spinner.fail();
+    console.log(err.message);
   }
-
-  let images;
-  try {
-    spinner.start('Parsing Figma project');
-    images = filterImages(project);
-    spinner.succeed();
-  } catch (e) {
-    spinner.fail('Unable to parse images from Figma project: ' + e.message);
-    return;
-  }
-
-  let urls;
-  try {
-    spinner.start(`Found ${images.length} images. Getting download URLs`);
-    urls = await fetchImageUrls(images, figmaToken);
-    spinner.succeed();
-  } catch (e) {
-    spinner.fail('Unable to get image URLs: ' + e.message);
-    return;
-  }
-
-  let count = 0;
-  spinner.start(`Downloading images: ${count}/${images.length}`);
-
-  await Promise.all(
-    Object.entries(urls.images).map(async ([id, url]) => {
-      const imageName = images.find((i) => i.id === id).name;
-
-      await downloadSvgImage({ imageName, url });
-
-      count = count + 1;
-      spinner.text = `Downloading images: ${count}/${images.length}`;
-    })
-  );
-
-  spinner.succeed();
-
-  spinner.succeed(`Sucessfully downloaded ${images.length} images!`);
 })();
 
 /**
  * Get the Figma project
  */
-async function fetchProject(figmaToken) {
-  const res = await fetch(
-    `https://api.figma.com/v1/files/${FIGMA_PROJECT_ID}/nodes/?ids=${CANVAS_ID}`,
-    {
-      headers: {
-        'X-FIGMA-TOKEN': figmaToken,
-      },
-    }
-  );
+// async function fetchProject(figmaToken) {
+//   const res = await fetch(
+//     `https://api.figma.com/v1/files/${FIGMA_PROJECT_ID}/nodes/?ids=${CANVAS_ID}`,
+//     {
+//       headers: {
+//         'X-FIGMA-TOKEN': figmaToken,
+//       },
+//     }
+//   );
 
-  const json = await res.json();
+//   const json = await res.json();
 
-  if (!res.ok) {
-    throw new Error(json.err);
-  }
-
-  return json;
-}
+//   if (!res.ok) {
+//     throw new Error(json.err);
+//   }
+//   return json;
+// }
 
 /**
  * Get download urls for the images
  *
  * @returns { images: {[id]: string}};
  */
-async function fetchImageUrls(images, figmaToken) {
-  const url = new URL(`https://api.figma.com/v1/images/${FIGMA_PROJECT_ID}/`);
+// async function fetchImageUrls(images, figmaToken) {
+//   const url = new URL(`https://api.figma.com/v1/images/${FIGMA_PROJECT_ID}/`);
 
-  url.searchParams.set('ids', images.map((i) => i.id).join(','));
-  url.searchParams.set('format', 'svg');
+//   url.searchParams.set('ids', images.map((i) => i.id).join(','));
+//   url.searchParams.set('format', 'svg');
 
-  const res = await fetch(url, {
-    headers: {
-      'X-FIGMA-TOKEN': figmaToken,
-    },
-  });
+//   const res = await fetch(url, {
+//     headers: {
+//       'X-FIGMA-TOKEN': figmaToken,
+//     },
+//   });
 
-  const json = await res.json();
+//   const json = await res.json();
 
-  if (!res.ok) {
-    throw new Error(json.err);
-  }
+//   if (!res.ok) {
+//     throw new Error(json.err);
+//   }
 
-  return json;
-}
+//   return json;
+// }
 
 /**
  * Get the SVG image
@@ -171,18 +195,18 @@ async function downloadSvgImage({ imageName, url }) {
  *
  * @returns Array<{id: string, name: string}>
  */
-function filterImages(project) {
-  const canvas = project.nodes[CANVAS_ID].document;
+// function filterImages(project) {
+//   const canvas = project.nodes[CANVAS_ID].document;
 
-  const imageNodes = canvas.children;
+//   const imageNodes = canvas.children;
 
-  const images = imageNodes.map((i) => ({ name: i.name, id: i.id }));
+//   const images = imageNodes.map((i) => ({ name: i.name, id: i.id }));
 
-  return images;
-}
+//   return images;
+// }
 
 function writeTokenToDisk(token) {
-  return fs.outputFile(FIGMA_TOKEN_PATH, token, 'utf8');
+  return fs.outputFile(FIGMA_TOKEN_PATH, token, "utf8");
 }
 
 /**
@@ -190,9 +214,9 @@ function writeTokenToDisk(token) {
  */
 async function readTokenFromDisk() {
   try {
-    const token = await fs.readFile(FIGMA_TOKEN_PATH, 'utf8');
+    const token = await fs.readFile(FIGMA_TOKEN_PATH, "utf8");
     return token;
   } catch {
-    return '';
+    return "";
   }
 }
