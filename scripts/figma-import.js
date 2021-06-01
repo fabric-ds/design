@@ -2,7 +2,7 @@
 
 /**
  * What this script does:
- * 
+ *
  * 1. Fetch all pages (canvases) for a project
  * 2. Iterate over pages and fetch all nodes that are marked for export
  * 3. Fetch all SVG image URLs for all these nodes
@@ -25,42 +25,45 @@ const streamPipeline = promisify(pipeline);
 const FIGMA_PROJECT_ID = "GS0SUFtIEC0qnrXZjPlbZv";
 
 // Where we store the Figma token
+let { FIGMA_TOKEN } = process.env;
 const FIGMA_TOKEN_PATH = path.join(__dirname, "../", ".FIGMA_TOKEN");
 
 (async function main() {
-  const spinner = ora(
-    "Reading Figma access token from " + FIGMA_TOKEN_PATH
-  ).start();
+  const spinner = ora("Begin Figma image importer").start();
 
-  let figmaToken = await readTokenFromDisk();
+  if (!FIGMA_TOKEN) {
+    spinner.text = "Reading Figma access token from " + FIGMA_TOKEN_PATH;
 
-  if (figmaToken) {
-    spinner.succeed("Using Figma access token from " + FIGMA_TOKEN_PATH);
-  } else {
-    spinner.warn("No Figma access token found");
+    FIGMA_TOKEN = await readTokenFromDisk();
 
-    const tokenPrompt = await prompts({
-      type: "text",
-      name: "figmaToken",
-      message:
-        "Enter your Figma access token (https://www.figma.com/developers/api#access-tokens)",
-    });
+    if (FIGMA_TOKEN) {
+      spinner.succeed("Using Figma access token from " + FIGMA_TOKEN_PATH);
+    } else {
+      spinner.warn("No Figma access token found");
 
-    figmaToken = tokenPrompt.figmaToken;
+      const tokenPrompt = await prompts({
+        type: "text",
+        name: "figmaToken",
+        message:
+          "Enter your Figma access token (https://www.figma.com/developers/api#access-tokens)",
+      });
 
-    const { saveToken } = await prompts({
-      type: "confirm",
-      name: "saveToken",
-      message: "Would you like to save the token?",
-    });
+      FIGMA_TOKEN = tokenPrompt.figmaToken;
 
-    if (saveToken) {
-      await writeTokenToDisk(figmaToken);
-      spinner.succeed("Saved token to " + FIGMA_TOKEN_PATH);
+      const { saveToken } = await prompts({
+        type: "confirm",
+        name: "saveToken",
+        message: "Would you like to save the token?",
+      });
+
+      if (saveToken) {
+        await writeTokenToDisk(FIGMA_TOKEN);
+        spinner.succeed("Saved token to " + FIGMA_TOKEN_PATH);
+      }
     }
   }
 
-  const fetchOptions = { headers: { "X-FIGMA-TOKEN": figmaToken } };
+  const fetchOptions = { headers: { "X-FIGMA-TOKEN": FIGMA_TOKEN } };
 
   try {
     // Fetch files for a project and then filter out everything that isn't
@@ -127,53 +130,6 @@ const FIGMA_TOKEN_PATH = path.join(__dirname, "../", ".FIGMA_TOKEN");
     console.log(err.message);
   }
 })();
-
-/**
- * Get the Figma project
- */
-// async function fetchProject(figmaToken) {
-//   const res = await fetch(
-//     `https://api.figma.com/v1/files/${FIGMA_PROJECT_ID}/nodes/?ids=${CANVAS_ID}`,
-//     {
-//       headers: {
-//         'X-FIGMA-TOKEN': figmaToken,
-//       },
-//     }
-//   );
-
-//   const json = await res.json();
-
-//   if (!res.ok) {
-//     throw new Error(json.err);
-//   }
-//   return json;
-// }
-
-/**
- * Get download urls for the images
- *
- * @returns { images: {[id]: string}};
- */
-// async function fetchImageUrls(images, figmaToken) {
-//   const url = new URL(`https://api.figma.com/v1/images/${FIGMA_PROJECT_ID}/`);
-
-//   url.searchParams.set('ids', images.map((i) => i.id).join(','));
-//   url.searchParams.set('format', 'svg');
-
-//   const res = await fetch(url, {
-//     headers: {
-//       'X-FIGMA-TOKEN': figmaToken,
-//     },
-//   });
-
-//   const json = await res.json();
-
-//   if (!res.ok) {
-//     throw new Error(json.err);
-//   }
-
-//   return json;
-// }
 
 /**
  * Get the SVG image
