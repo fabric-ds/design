@@ -17,6 +17,8 @@ jobs:
         name: Import from Figma
         run: |
           npm run import
+        env:
+          FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
       -
         name: Build Docs
         run: |
@@ -30,4 +32,3 @@ jobs:
           build_dir: out
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
