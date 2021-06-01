@@ -15,7 +15,7 @@ export function Nav() {
         />
         <span className="text-22">Fabric</span>
       </h1>
-      <h2 class="h4 pt-24">Foundations</h2>
+      <h2 className="h4 pt-24">Foundations</h2>
 
           <div>
             <ul className={classes.multilevel}>
@@ -36,7 +36,7 @@ export function Nav() {
           </div>
 
 
-      <h2 class="h4 pt-24">Components</h2>
+      <h2 className="h4 pt-24">Components</h2>
       <ul>
         <li>
           <A href="/">Actions</A>
