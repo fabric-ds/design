@@ -31,7 +31,7 @@ export default function Footer(props) {
 
         <a
           className={linkClass}
-          href="https://github.schibsted.io/finn/fabric-design/"
+          href="https://opensource.finn.no/fabric-design"
           title="Github repository"
           style={{ color: 'inherit' }}
         >

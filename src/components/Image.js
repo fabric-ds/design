@@ -9,7 +9,7 @@ const isProd = process.env.NODE_ENV === 'production';
  */
 export default function Image({ src, ...props }) {
   if (src && isProd && src.startsWith('/')) {
-    src = '/finn/fabric-design' + src;
+    src = '/fabric-design' + src;
   }
 
   return <img src={src} {...props} />;
