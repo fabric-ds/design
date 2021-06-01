@@ -16,7 +16,7 @@ The examples images used on this site are maintained in this [Figma project](htt
 
 There is a [script](./scripts/figma-import.js) that extracts the images and stores them in [the static folder](./public/figma/). Then you can refer them then using `<img>` tags with relative paths.
 
-Whenever an image is updated or added, you should run the import script again.
+Whenever a Github build runs, the import script will be run and the imported files will then be included in the final docs build. For local development, run the `npm run import` script as needed. You will need a Figma token to do so as described in the following section.
 
 ### Figma access token
 
@@ -26,10 +26,10 @@ The import script may store the token to a local file, so you won't have to supp
 
 ### Import script
 
-To update the images, run the following script. If it has a valid Figma access token (see above), it will proceed to download all the images as PNG files.
+To update the images, run the following script. If it has a valid Figma access token (see above), it will proceed to download all the image files into the `public/figma` folder
 
 ```sh
-./scripts/figma-import.js
+npm run import
 ```
 
 ### Troubleshooting
