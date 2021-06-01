@@ -3,7 +3,7 @@ name: Fabric Design
 on: push
 
 jobs:
-  publish:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       -

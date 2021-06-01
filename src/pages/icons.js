@@ -5,10 +5,7 @@ import fs from 'fs';
 import path from 'path';
 import { Fig } from '../components/Fig';
 import { iconsPath } from '@finn-no/fabric-icons';
-import { TextField } from '@finn-no/troika-react-textfield';
 
-import '@finn-no/troika-css-panel/dist/panel.css';
-import '@finn-no/troika-react-textfield/style.css';
 import '@finn-no/fabric-icons';
 
 export default function Icons({ iconsBySize, iconSizes }) {
@@ -39,7 +36,7 @@ const FilterableIconGrid = ({ iconsBySize, iconSizes }) => {
 
   return (
     <>
-      <TextField
+      <input
         className="w-1/3 u-mb16"
         label="Filter icons"
         onChange={(e) => setFilterText(e.target.value)}
