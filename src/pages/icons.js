@@ -82,7 +82,7 @@ const IconsForSize = ({ icons, size, filterText }) => {
               dangerouslySetInnerHTML={{ __html: icon.data }}
             />
 
-            <div className="u-d1">{icon.name}</div>
+            <div className="text-12">{icon.name}</div>
           </div>
         ))}
       </div>
