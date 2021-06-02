@@ -17,7 +17,7 @@ export default function Icons({ iconsBySize, iconSizes }) {
 
       <h1 className="mb-16">Icons</h1>
 
-      <p className="u-t4 mb-64">
+      <p className="mb-64">
         Fabric's icon set is designed to help users understand actions,
         information and draw attention to elements. Review the{' '}
         <Link href="/iconography">
@@ -37,7 +37,7 @@ const FilterableIconGrid = ({ iconsBySize, iconSizes }) => {
   return (
     <>
       <input
-        className="w-1/3 u-mb16"
+        className="w-1/3 mb-16"
         label="Filter icons"
         onChange={(e) => setFilterText(e.target.value)}
         value={filterText}
@@ -62,34 +62,23 @@ const IconsForSize = ({ icons, size, filterText }) => {
       : icons;
 
   return (
-    <Fig>
-      <h2 className="mb-16 text-22">
+    <section className="bg-gray-100 rounded-8 p-24 mb-24">
+      <h2 className="mb-16 h3">
         {size}
         &nbsp;
-        <span className="u-b1 u-stone">
+        <span className="text-16 text-grey u-stone">
           ({filteredIcons.length}/{icons.length})
         </span>
       </h2>
-      <div
+      <div className="grid gap-24"
         style={{
-          display: 'grid',
-          gap: '26px',
           gridTemplateColumns: 'repeat(auto-fill, 100px)',
         }}
       >
         {filteredIcons.map((icon) => (
           <div className="text-center" key={icon.name}>
             <div
-              className="mx-auto mb-8"
-              style={{
-                backgroundColor: 'white',
-                borderRadius: '4px',
-                height: '52px',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
+              className="mx-auto mb-8 bg-white rounded-4 h-56 flex items-center justify-center flex-col"
               dangerouslySetInnerHTML={{ __html: icon.data }}
             />
 
@@ -97,7 +86,7 @@ const IconsForSize = ({ icons, size, filterText }) => {
           </div>
         ))}
       </div>
-    </Fig>
+    </section>
   );
 };
 
