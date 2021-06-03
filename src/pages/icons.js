@@ -66,7 +66,7 @@ const IconsForSize = ({ icons, size, filterText }) => {
       <h2 className="mb-16 h3">
         {size}
         &nbsp;
-        <span className="text-16 text-grey u-stone">
+        <span className="text-16 text-gray-500">
           ({filteredIcons.length}/{icons.length})
         </span>
       </h2>
