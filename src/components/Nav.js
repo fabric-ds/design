@@ -1,7 +1,7 @@
-import React from 'react';
-import Link from 'next/link';
-import Image from './Image';
-import classes from '../components/Nav.module.css';
+import React from "react";
+import Link from "next/link";
+import Image from "./Image";
+import classes from "../components/Nav.module.css";
 
 export function Nav() {
   return (
@@ -15,26 +15,45 @@ export function Nav() {
         />
         <span className="text-22">Fabric</span>
       </h1>
+
+      <h2 className="h4 pt-24">Sites</h2>
+      <div>
+        <ul className={classes.multilevel}>
+          <li>
+            <A href="https://opensource.finn.no/fabric-css">Fabric CSS</A>
+          </li>
+          <li>
+            <A href="https://opensource.finn.no/fabric-react">Fabric React</A>
+          </li>
+          <li>
+            <A href="https://opensource.finn.no/fabric-vue">Fabric Vue</A>
+          </li>
+          <li>
+            <A href="https://opensource.finn.no/fabric-elements">
+              Fabric Elements
+            </A>
+          </li>
+        </ul>
+      </div>
+
       <h2 className="h4 pt-24">Foundations</h2>
 
-          <div>
-            <ul className={classes.multilevel}>
-            <li>
-                <A href="/typography">Typography</A>
-              </li>
-              <li>
-                <A href="/color">Color</A>
-              </li>
-              <li>
-                <A href="/iconography">Iconography</A>
-              </li>
-              <li>
-                <A href="/screenreaders">Accessibility</A>
-              </li>
-              
-            </ul>
-          </div>
-
+      <div>
+        <ul className={classes.multilevel}>
+          <li>
+            <A href="/typography">Typography</A>
+          </li>
+          <li>
+            <A href="/color">Color</A>
+          </li>
+          <li>
+            <A href="/iconography">Iconography</A>
+          </li>
+          <li>
+            <A href="/screenreaders">Accessibility</A>
+          </li>
+        </ul>
+      </div>
 
       <h2 className="h4 pt-24">Components</h2>
       <ul>
@@ -43,15 +62,14 @@ export function Nav() {
           <div>
             <ul className={classes.multilevel}>
               <li>
-                  <A href="/button">Button</A>
+                <A href="/button">Button</A>
               </li>
               <li>
-                  <A href="/utility-button">Button utility</A>
+                <A href="/utility-button">Button utility</A>
               </li>
             </ul>
           </div>
         </li>
-
 
         <li>
           <A href="/">Forms</A>
@@ -82,7 +100,6 @@ export function Nav() {
           </div>
         </li>
 
-
         <li>
           <A href="/">Images and icons</A>
           <div>
@@ -105,8 +122,6 @@ export function Nav() {
           </div>
         </li>
 
-        
-
         <li>
           <A href="/">Lists and tables</A>
           <div>
@@ -124,12 +139,11 @@ export function Nav() {
           </div>
         </li>
 
-
         <li>
           <A href="/">Navigation</A>
           <div>
             <ul className={classes.multilevel}>
-            <li>
+              <li>
                 <A href="/breadcrumbs">Breadcrumbs</A>
               </li>
             </ul>
@@ -146,7 +160,6 @@ export function Nav() {
             </ul>
           </div>
         </li>
-        
       </ul>
     </nav>
   );
