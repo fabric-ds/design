@@ -7,16 +7,16 @@ export function AssetLinks(props) {
 export function AssetLink({ href }) {
   let children;
   let Logo;
-
+ 
   if (href.includes('figma.com')) {
     children = 'View in Figma';
     Logo = FigmaLogo;
   }
-  if (href.includes('fabric-react')) {
+  else if (href.includes('figma.com')) {
     children = 'View in Fabric React';
-    Logo = FabricLogo;
+    Logo = ReactLogo;
   }
-  if (href.includes('fabric-vue')) {
+  else if (href.includes('figma.com')) {
     children = 'View in Fabric Vue';
     Logo = VueLogo;
   }
