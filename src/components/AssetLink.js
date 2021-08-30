@@ -12,11 +12,11 @@ export function AssetLink({ href }) {
     children = 'View in Figma';
     Logo = FigmaLogo;
   }
-  else if (href.includes('figma-react')) {
+  else if (href.includes('fabric-react')) {
     children = 'View in Fabric React';
     Logo = ReactLogo;
   }
-  else if (href.includes('figma-vue')) {
+  else if (href.includes('fabric-vue')) {
     children = 'View in Fabric Vue';
     Logo = VueLogo;
   }
