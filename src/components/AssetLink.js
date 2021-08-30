@@ -12,6 +12,14 @@ export function AssetLink({ href }) {
     children = 'View in Figma';
     Logo = FigmaLogo;
   }
+  if (href.includes('fabric-react')) {
+    children = 'View in Fabric React';
+    Logo = FabricLogo;
+  }
+  if (href.includes('fabric-vue')) {
+    children = 'View in Fabric Vue';
+    Logo = VueLogo;
+  }
 
   return (
     <a
@@ -27,6 +35,40 @@ export function AssetLink({ href }) {
 }
 
 const FigmaLogo = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 200 300"
+    width="32"
+    height="32"
+  >
+    <path d="M50 300a50 50 0 0050-50v-50H50a50 50 0 000 100z" fill="#0acf83" />
+    <path
+      d="M0 150a50 50 0 0150-50h50v100H50a50 50 0 01-50-50z"
+      fill="#a259ff"
+    />
+    <path d="M0 50A50 50 0 0150 0h50v100H50A50 50 0 010 50z" fill="#f24e1e" />
+    <path d="M100 0h50a50 50 0 010 100h-50V0z" fill="#ff7262" />
+    <path d="M200 150a50 50 0 11-100 0 50 50 0 01100 0z" fill="#1abcfe" />
+  </svg>
+);
+const ReactLogo = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 200 300"
+    width="32"
+    height="32"
+  >
+    <path d="M50 300a50 50 0 0050-50v-50H50a50 50 0 000 100z" fill="#0acf83" />
+    <path
+      d="M0 150a50 50 0 0150-50h50v100H50a50 50 0 01-50-50z"
+      fill="#a259ff"
+    />
+    <path d="M0 50A50 50 0 0150 0h50v100H50A50 50 0 010 50z" fill="#f24e1e" />
+    <path d="M100 0h50a50 50 0 010 100h-50V0z" fill="#ff7262" />
+    <path d="M200 150a50 50 0 11-100 0 50 50 0 01100 0z" fill="#1abcfe" />
+  </svg>
+);
+const VueLogo = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 200 300"
