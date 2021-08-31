@@ -91,6 +91,9 @@ export function Nav() {
                 <A href="/select">Select</A>
               </li>
               <li>
+                <A href="/select">Switch</A>
+              </li>
+              <li>
                 <A href="/slider">Slider</A>
               </li>
               <li>
@@ -114,9 +117,35 @@ export function Nav() {
         <li>
           <A href="/">Feedback indicators</A>
           <div>
-            <ul className={classes.multilevel}>
+            <ul className={classes.multilevel}>              
               <li>
                 <A href="/status-ribbon">Status ribbon</A>
+              </li>
+              <li>
+                <A href="/steps">Steps</A>
+              </li>
+              <li>
+                <A href="/toast">Toast</A>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <li>
+          <A href="/">Layout</A>
+          <div>
+            <ul className={classes.multilevel}>
+              <li>
+                <A href="/box">Box</A>
+              </li>
+              <li>
+                <A href="/card">Card</A>
+              </li>
+              <li>
+                <A href="/expandable">Expandable</A>
+              </li>
+              <li>
+                <A href="/tabs">Tabs</A>
               </li>
             </ul>
           </div>
