@@ -9,19 +9,11 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
           <link
-            href="https://assets.finn.no/pkg/@finn-no/fabric-common/v1/template.js"
+            href="https://assets.finn.no/pkg/@finn-no/fabric-common/v1/template/index.js"
             rel="modulepreload"
           />
           <link
-            href="https://assets.finn.no/pkg/@finn-no/fabric-common/v1/asset-links.js"
-            rel="modulepreload"
-          />
-          <link
-            href="https://assets.finn.no/pkg/@finn-no/fabric-common/v1/sidebar.js"
-            rel="modulepreload"
-          />
-          <link
-            href="https://assets.finn.no/pkg/@finn-no/fabric-common/v1/navigation.js"
+            href="https://assets.finn.no/pkg/@finn-no/fabric-common/v1/asset-links/index.js"
             rel="modulepreload"
           />
         </Head>
@@ -29,19 +21,11 @@ class MyDocument extends Document {
           <Main />
           <NextScript />
           <script
-            src="https://assets.finn.no/pkg/@finn-no/fabric-common/v1/template.js"
+            src="https://assets.finn.no/pkg/@finn-no/fabric-common/v1/template/index.js"
             type="module"
           ></script>
           <script
-            src="https://assets.finn.no/pkg/@finn-no/fabric-common/v1/asset-links.js"
-            type="module"
-          ></script>
-          <script
-            src="https://assets.finn.no/pkg/@finn-no/fabric-common/v1/sidebar.js"
-            type="module"
-          ></script>
-          <script
-            src="https://assets.finn.no/pkg/@finn-no/fabric-common/v1/navigation.js"
+            src="https://assets.finn.no/pkg/@finn-no/fabric-common/v1/asset-links/index.js"
             type="module"
           ></script>
         </body>
