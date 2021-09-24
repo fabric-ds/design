@@ -66,25 +66,14 @@ function App({ Component, pageProps }) {
           <f-docs-navigation></f-docs-navigation>
         </section>
         <section slot="content">
-          <div
-            className="grid h-screen"
-            style={{ gridTemplateColumns: "256px 1fr" }}
-          >
-            <div
-              className="grid justify-center p-40"
-              style={{
-                gridTemplateColumns: "minmax(auto, 900px)",
-                gridTemplateRows: "1fr auto",
-              }}
-            >
+
               <MDXProvider components={shortcodes}>
                 <main>
                   <Component {...pageProps} />
                 </main>
                 <Footer />
               </MDXProvider>
-            </div>
-          </div>
+      
         </section>
       </f-docs-template>
     </>
