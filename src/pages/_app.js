@@ -5,7 +5,6 @@ import { TableOfContents } from "../components/TableOfContents";
 import { Bad } from "../components/Bad";
 import { Good } from "../components/Good";
 import { Fig } from "../components/Fig";
-import { Nav } from "../components/Nav";
 import { Guideline } from "../components/Guideline";
 import { AssetLink, AssetLinks } from "../components/AssetLink";
 import classes from "../components/App.module.css";
@@ -58,22 +57,68 @@ function App({ Component, pageProps }) {
   return (
     <>
       <f-docs-template>
-        <section slot="sidebar">
-          <Nav />
-          {/* <f-docs-navigation></f-docs-navigation> */}
-        </section>
-        <section slot="navigation">
-          <f-docs-navigation></f-docs-navigation>
-        </section>
+        <script
+          data-for="sidebar"
+          type="application/json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              category: "Design",
+              items: [
+                {
+                  title: "Fabric",
+                  open: false,
+                  items: [
+                    {
+                      title: "Principles",
+                      href: "?page=principles",
+                    },
+                    {
+                      title: "What's new",
+                      href: "?page=new",
+                    },
+                    {
+                      title: "Getting started",
+                      href: "?page=started",
+                    },
+                  ],
+                },
+                {
+                  title: "Foundations",
+                  open: false,
+                  items: [
+                    {
+                      title: "Test",
+                      href: "?page=test",
+                    },
+                    {
+                      title: "Something else",
+                      href: "?page=else",
+                    },
+                  ],
+                },
+                { title: "Components", open: false },
+                { title: "Resources", open: false },
+              ],
+            }),
+          }}
+        ></script>
+        <div
+          slot="banner"
+          class="mx-auto p-32"
+          style={{ "max-width": "1024px" }}
+        >
+          <h1 className="text-white">
+            <span className="h3">Welcome to</span> <br />
+            Fabric Design system
+          </h1>
+        </div>
         <section slot="content">
-
-              <MDXProvider components={shortcodes}>
-                <main>
-                  <Component {...pageProps} />
-                </main>
-                <Footer />
-              </MDXProvider>
-      
+          <MDXProvider components={shortcodes}>
+            <main>
+              <Component {...pageProps} />
+            </main>
+            <Footer />
+          </MDXProvider>
         </section>
       </f-docs-template>
     </>
