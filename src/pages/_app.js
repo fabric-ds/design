@@ -79,7 +79,7 @@ function App({ Component, pageProps }) {
                     items: [
                       {
                         title: 'Checkbox',
-                        href: '?page=checkbox',
+                        href: '/checkbox',
                       },
                       {
                         title: 'Input',
