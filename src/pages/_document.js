@@ -5,15 +5,15 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <link
-            href="https://assets.finn.no/pkg/@finn-no/fabric-css/v0/fabric.min.css"
+            href="https://assets.finn.no/pkg/@fabric-ds/css/v0/fabric.min.css"
             rel="stylesheet"
           />
           <link
-            href="https://assets.finn.no/pkg/@finn-no/fabric-common/v1/template/index.js"
+            href="https://assets.finn.no/pkg/@fabric-ds/common/v1/template/index.js?a=1"
             rel="modulepreload"
           />
           <link
-            href="https://assets.finn.no/pkg/@finn-no/fabric-common/v1/asset-links/index.js"
+            href="https://assets.finn.no/pkg/@fabric-ds/common/v1/asset-links/index.js"
             rel="modulepreload"
           />
         </Head>
@@ -21,11 +21,11 @@ class MyDocument extends Document {
           <Main />
           <NextScript />
           <script
-            src="https://assets.finn.no/pkg/@finn-no/fabric-common/v1/template/index.js"
+            src="https://assets.finn.no/pkg/@fabric-ds/common/v1/template/index.js?a=1"
             type="module"
           ></script>
           <script
-            src="https://assets.finn.no/pkg/@finn-no/fabric-common/v1/asset-links/index.js"
+            src="https://assets.finn.no/pkg/@fabric-ds/common/v1/asset-links/index.js?a=1"
             type="module"
           ></script>
         </body>

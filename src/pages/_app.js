@@ -1,127 +1,248 @@
+import { MDXProvider } from '@mdx-js/react';
 import React from 'react';
-import Head from 'next/head';
-import { MDXProvider } from "@mdx-js/react";
-import { TableOfContents } from "../components/TableOfContents";
-import { Bad } from "../components/Bad";
-import { Good } from "../components/Good";
-import { Fig } from "../components/Fig";
-import { Guideline } from "../components/Guideline";
-import { AssetLink, AssetLinks } from "../components/AssetLink";
-import classes from "../components/App.module.css";
-import Footer from "../components/Footer";
-
-const shortcodes = {
-  TableOfContents,
-  AssetLink,
-  AssetLinks,
-  Bad,
-  Good,
-  Guideline,
-  Fig,
-  h1: (props) => <h1 className="mt-32" {...props} />,
-  h2: (props) => <h2 className="mt-32" {...props} />,
-  h3: (props) => <h3 className="mt-32" {...props} />,
-  h4: (props) => <h4 className="mt-32" {...props} />,
-  h5: (props) => <h5 className="mt-32" {...props} />,
-  h6: (props) => <h6 className="mt-32" {...props} />,
-  p: (props) => <p className="pb-16" {...props} />,
-  ul: (props) => <ul className="pb-16 list-disc list-inside" {...props} />,
-  ol: (props) => <ol className="pb-16 list-decimal list-inside" {...props} />,
-  dl: (props) => <dl className="pb-16" {...props} />,
-  li: (props) => <li className="pb-4" {...props} />,
-  table: (props) => <table className="mb-16 p-0 w-full" {...props} />,
-  tr: (props) => (
-    <tr className="border-t border-gray-300 bg-white m-0 p-0" {...props} />
-  ),
-  th: (props) => (
-    <th
-      className="border border-gray-300 bg-white m-0 py-6 px-14 text-left"
-      {...props}
-    />
-  ),
-  td: (props) => (
-    <td
-      className="border border-gray-300 bg-white m-0 py-6 px-14 text-left"
-      {...props}
-    />
-  ),
-  pre: (props) => <pre className="pb-16" {...props} />,
-  main: (props) => <main className="break-words" {...props} />,
-  strong: (props) => <strong className="strong" {...props} />,
-  hr: (props) => (
-    <hr className="border-none text-gray-300 h-4 p-0" {...props} />
-  ),
-};
+import { shortcodes } from '../utils/shortcodes';
+import { useRouter } from 'next/router';
 
 function App({ Component, pageProps }) {
+  const router = useRouter();
+
   return (
-    <>
-      <f-docs-template>
-        <script
-          data-for="sidebar"
-          type="application/json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              category: "Design",
-              items: [
-                {
-                  title: "Fabric",
-                  open: false,
-                  items: [
-                    {
-                      title: "Principles",
-                      href: "?page=principles",
-                    },
-                    {
-                      title: "What's new",
-                      href: "?page=new",
-                    },
-                    {
-                      title: "Getting started",
-                      href: "?page=started",
-                    },
-                  ],
-                },
-                {
-                  title: "Foundations",
-                  open: false,
-                  items: [
-                    {
-                      title: "Test",
-                      href: "?page=test",
-                    },
-                    {
-                      title: "Something else",
-                      href: "?page=else",
-                    },
-                  ],
-                },
-                { title: "Components", open: false },
-                { title: "Resources", open: false },
-              ],
-            }),
-          }}
-        ></script>
-        <div
-          slot="banner"
-          class="mx-auto p-32"
-          style={{ "max-width": "1024px" }}
-        >
+    <f-docs-template>
+      <script
+        data-for="sidebar"
+        type="application/json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            category: 'Design',
+            items: [
+              {
+                title: 'Fabric',
+                open: false,
+                items: [
+                  {
+                    title: 'Principles',
+                    href: '/principles',
+                  },
+                  {
+                    title: "What's new",
+                    href: '/whats-new',
+                  },
+                  {
+                    title: 'Getting started',
+                    href: '/getting-started',
+                  },
+                ],
+              },
+              {
+                title: 'Foundations',
+                open: false,
+                items: [
+                  {
+                    title: 'Typography',
+                    href: '/typography',
+                  },
+                  {
+                    title: 'Color',
+                    href: '/color',
+                  },
+                  {
+                    title: 'Iconography',
+                    href: '/iconography',
+                  },
+                  {
+                    title: 'Accessibility',
+                    href: '/screenreaders',
+                  },
+                ],
+              },
+              {
+                title: 'Components',
+                open: false,
+                items: [
+                  {
+                    title: 'Actions',
+                    open: false,
+                    items: [
+                      {
+                        title: 'Button',
+                        href: '/button',
+                      },
+                      {
+                        title: 'Button utlity',
+                        href: '/utility-button',
+                      },
+                    ],
+                  },
+                  {
+                    title: 'Forms',
+                    open: false,
+                    items: [
+                      {
+                        title: 'Checkbox',
+                        href: '?page=checkbox',
+                      },
+                      {
+                        title: 'Input',
+                        href: '/input',
+                      },
+                      {
+                        title: 'Radio',
+                        href: '/radio',
+                      },
+                      {
+                        title: 'Search',
+                        href: '/search',
+                      },
+                      {
+                        title: 'Select',
+                        href: '/select',
+                      },
+                      {
+                        title: 'Switch',
+                        href: '/switch',
+                      },
+                      {
+                        title: 'Slider',
+                        href: '/slider',
+                      },
+                      {
+                        title: 'Text area',
+                        href: '/text-area',
+                      },
+                    ],
+                  },
+                  {
+                    title: 'Images and icons',
+                    open: false,
+                    items: [
+                      {
+                        title: 'Icon',
+                        href: '/icons',
+                      },
+                    ],
+                  },
+                  {
+                    title: 'Feedback indicators',
+                    open: false,
+                    items: [
+                      {
+                        title: 'Status ribbon',
+                        href: '/status-ribbon',
+                      },
+                      {
+                        title: 'Steps',
+                        href: '/steps',
+                      },
+                      {
+                        title: 'Toast',
+                        href: '/toast',
+                      },
+                    ],
+                  },
+                  {
+                    title: 'Layout',
+                    open: false,
+                    items: [
+                      {
+                        title: 'Box',
+                        href: '/box',
+                      },
+                      {
+                        title: 'Card',
+                        href: '/card',
+                      },
+                      {
+                        title: 'Expandable',
+                        href: '/expandable',
+                      },
+                      {
+                        title: 'Tabs',
+                        href: '/tabs',
+                      },
+                    ],
+                  },
+                  {
+                    title: 'Lists and tables',
+                    open: false,
+                    items: [
+                      {
+                        title: 'Data table',
+                        href: '/data-table',
+                      },
+                      {
+                        title: 'Description list',
+                        href: '/description-list',
+                      },
+                      {
+                        title: 'List',
+                        href: '/list',
+                      },
+                    ],
+                  },
+                  {
+                    title: 'Navigation',
+                    open: false,
+                    items: [
+                      {
+                        title: 'Breadcrumbs',
+                        href: '/breadcrumbs',
+                      },
+                    ],
+                  },
+                  {
+                    title: 'Overlays',
+                    open: false,
+                    items: [
+                      {
+                        title: 'Modal',
+                        href: '/modal',
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                title: 'Resources',
+                open: false,
+              },
+            ],
+          }),
+        }}
+      ></script>
+
+      {router.asPath === '/' && (
+        <div slot="banner" className="mx-auto p-32" style={{ maxWidth: 1024 }}>
           <h1 className="text-white">
             <span className="h3">Welcome to</span> <br />
             Fabric Design system
           </h1>
         </div>
-        <section slot="content">
-          <MDXProvider components={shortcodes}>
-            <main>
-              <Component {...pageProps} />
-            </main>
-            <Footer />
-          </MDXProvider>
-        </section>
-      </f-docs-template>
-    </>
+      )}
+      <section slot="content">
+        <MDXProvider components={shortcodes}>
+          <main>
+            <Component {...pageProps} />
+          </main>
+        </MDXProvider>
+      </section>
+
+      <script
+        data-for="footer"
+        type="application/json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            github: {
+              name: 'Github',
+              href: 'https://github.com/fabric-ds/design',
+            },
+            slack: {
+              name: '#finn-fabric',
+              href: 'https://sch-chat.slack.com/archives/C01GYKPJVFT',
+            },
+          }),
+        }}
+      ></script>
+    </f-docs-template>
   );
 }
 
