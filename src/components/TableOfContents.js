@@ -18,19 +18,19 @@ export class TableOfContents extends React.Component {
   }
 
   render() {
-    return (
-      this.state.toc.length && (
-        <nav className="toc">
-          <h2>Table Of Contents</h2>
-          <ul>
-            {this.state.toc.map((title, i) => (
-              <li key={title}>
-                <a href={link(title)}>{title}</a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      )
+    return this.state.toc.length ? (
+      <nav className="toc">
+        <h2>Table Of Contents</h2>
+        <ul>
+          {this.state.toc.map((title, i) => (
+            <li key={title}>
+              <a href={link(title)}>{title}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    ) : (
+      ''
     );
   }
 }
