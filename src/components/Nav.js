@@ -1,7 +1,7 @@
-import React from "react";
-import Link from "next/link";
-import Image from "./Image";
-import classes from "../components/Nav.module.css";
+import React from 'react';
+import Link from 'next/link';
+import Image from './Image';
+import classes from '../components/Nav.module.css';
 
 export function Nav() {
   return (
@@ -117,7 +117,7 @@ export function Nav() {
         <li>
           <A href="/">Feedback indicators</A>
           <div>
-            <ul className={classes.multilevel}>              
+            <ul className={classes.multilevel}>
               <li>
                 <A href="/status-ribbon">Status ribbon</A>
               </li>

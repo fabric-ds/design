@@ -1,77 +1,252 @@
-import React from 'react';
-import Head from 'next/head';
 import { MDXProvider } from '@mdx-js/react';
-
-import { TableOfContents } from '../components/TableOfContents';
-import { Bad } from '../components/Bad';
-import { Good } from '../components/Good';
-import { Fig } from '../components/Fig';
-import { Nav } from '../components/Nav';
-import { Guideline } from '../components/Guideline';
-import { AssetLink, AssetLinks } from '../components/AssetLink';
-import classes from '../components/App.module.css';
-import Footer from '../components/Footer';
-
-const shortcodes = {
-  TableOfContents,
-  AssetLink,
-  AssetLinks,
-  Bad,
-  Good,
-  Guideline,
-  Fig,
-  h1: (props) => <h1 className="mt-32" {...props} />,
-  h2: (props) => <h2 className="mt-32" {...props} />,
-  h3: (props) => <h3 className="mt-32" {...props} />,
-  h4: (props) => <h4 className="mt-32" {...props} />,
-  h5: (props) => <h5 className="mt-32" {...props} />,
-  h6: (props) => <h6 className="mt-32" {...props} />,
-  p: (props) => <p className="pb-16" {...props} />,
-  ul: (props) => <ul className="pb-16 list-disc list-inside" {...props} />, 
-  ol: (props) => <ol className="pb-16 list-decimal list-inside" {...props} />, 
-  dl: (props) => <dl className="pb-16" {...props} />, 
-  li: (props) => <li className="pb-4" {...props} />, 
-  table: (props) => <table className="mb-16 p-0 w-full" {...props} />,
-  tr: (props) => <tr className="border-t border-gray-300 bg-white m-0 p-0" {...props} />,
-  th: (props) => <th className="border border-gray-300 bg-white m-0 py-6 px-14 text-left" {...props} />,
-  td: (props) => <td className="border border-gray-300 bg-white m-0 py-6 px-14 text-left" {...props} />,  
-  pre: (props) => <pre className="pb-16" {...props} />,
-  main: (props) => <main className="break-words" {...props} />,
-  strong: (props) => <strong className="strong" {...props} />,
-  hr: (props) => (
-    <hr className="border-none text-gray-300 h-4 p-0" {...props} />
-  ),
-};
+import React from 'react';
+import { shortcodes } from '../utils/shortcodes';
+import { useRouter } from 'next/router';
 
 function App({ Component, pageProps }) {
+  const router = useRouter();
+
+  const generateUrl = (url) => {
+    return process.env.NODE_ENV === 'production' ? `/design${url}` : url;
+  };
+
   return (
-    <>
-      <Head>
-        <title>FINN Fabric</title>
-      </Head>
-      <MDXProvider components={shortcodes}>
-        <div
-          className="grid h-screen"
-          style={{ gridTemplateColumns: '256px 1fr' }}
-        >
-          <Nav />
+    <f-docs-template>
+      <script
+        data-for="sidebar"
+        type="application/json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            category: 'Design',
+            items: [
+              {
+                title: 'Fabric',
+                open: false,
+                items: [
+                  {
+                    title: 'Principles',
+                    href: generateUrl('/principles'),
+                  },
+                  {
+                    title: "What's new",
+                    href: generateUrl('/whats-new'),
+                  },
+                  {
+                    title: 'Getting started',
+                    href: generateUrl('/getting-started'),
+                  },
+                ],
+              },
+              {
+                title: 'Foundations',
+                open: false,
+                items: [
+                  {
+                    title: 'Typography',
+                    href: generateUrl('/typography'),
+                  },
+                  {
+                    title: 'Color',
+                    href: generateUrl('/color'),
+                  },
+                  {
+                    title: 'Iconography',
+                    href: generateUrl('/iconography'),
+                  },
+                  {
+                    title: 'Accessibility',
+                    href: generateUrl('/screenreaders'),
+                  },
+                ],
+              },
+              {
+                title: 'Components',
+                open: false,
+                items: [
+                  {
+                    title: 'Actions',
+                    open: false,
+                    items: [
+                      {
+                        title: 'Button',
+                        href: generateUrl('/button'),
+                      },
+                      {
+                        title: 'Button utlity',
+                        href: generateUrl('/utility-button'),
+                      },
+                    ],
+                  },
+                  {
+                    title: 'Forms',
+                    open: false,
+                    items: [
+                      {
+                        title: 'Checkbox',
+                        href: generateUrl('/checkbox'),
+                      },
+                      {
+                        title: 'Input',
+                        href: generateUrl('/input'),
+                      },
+                      {
+                        title: 'Radio',
+                        href: generateUrl('/radio'),
+                      },
+                      {
+                        title: 'Search',
+                        href: generateUrl('/search'),
+                      },
+                      {
+                        title: 'Select',
+                        href: generateUrl('/select'),
+                      },
+                      {
+                        title: 'Switch',
+                        href: generateUrl('/switch'),
+                      },
+                      {
+                        title: 'Slider',
+                        href: generateUrl('/slider'),
+                      },
+                      {
+                        title: 'Text area',
+                        href: generateUrl('/text-area'),
+                      },
+                    ],
+                  },
+                  {
+                    title: 'Images and icons',
+                    open: false,
+                    items: [
+                      {
+                        title: 'Icon',
+                        href: generateUrl('/icons'),
+                      },
+                    ],
+                  },
+                  {
+                    title: 'Feedback indicators',
+                    open: false,
+                    items: [
+                      {
+                        title: 'Status ribbon',
+                        href: generateUrl('/status-ribbon'),
+                      },
+                      {
+                        title: 'Steps',
+                        href: generateUrl('/steps'),
+                      },
+                      {
+                        title: 'Toast',
+                        href: generateUrl('/toast'),
+                      },
+                    ],
+                  },
+                  {
+                    title: 'Layout',
+                    open: false,
+                    items: [
+                      {
+                        title: 'Box',
+                        href: generateUrl('/box'),
+                      },
+                      {
+                        title: 'Card',
+                        href: generateUrl('/card'),
+                      },
+                      {
+                        title: 'Expandable',
+                        href: generateUrl('/expandable'),
+                      },
+                      {
+                        title: 'Tabs',
+                        href: generateUrl('/tabs'),
+                      },
+                    ],
+                  },
+                  {
+                    title: 'Lists and tables',
+                    open: false,
+                    items: [
+                      {
+                        title: 'Data table',
+                        href: generateUrl('/data-table'),
+                      },
+                      {
+                        title: 'Description list',
+                        href: generateUrl('/description-list'),
+                      },
+                      {
+                        title: 'List',
+                        href: generateUrl('/list'),
+                      },
+                    ],
+                  },
+                  {
+                    title: 'Navigation',
+                    open: false,
+                    items: [
+                      {
+                        title: 'Breadcrumbs',
+                        href: generateUrl('/breadcrumbs'),
+                      },
+                    ],
+                  },
+                  {
+                    title: 'Overlays',
+                    open: false,
+                    items: [
+                      {
+                        title: 'Modal',
+                        href: generateUrl('/modal'),
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                title: 'Resources',
+                open: false,
+              },
+            ],
+          }),
+        }}
+      ></script>
 
-          <div
-            className="grid justify-center p-40"
-            style={{
-              gridTemplateColumns: 'minmax(auto, 900px)',
-              gridTemplateRows: '1fr auto',
-            }}
-          >
-            <main>
-              <Component {...pageProps} />
-            </main>
-
-            <Footer />
-          </div>
+      {router.asPath === '/' && (
+        <div slot="banner" className="mx-auto p-32" style={{ maxWidth: 1024 }}>
+          <h1 className="text-white">
+            <span className="h3">Welcome to</span> <br />
+            Fabric Design system
+          </h1>
         </div>
-      </MDXProvider>
-    </>
+      )}
+      <section slot="content">
+        <MDXProvider components={shortcodes}>
+          <main>
+            <Component {...pageProps} />
+          </main>
+        </MDXProvider>
+      </section>
+
+      <script
+        data-for="footer"
+        type="application/json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            github: {
+              name: 'Github',
+              href: 'https://github.com/fabric-ds/design',
+            },
+            slack: {
+              name: '#finn-fabric',
+              href: 'https://sch-chat.slack.com/archives/C01GYKPJVFT',
+            },
+          }),
+        }}
+      ></script>
+    </f-docs-template>
   );
 }
 
