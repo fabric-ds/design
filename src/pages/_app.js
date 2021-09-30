@@ -6,10 +6,6 @@ import { useRouter } from 'next/router';
 function App({ Component, pageProps }) {
   const router = useRouter();
 
-  const generateUrl = (url) => {
-    return process.env.NODE_ENV === 'production' ? `/design${url}` : url;
-  };
-
   return (
     <f-docs-template>
       <script
@@ -25,15 +21,15 @@ function App({ Component, pageProps }) {
                 items: [
                   {
                     title: 'Principles',
-                    href: generateUrl('/principles'),
+                    href: '/principles',
                   },
                   {
                     title: "What's new",
-                    href: generateUrl('/whats-new'),
+                    href: '/whats-new',
                   },
                   {
                     title: 'Getting started',
-                    href: generateUrl('/getting-started'),
+                    href: '/getting-started',
                   },
                 ],
               },
@@ -43,19 +39,19 @@ function App({ Component, pageProps }) {
                 items: [
                   {
                     title: 'Typography',
-                    href: generateUrl('/typography'),
+                    href: '/typography',
                   },
                   {
                     title: 'Color',
-                    href: generateUrl('/color'),
+                    href: '/color',
                   },
                   {
                     title: 'Iconography',
-                    href: generateUrl('/iconography'),
+                    href: '/iconography',
                   },
                   {
                     title: 'Accessibility',
-                    href: generateUrl('/screenreaders'),
+                    href: '/screenreaders',
                   },
                 ],
               },
@@ -69,11 +65,11 @@ function App({ Component, pageProps }) {
                     items: [
                       {
                         title: 'Button',
-                        href: generateUrl('/button'),
+                        href: '/button',
                       },
                       {
                         title: 'Button utlity',
-                        href: generateUrl('/utility-button'),
+                        href: '/utility-button',
                       },
                     ],
                   },
@@ -83,35 +79,35 @@ function App({ Component, pageProps }) {
                     items: [
                       {
                         title: 'Checkbox',
-                        href: generateUrl('/checkbox'),
+                        href: '/checkbox',
                       },
                       {
                         title: 'Input',
-                        href: generateUrl('/input'),
+                        href: '/input',
                       },
                       {
                         title: 'Radio',
-                        href: generateUrl('/radio'),
+                        href: '/radio',
                       },
                       {
                         title: 'Search',
-                        href: generateUrl('/search'),
+                        href: '/search',
                       },
                       {
                         title: 'Select',
-                        href: generateUrl('/select'),
+                        href: '/select',
                       },
                       {
                         title: 'Switch',
-                        href: generateUrl('/switch'),
+                        href: '/switch',
                       },
                       {
                         title: 'Slider',
-                        href: generateUrl('/slider'),
+                        href: '/slider',
                       },
                       {
                         title: 'Text area',
-                        href: generateUrl('/text-area'),
+                        href: '/text-area',
                       },
                     ],
                   },
@@ -121,7 +117,7 @@ function App({ Component, pageProps }) {
                     items: [
                       {
                         title: 'Icon',
-                        href: generateUrl('/icons'),
+                        href: '/icons',
                       },
                     ],
                   },
@@ -131,15 +127,15 @@ function App({ Component, pageProps }) {
                     items: [
                       {
                         title: 'Status ribbon',
-                        href: generateUrl('/status-ribbon'),
+                        href: '/status-ribbon',
                       },
                       {
                         title: 'Steps',
-                        href: generateUrl('/steps'),
+                        href: '/steps',
                       },
                       {
                         title: 'Toast',
-                        href: generateUrl('/toast'),
+                        href: '/toast',
                       },
                     ],
                   },
@@ -149,19 +145,19 @@ function App({ Component, pageProps }) {
                     items: [
                       {
                         title: 'Box',
-                        href: generateUrl('/box'),
+                        href: '/box',
                       },
                       {
                         title: 'Card',
-                        href: generateUrl('/card'),
+                        href: '/card',
                       },
                       {
                         title: 'Expandable',
-                        href: generateUrl('/expandable'),
+                        href: '/expandable',
                       },
                       {
                         title: 'Tabs',
-                        href: generateUrl('/tabs'),
+                        href: '/tabs',
                       },
                     ],
                   },
@@ -171,15 +167,15 @@ function App({ Component, pageProps }) {
                     items: [
                       {
                         title: 'Data table',
-                        href: generateUrl('/data-table'),
+                        href: '/data-table',
                       },
                       {
                         title: 'Description list',
-                        href: generateUrl('/description-list'),
+                        href: '/description-list',
                       },
                       {
                         title: 'List',
-                        href: generateUrl('/list'),
+                        href: '/list',
                       },
                     ],
                   },
@@ -189,7 +185,7 @@ function App({ Component, pageProps }) {
                     items: [
                       {
                         title: 'Breadcrumbs',
-                        href: generateUrl('/breadcrumbs'),
+                        href: '/breadcrumbs',
                       },
                     ],
                   },
@@ -199,7 +195,7 @@ function App({ Component, pageProps }) {
                     items: [
                       {
                         title: 'Modal',
-                        href: generateUrl('/modal'),
+                        href: '/modal',
                       },
                     ],
                   },
