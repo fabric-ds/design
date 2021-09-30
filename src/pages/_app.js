@@ -17,6 +17,7 @@ function App({ Component, pageProps }) {
             items: [
               {
                 title: 'Fabric',
+                href: '/',
                 open: false,
                 items: [
                   {
