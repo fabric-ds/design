@@ -225,7 +225,7 @@ function App({ Component, pageProps }) {
           </div>
           
         </div>
-      )}ß
+      )}
       <section slot="content">
         <MDXProvider components={shortcodes}>
           <main>
