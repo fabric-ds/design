@@ -1,5 +1,5 @@
-<div className="grid grid-cols-3 gap-16">
-    <div className="col-span-2">
+<div className="grid lg:grid-cols-3 gap-16">
+    <div className="lg:col-span-2">
         <h1>What is Fabric?</h1>
         <p>Fabric is the cloth that binds us all together, the foundation of everything we build upon, a culture of communication, collaboration and quality. It’s our effort to streamline our design and development process, with a focus on:</p>
         <ul>
@@ -12,14 +12,14 @@
         </ul>
     </div>
     <div>
-        <Box className="bg-yellow-100 rounded-8 p-24 mb-24">
+        <div className="bg-yellow-100 rounded-8 p-24 mb-24">
             <h3 className="h4">About Fabric Beta v1.0</h3>
             <p className="pb-0">Fabric is currently in Beta phase. We’re working hard to get things running smoothly and can’t do it without your help. Head to the <a href="https://sch-chat.slack.com/archives/C01GYKPJVFT">#finn-fabric</a> channel on Slack to share your feedback.
 </p>
-        </Box>
-        <Box className="bg-gray-100 rounded-8 p-24 mb-24">
-            <h3 className="h4 mb-16">Implementations</h3>
-            <a href="https://opensource.finn.no/fabric-react/#/button" className="bg-white border mb-16 rounded-4 flex items-center align-middle no-underline hover:no-underline text-gray-800">
+        </div>
+        <div className="bg-gray-100 rounded-8 p-24 mb-24 block sm:grid sm:grid-cols-2 gap-x-16 lg:block">
+            <h3 className="col-span-2 h4 mb-16">Implementations</h3>
+            <a href="https://opensource.finn.no/fabric-react/#/button" className="bg-white border mb-16 rounded-4 flex lg:flex items-center align-middle no-underline hover:no-underline text-gray-800">
                 <div className="w-48 h-48 p-8 border-r flex"></div>
                 <div className="px-16">Fabric CSS</div>
             </a>
@@ -35,7 +35,7 @@
                 <div className="w-48 h-48 p-8 border-r flex"></div>
                 <div className="px-16">Fabric Vue</div>
             </a>
-        </Box>
+        </div>
     </div>
 </div>
 
