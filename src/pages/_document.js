@@ -4,6 +4,18 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <style
+            dangerouslySetInnerHTML={{
+              __html: `
+              f-docs-template {
+                visibility: hidden;
+              }
+              f-docs-template:defined {
+                visibility: visible;
+              }
+            `,
+            }}
+          ></style>
           <link
             href="https://assets.finn.no/pkg/@fabric-ds/css/v0/fabric.min.css"
             rel="stylesheet"
