@@ -23,7 +23,9 @@ export const shortcodes = {
   ul: (props) => <ul className="pb-16 list-disc list-inside" {...props} />,
   ol: (props) => <ol className="pb-16 list-decimal list-inside" {...props} />,
   dl: (props) => <dl className="pb-16" {...props} />,
-  li: (props) => <li className="pb-4" {...props} />,
+  li: (props) => (
+    <li className="pb-4" style={{ listStyleType: 'square' }} {...props} />
+  ),
   table: (props) => <table className="mb-16 p-0 w-full" {...props} />,
   tr: (props) => (
     <tr className="border-t border-gray-300 bg-white m-0 p-0" {...props} />
