@@ -1,6 +1,6 @@
-# Text field
+# Input
 
-Text fields are text boxes that allow users to input custom text entries with a keyboard. Various options can be shown with the field to communicate the input requirements.
+Input, which are often referred to as Text fields, are text boxes that allow users to input custom text entries with a keyboard. Various options can be shown with the field to communicate the input requirements.
 
 <AssetLinks>
   <AssetLink href="https://opensource.finn.no/fabric-react/#/textfield" />
@@ -16,11 +16,11 @@ Text fields are text boxes that allow users to input custom text entries with a 
 ## Options
 
 <Guideline title="Label" image="input-options-label.svg">
-Text fields should always have a label. The only exceptions to this rule are search fields, and message input fields which can be more easily understood in their layout context. For numerical inputs, always include the unit type in the label to clarify what type of input information is needed, e.g. (cm, kg)
+Inputs should always have a label. The only exceptions to this rule are search fields, and message input fields which can be more easily understood in their layout context. For numerical inputs, always include the unit type in the label to clarify what type of input information is needed, e.g. (cm, kg)
 </Guideline>
 
 <Guideline title="Label position" image="input-options-label-position.svg">
-Labels should be placed on top of the text field. Top labels are recommended because they help anchor form components to a left margin, making it easier to scan a form. They also allow room for more descriptive text, and responsive layouts.
+Labels should be placed on top of the input. Top labels are recommended because they help anchor form components to a left margin, making it easier to scan a form. They also allow room for more descriptive text, and responsive layouts.
 </Guideline>
 
 <Guideline title="Placeholder" image="input-options-placeholder.svg">
@@ -32,27 +32,27 @@ The value shows a user’s entered text.
 </Guideline>
 
 <Guideline title="Width" image="input-options-width.svg">
-The width of a text field can be customized appropriately for its context. For example, when asking for a telephone number, the input field should be wide enough to accomodate the maximum number of digits, but no wider.
+The width of an input can be customized appropriately for its context. For example, when asking for a telephone number, the input field should be wide enough to accomodate the maximum number of digits, but no wider.
 </Guideline>
 
 <Guideline title="Required or optional" image="input-options-required-or-optional.svg">
-Text fields can be marked as optional when user input is not required. Optional text fields are denoted with text added to the end of the label — “(optional)”.
+inputs can be marked as optional when user input is not required. Optional inputs are denoted with text added to the end of the label — “(optional)”.
 </Guideline>
 
 <Guideline title="Error" image="input-options-error.svg">
-A text field can be marked as having an error to show that a value needs to be entered in order to move forward or that a value that was entered is invalid.
+An input can be marked as having an error to show that a value needs to be entered in order to move forward or that a value that was entered is invalid.
 </Guideline>
 
 <Guideline title="Disabled" image="input-options-disabled.svg">
-A text field in a disabled state shows that an input field exists, but is not available in that circumstance. This can be used to maintain layout continuity and communicate that a field may become available later.
+An input in a disabled state shows that an input field exists, but is not available in that circumstance. This can be used to maintain layout continuity and communicate that a field may become available later.
 </Guideline>
 
 <Guideline title="Read-only" image="input-options-read-only.svg">
-Text fields have a read-only option for when content in the disabled state still needs to be shown. This allows for content to be copied, but not interacted with or changed. A text field does not have a read-only option if there is nothing entered in it.
+Inputs have a read-only option for when content in the disabled state still needs to be shown. This allows for content to be copied, but not interacted with or changed. An input does not have a read-only option if there is nothing entered in it.
 </Guideline>
 
 <Guideline title="Help text (description and error message)" image="input-options-help-text.svg">
-A text field can have help text below the field to give extra context or instruction about what a user should input in the field. The help text area has two options: a description and an error message. The description communicates a hint or helpful information, such as specific requirements for correctly filling out the field. The error message communicates an error for when the field requirements aren’t met, prompting a user to adjust what they had originally input. Keep help text short and informative and guide the user to the source of information when possible.
+An input can have help text below the field to give extra context or instruction about what a user should input in the field. The help text area has two options: a description and an error message. The description communicates a hint or helpful information, such as specific requirements for correctly filling out the field. The error message communicates an error for when the field requirements aren’t met, prompting a user to adjust what they had originally input. Keep help text short and informative and guide the user to the source of information when possible.
 </Guideline>
 
 ## Behaviors
@@ -68,7 +68,7 @@ When the help text is too long for the available horizontal space, it wraps to f
 ## Usage guidelines
 
 <Guideline title="Include a label" image="input-usage-guidelines-1-do.svg" good>
-Every text field should have a label. A field without a label is ambiguous and not accessible.
+Every input should have a label. A field without a label is ambiguous and not accessible.
 </Guideline>
 <Guideline image="input-usage-guidelines-1-dont.svg" bad></guideline>
 
@@ -77,8 +77,8 @@ Field labels and placeholder text should be in sentence case.
 </Guideline>
 <Guideline image="input-usage-guidelines-2-dont.svg" bad></guideline>
 
-<Guideline title="Mark the minority of text fields in a form as required or optional" image="input-usage-guidelines-3-do.svg" good>
-In a single form, mark only the required fields or only the optional fields, depending on whichever is less frequent in the entire form. If most of the text fields are optional, only the required fields should be give an asterisk or have labels appended with “(required)”. If most of the text fields are required, only the optional fields should be appended with “(optional)”. An asterisk should never be used to note that a text field is optional.
+<Guideline title="Mark the minority of inputs in a form as required or optional" image="input-usage-guidelines-3-do.svg" good>
+In a single form, mark only the required fields or only the optional fields, depending on whichever is less frequent in the entire form. If most of the inputs are optional, only the required fields should be give an asterisk or have labels appended with “(required)”. If most of the inputs are required, only the optional fields should be appended with “(optional)”. An asterisk should never be used to note that an input is optional.
 </Guideline>
 <Guideline image="input-usage-guidelines-3-dont.svg" bad></guideline>
 
@@ -102,7 +102,7 @@ Instead of placeholder text, use the help text description to convey requirement
 
 ### Switch help text with error text
 
-The help text area also displays an error message. When a text field already includes help text and an error is triggered, the help text is replaced with error text. Once the error is resolved, the help text description reappears below the field.
+The help text area also displays an error message. When a input already includes help text and an error is triggered, the help text is replaced with error text. Once the error is resolved, the help text description reappears below the field.
 
 Since one gets replaced by the other, the language of the help text and error text need to work together to convey the same messaging. Help text explains the requirement or adds supplementary context for how to successfully complete the input. Error text tells a user how to fix the error by re-stating the input requirements or describing the necessary interaction. Make sure that the help text and the error text include the same essential information so that it isn’t lost if one replaces the other (e.g., password requirements).
 </Guideline>
@@ -111,5 +111,5 @@ Since one gets replaced by the other, the language of the help text and error te
 
 Write error messaging in a human-centered way by guiding a user and showing them a solution — don’t simply state what’s wrong and then leave them guessing as to how to resolve it. Ambiguous error messages can be frustrating and even shame-inducing for users. Also, keep in mind that something that a system may deem an error may not actually be perceived as an error to a user.
 
-Error text should be written in 1-2 short, complete sentences and in a clear and straightforward way. End sentences with a period, and never with an exclamation point. For text fields, the nature of the error is often related to something that needs to be fixed for in-line validation, so a helpful tone is most appropriate. For example, if someone were to miss filling out a required field that asks for their email address, write the error text like you’re offering a hint or a tip to help guide them to understand what needs to go in the missing field: “Enter your email address.”
+Error text should be written in 1-2 short, complete sentences and in a clear and straightforward way. End sentences with a period, and never with an exclamation point. For inputs, the nature of the error is often related to something that needs to be fixed for in-line validation, so a helpful tone is most appropriate. For example, if someone were to miss filling out a required field that asks for their email address, write the error text like you’re offering a hint or a tip to help guide them to understand what needs to go in the missing field: “Enter your email address.”
 </Guideline>
