@@ -1,9 +1,11 @@
 # Checkbox
 
-Checkboxes allow users to select multiple items from a list of individual items, or to mark one individual item as selected.
+Checkboxes allow users to select multiple items from a list of individual items,
+or to mark one individual item as selected.
+
 <AssetLinks>
-  <AssetLink href="https://opensource.finn.no/fabric-react/#/toggle" />
-  <AssetLink href="https://opensource.finn.no/fabric-vue/forms" />
+  <AssetLink href="https://react.fabric-ds.io/toggle" />
+  <AssetLink href="https://vue.fabric-ds.io//forms" />
 </AssetLinks>
 
 <TableOfContents />
@@ -15,49 +17,74 @@ Checkboxes allow users to select multiple items from a list of individual items,
 ## Options
 
 <Guideline title="Label" image="checkbox-options-label.svg">
-    Checkboxes should always have a label. When the label is not defined, a checkbox becomes standalone. Standalone checkboxes are only used when their connection to other components is clear and they give sufficient context — for example, in application panels.
+  Checkboxes should always have a label. When the label is not defined, a
+  checkbox becomes standalone. Standalone checkboxes are only used when their
+  connection to other components is clear and they give sufficient context — for
+  example, in application panels.
 </Guideline>
 
 <Guideline title="Disabled" image="checkbox-options-disabled.svg">
-    A checkbox in a disabled state shows that a selection exists, but is not available in that circumstance. This can be used to maintain layout continuity and communicate that an action may become available later.
+  A checkbox in a disabled state shows that a selection exists, but is not
+  available in that circumstance. This can be used to maintain layout continuity
+  and communicate that an action may become available later.
 </Guideline>
 
 <Guideline title="Error" image="checkbox-options-error.svg">
-    Checkboxes can be marked as having an error to show that a selection needs to be made in order to move forward, or that a selection that was made is invalid. For example, in a form that requires a user to acknowledge legal terms before proceeding, the checkbox would show an unchecked error to communicate that it needs to be selected.
+  Checkboxes can be marked as having an error to show that a selection needs to
+  be made in order to move forward, or that a selection that was made is
+  invalid. For example, in a form that requires a user to acknowledge legal
+  terms before proceeding, the checkbox would show an unchecked error to
+  communicate that it needs to be selected.
 </Guideline>
 
 <Guideline title="Read only" image="checkbox-options-readonly.svg">
-    Checkboxes have a read-only option for when they’re in the disabled state but still need their labels to be shown. This allows for content to be copied, but not interacted with or changed.
+  Checkboxes have a read-only option for when they’re in the disabled state but
+  still need their labels to be shown. This allows for content to be copied, but
+  not interacted with or changed.
 </Guideline>
 
 ## Behaviors
 
 <Guideline title="Keyboard focus">
-    A checkbox can be navigated using a keyboard. The keyboard focus state takes the checkbox’s visual hover state and adds a blue ring to the checkbox in focus.
+  A checkbox can be navigated using a keyboard. The keyboard focus state takes
+  the checkbox’s visual hover state and adds a blue ring to the checkbox in
+  focus.
 </Guideline>
 
 <Guideline title="Text overflow">
-    When the label is too long for the horizontal space available, it wraps to form another line.
+  When the label is too long for the horizontal space available, it wraps to
+  form another line.
 </Guideline>
 
 <Guideline title="Mixed value">
-    When a checkbox presents multiple values that are not identical, the checkbox should appear as indeterminate. Any subsequent click or tap should select the checkbox, and update all values.
+  When a checkbox presents multiple values that are not identical, the checkbox
+  should appear as indeterminate. Any subsequent click or tap should select the
+  checkbox, and update all values.
 </Guideline>
 
 ## Usage guidelines
 
 <Guideline title="When to use a standalone checkbox">
-    Standalone checkboxes should be used in situations where the context is clear without an associated text label. For example, a checkbox connected to other controls inside a panel.
+  Standalone checkboxes should be used in situations where the context is clear
+  without an associated text label. For example, a checkbox connected to other
+  controls inside a panel.
 </Guideline>
 
 <Guideline title="Checkbox or radio button?">
-    Checkboxes and radio buttons are not interchangeable. A set of checkboxes should be used to select as many options as desired (or none). A set of radio buttons should be used to select only a single option from a list of mutually exclusive options.
+  Checkboxes and radio buttons are not interchangeable. A set of checkboxes
+  should be used to select as many options as desired (or none). A set of radio
+  buttons should be used to select only a single option from a list of mutually
+  exclusive options.
 </Guideline>
 
 <Guideline title="Checkbox or switch?">
-    Checkboxes are best used for communicating selection (e.g., multiple table rows) while switches are best used for communicating activation (e.g., on/off states). Checkboxes, unlike switches, can have an error state.
+  Checkboxes are best used for communicating selection (e.g., multiple table
+  rows) while switches are best used for communicating activation (e.g., on/off
+  states). Checkboxes, unlike switches, can have an error state.
 </Guideline>
 
 <Guideline title="Label groups of related checkboxes">
-    Sets of checkboxes should always have a clear label that describes what the list of options represents and guides users what to do. This is important for accessibility, since a screen reader will read the label before each option.
+  Sets of checkboxes should always have a clear label that describes what the
+  list of options represents and guides users what to do. This is important for
+  accessibility, since a screen reader will read the label before each option.
 </Guideline>

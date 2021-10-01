@@ -4,6 +4,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <title>Fabric Design</title>
           <style
             dangerouslySetInnerHTML={{
               __html: `
