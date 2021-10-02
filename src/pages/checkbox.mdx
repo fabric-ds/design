@@ -32,32 +32,36 @@ Checkboxes allow users to select multiple items from a list of individual items,
 
 ## Behaviors
 
-<Guideline title="Keyboard focus">
+<Guideline title="Keyboard focus" image="checkbox-behaviors-keyboard-focus.svg">
     A checkbox can be navigated using a keyboard. The keyboard focus state takes the checkbox’s visual hover state and adds a blue ring to the checkbox in focus.
 </Guideline>
 
-<Guideline title="Text overflow">
+<Guideline title="Text overflow" image="checkbox-behaviors-text-overflow.svg">
     When the label is too long for the horizontal space available, it wraps to form another line.
 </Guideline>
 
-<Guideline title="Mixed value">
+<Guideline title="Mixed value" image="checkbox-behaviors-mixed-value.svg">
     When a checkbox presents multiple values that are not identical, the checkbox should appear as indeterminate. Any subsequent click or tap should select the checkbox, and update all values.
 </Guideline>
 
 ## Usage guidelines
 
-<Guideline title="When to use a standalone checkbox">
+<Guideline title="When to use a standalone checkbox" image="checkbox-usage-guidelines-1-Do.svg" good>
     Standalone checkboxes should be used in situations where the context is clear without an associated text label. For example, a checkbox connected to other controls inside a panel.
 </Guideline>
+<Guideline image="checkbox-usage-guidelines-1-Dont.svg" bad>
 
-<Guideline title="Checkbox or radio button?">
+<Guideline title="Checkbox or radio button?" image="checkbox-usage-guidelines-2-Do.svg" good>
     Checkboxes and radio buttons are not interchangeable. A set of checkboxes should be used to select as many options as desired (or none). A set of radio buttons should be used to select only a single option from a list of mutually exclusive options.
 </Guideline>
+<Guideline image="checkbox-usage-guidelines-2-Dont.svg" bad>
 
-<Guideline title="Checkbox or switch?">
+<Guideline title="Checkbox or switch?" image="checkbox-usage-guidelines-3-Do.svg" good>
     Checkboxes are best used for communicating selection (e.g., multiple table rows) while switches are best used for communicating activation (e.g., on/off states). Checkboxes, unlike switches, can have an error state.
 </Guideline>
+<Guideline image="checkbox-usage-guidelines-3-Dont.svg" bad>
 
-<Guideline title="Label groups of related checkboxes">
+<Guideline title="Label groups of related checkboxes" image="checkbox-usage-guidelines-4-Do.svg">
     Sets of checkboxes should always have a clear label that describes what the list of options represents and guides users what to do. This is important for accessibility, since a screen reader will read the label before each option.
 </Guideline>
+<Guideline image="checkbox-usage-guidelines-4-Dont.svg" bad>
