@@ -17,6 +17,9 @@ export function AssetLink({ href }) {
   } else if (href.includes('vue')) {
     children = 'View in Fabric Vue';
     Logo = VueLogo;
+  } else if (href.includes('elements')) {
+    children = 'View in Fabric Elements';
+    Logo = ElementsLogo;
   }
 
   return (
@@ -24,7 +27,7 @@ export function AssetLink({ href }) {
       href={href}
       className="border rounded-4 inline-flex items-center align-middle no-underline hover:no-underline text-gray-800 mr-8"
     >
-      <div className="w-48 h-48 p-8 border-r flex">
+      <div className="w-48 h-48 p-8 border-r flex items-center">
         <Logo />
       </div>
       <div className="px-16">{children}</div>
@@ -72,6 +75,34 @@ const VueLogo = () => (
     <path
       fill="#35495e"
       d="M120.83 0L98.16 39.26 75.49 0H39.26l58.9 102.01L157.06 0h-36.23z"
+    />
+  </svg>
+);
+const ElementsLogo = () => (
+  <svg
+    width="48"
+    height="25"
+    viewBox="0 0 48 25"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M46.3812 22.6433V2.35678C46.3812 1.95667 46.0581 1.6311 45.661 1.6311H25.5332C25.1361 1.6311 24.813 1.95667 24.813 2.35678V23.3688H45.661C46.0581 23.3688 46.3812 23.0434 46.3812 22.6433Z"
+      fill="#00BFFB"
+    />
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M8.70709 1.6311H2.33924C1.94212 1.6311 1.61914 1.95667 1.61914 2.35678V22.6433C1.61914 23.0434 1.94212 23.369 2.33924 23.369H23.1942V16.2275C23.1942 8.17898 16.6954 1.6311 8.70709 1.6311Z"
+      fill="#006CFB"
+    />
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M1.61891 22.6433V2.35681C1.61891 1.9567 1.94204 1.63113 2.33916 1.63113H8.70686C16.6951 1.63113 23.194 8.17901 23.194 16.2275V23.3689H2.33916C1.94204 23.3689 1.61891 23.0435 1.61891 22.6433ZM46.3811 22.6433C46.3811 23.0435 46.0579 23.3689 45.6608 23.3689H24.8129V2.35681C24.8129 1.9567 25.1361 1.63113 25.5332 1.63113H45.6608C46.0579 1.63113 46.3811 1.9567 46.3811 2.35681V22.6433ZM45.6608 0H25.5332C24.2434 0 23.194 1.05723 23.194 2.35681V9.14134C20.5782 3.73452 15.0676 0 8.70688 0H2.33918C1.04932 0 0 1.05723 0 2.35681V22.6433C0 23.9428 1.04932 25 2.33918 25H45.6608C46.9507 25 48 23.9428 48 22.6433V2.35681C48 1.05723 46.9507 0 45.6608 0Z"
+      fill="white"
     />
   </svg>
 );
