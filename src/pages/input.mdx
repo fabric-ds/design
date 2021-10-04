@@ -100,7 +100,7 @@ with the field to communicate the input requirements.
 
 <Guideline
   title="Help text overflow"
-  image="input-behaviors-text-help-text-overflow.svg"
+  image="input-behaviors-help-text-overflow.svg"
 >
   When the help text is too long for the available horizontal space, it wraps to
   form another line.
@@ -137,8 +137,8 @@ with the field to communicate the input requirements.
 </Guideline>
 <Guideline image="input-usage-guidelines-3-dont.svg" bad></Guideline>
 
-<Guideline title="Use help text to show hints, formatting, and requirements">
-The description in the help text is flexible and encompasses a range of guidance. Sometimes this guidance is about **what** to input, and sometime it’s about **how** to input. This includes information such as:
+<Guideline title="Use help text to show hints, formatting, and requirements" image="input-usage-guidelines-4-do.svg" good>
+The description in the help text is flexible and encompasses a range of guidance. Sometimes this guidance is about what to input, and sometime it’s about how to input. This includes information such as:
 
 - An overall description of the input field
 - Hints for what kind of information needs to be input
@@ -150,41 +150,61 @@ isn’t actually relevant or meaningful to a user in order to try to maintain
 layout continuity with other inputs that require help text.
 
 </Guideline>
+<Guideline image="input-usage-guidelines-4-dont.svg" bad></Guideline>
 
-<Guideline title="Use help text instead of placeholder text">
-Putting instructions for how to complete an input, requirements, or any other essential information into placeholder text is not accessible, and should be avoided if possible. Once a value is entered, placeholder text is no longer viewable; if someone is using an automatic form filler, they will never get the information in the placeholder text.
-
-Instead of placeholder text, use the help text description to convey
-requirements or to show any formatting examples that would help user
-comprehension. If there's placeholder text and help text at the same time, it
-becomes redundant and distracting, and especially if they're communicating the
-same thing.
-
+<Guideline
+  title="Use help text instead of placeholder text"
+  image="input-usage-guidelines-5-do.svg"
+  good
+>
+  Putting instructions for how to complete an input, requirements, or any other
+  essential information into placeholder text is not accessible, and should be
+  avoided if possible. Once a value is entered, placeholder text is no longer
+  viewable; if someone is using an automatic form filler, they will never get
+  the information in the placeholder text. Instead of placeholder text, use the
+  help text description to convey requirements or to show any formatting
+  examples that would help user comprehension. If there's placeholder text and
+  help text at the same time, it becomes redundant and distracting, and
+  especially if they're communicating the same thing.
 </Guideline>
+<Guideline image="input-usage-guidelines-5-dont.svg" bad></Guideline>
 
-<Guideline title="Switch help text with error text">
-The help text area also displays an error message. When a input already includes help text and an error is triggered, the help text is replaced with error text. Once the error is resolved, the help text description reappears below the field.
-
-Since one gets replaced by the other, the language of the help text and error
-text need to work together to convey the same messaging. Help text explains the
-requirement or adds supplementary context for how to successfully complete the
-input. Error text tells a user how to fix the error by re-stating the input
-requirements or describing the necessary interaction. Make sure that the help
-text and the error text include the same essential information so that it isn’t
-lost if one replaces the other (e.g., password requirements).
-
+<Guideline
+  title="Switch help text with error text"
+  image="input-usage-guidelines-6-do.svg"
+  good
+>
+  The help text area also displays an error message. When a input already
+  includes help text and an error is triggered, the help text is replaced with
+  error text. Once the error is resolved, the help text description reappears
+  below the field. Since one gets replaced by the other, the language of the
+  help text and error text need to work together to convey the same messaging.
+  Help text explains the requirement or adds supplementary context for how to
+  successfully complete the input. Error text tells a user how to fix the error
+  by re-stating the input requirements or describing the necessary interaction.
+  Make sure that the help text and the error text include the same essential
+  information so that it isn’t lost if one replaces the other (e.g., password
+  requirements).
 </Guideline>
+<Guideline image="input-usage-guidelines-6-dont.svg" bad></Guideline>
 
-<Guideline title="Write error text that shows a solution">
-Write error messaging in a human-centered way by guiding a user and showing them a solution — don’t simply state what’s wrong and then leave them guessing as to how to resolve it. Ambiguous error messages can be frustrating and even shame-inducing for users. Also, keep in mind that something that a system may deem an error may not actually be perceived as an error to a user.
-
-Error text should be written in 1-2 short, complete sentences and in a clear and
-straightforward way. End sentences with a period, and never with an exclamation
-point. For inputs, the nature of the error is often related to something that
-needs to be fixed for in-line validation, so a helpful tone is most appropriate.
-For example, if someone were to miss filling out a required field that asks for
-their email address, write the error text like you’re offering a hint or a tip
-to help guide them to understand what needs to go in the missing field: “Enter
-your email address.”
-
+<Guideline
+  title="Write error text that shows a solution"
+  image="input-usage-guidelines-7-do.svg"
+  good
+>
+  Write error messaging in a human-centered way by guiding a user and showing
+  them a solution — don’t simply state what’s wrong and then leave them guessing
+  as to how to resolve it. Ambiguous error messages can be frustrating and even
+  shame-inducing for users. Also, keep in mind that something that a system may
+  deem an error may not actually be perceived as an error to a user. Error text
+  should be written in 1-2 short, complete sentences and in a clear and
+  straightforward way. End sentences with a period, and never with an
+  exclamation point. For inputs, the nature of the error is often related to
+  something that needs to be fixed for in-line validation, so a helpful tone is
+  most appropriate. For example, if someone were to miss filling out a required
+  field that asks for their email address, write the error text like you’re
+  offering a hint or a tip to help guide them to understand what needs to go in
+  the missing field: “Enter your email address.”
 </Guideline>
+<Guideline image="input-usage-guidelines-7-dont.svg" bad></Guideline>

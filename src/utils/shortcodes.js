@@ -24,7 +24,7 @@ export const shortcodes = {
   ol: (props) => <ol className="pb-16 list-decimal list-inside" {...props} />,
   dl: (props) => <dl className="pb-16" {...props} />,
   li: (props) => (
-    <li className="pb-4" style={{ listStyleType: 'square' }} {...props} />
+    <li className="pb-4 pl-16" style={{ listStyleType: 'square' }} {...props} />
   ),
   table: (props) => <table className="mb-16 p-0 w-full" {...props} />,
   tr: (props) => (
