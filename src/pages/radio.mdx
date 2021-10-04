@@ -1,7 +1,6 @@
 # Radio
 
 Radio buttons allow users to select a single option from a list of mutually exclusive options. All possible options are exposed up front for users to compare.
-
 <AssetLinks>
   <AssetLink href="https://opensource.finn.no/fabric-react/#/toggle" />
   <AssetLink href="https://opensource.finn.no/fabric-vue/forms" />
@@ -9,8 +8,45 @@ Radio buttons allow users to select a single option from a list of mutually excl
 
 <TableOfContents />
 
-### Best practice
+## Anatomy
 
-- Place radio buttons below each other to ensure that they are easier to find, read and work responsively.
-- Separate radio buttons and checkboxes with labels.
-- Consider dropdowns for more than 6 options.
+(Image coming soon)
+
+## Options
+
+<Guideline title="Label" image="radio-button-options-label.svg">
+  Radio buttons should always have labels. When the label is not defined, a radio button becomes standalone. Standalone radio buttons are only used when their connection to other components is clear and they give sufficient context — for example, in a form to rate between 1 to 10 for several categories.
+</Guideline>
+
+<Guideline title="Disabled" image="radio-button-options-disabled.svg">
+  A radio button in a disabled state shows that a selection exists, but is not available in that circumstance. This can be used to maintain layout continuity and communicate that an action may become available later.
+</Guideline>
+
+<Guideline title="Read-only" image="radio-button-options-read-only.svg">
+  Radio buttons have a read-only option for when they’re in the disabled state but still need their labels to be shown. This allows for content to be copied, but not interacted with or changed.
+</Guideline>
+
+## Behaviors
+
+<Guideline title="Keyboard focus" image="radio-button-behaviors-keyboard-focus.svg">
+  A radio button can be navigated using a keyboard. The keyboard focus state takes the radio button’s visual hover state and adds a blue ring to the radio button in focus.
+</Guideline>
+
+<Guideline title="Text overflow" image="radio-button-behaviors-text-overflow.svg">
+  When the label is too long for the horizontal space available, it wraps to form another line.
+</Guideline>
+
+<Guideline title="Mixed value" image="radio-button-behaviors-mixed-value.svg">
+  When a radio button group presents multiple values that are not identical, the group should not show a selection. Any subsequent selection should update all values.</Guideline>
+  
+## Usage guidelines
+
+<Guideline title="Use radio buttons for mutually exclusive options" image="radio-button-usage-guidelines-1-Do.svg" good>
+  Radio buttons and checkboxes are not interchangeable. Radio buttons are best used for selecting a single option from a list of mutually exclusive options. Checkboxes are best used for selecting as many options as desired (or none).
+</Guideline>
+<Guideline image="radio-button-usage-guidelines-1-Dont.svg" bad>
+  
+<Guideline title="Label groups of radio buttons" image="radio-button-usage-guidelines-2-Do.svg" good>
+  Groups of radio buttons should always have a label that clearly describes what the list of options represents. This is important for accessibility, since a screen reader will read the label before each option. Make sure to include a label, and don't assume that the options are self-explanatory without one. Write the label in sentence case. Place radio buttons in a vertical list to ensure they are easier to find, read, and work responsively.
+</Guideline>
+<Guideline image="radio-button-usage-guidelines-2-Dont.svg" bad>
