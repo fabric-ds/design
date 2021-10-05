@@ -1,10 +1,12 @@
 # Text area
 
-A text area lets a user input a longer amount of text than a standard text field. It can include all of the standard validation options supported by the text field component.
+A text area lets a user input a longer amount of text than a standard text
+field. It can include all of the standard validation options supported by the
+text field component.
 
 <AssetLinks>
-  <AssetLink href="https://opensource.finn.no/fabric-react/#/textarea" />
-  <AssetLink href="https://opensource.finn.no/fabric-vue/forms" />
+  <AssetLink href="https://react.fabric-ds.io/textarea" />
+  <AssetLink href="https://vue.fabric-ds.io//forms" />
 </AssetLinks>
 
 <TableOfContents />
@@ -17,15 +19,27 @@ A text area lets a user input a longer amount of text than a standard text field
 
 ### Label
 
-A text area should always have a label. The only exceptions to this rule are search fields, and message input fields which can be more easily understood in their layout context. For numerical inputs, always include the unit type in the label to clarify what type of input information is needed, e.g. (cm, kg)
+A text area should always have a label. The only exceptions to this rule are
+search fields, and message input fields which can be more easily understood in
+their layout context. For numerical inputs, always include the unit type in the
+label to clarify what type of input information is needed, e.g. (cm, kg)
 
 ### Label position
 
-Labels should be placed on top of the text area. Top labels are recommended because they help anchor form components to a left margin, making it easier to scan a form. They also allow room for more descriptive text, and responsive layouts.
+Labels should be placed on top of the text area. Top labels are recommended
+because they help anchor form components to a left margin, making it easier to
+scan a form. They also allow room for more descriptive text, and responsive
+layouts.
 
 ### Placeholder
 
-The placeholder text, also commonly known as “ghost text,” is temporary and disappears once a user enters text. This should only be used to give the user a hint of what kind of information, and in what format they should enter their text. Including instructions, requirements, or other detailed information into placeholder text is not accessible (as it disappears as soon as the user type ssomething else) and hence not recommended. Help text is the preferred way to communicate this information. Never use placeholder text instead of a label.
+The placeholder text, also commonly known as “ghost text,” is temporary and
+disappears once a user enters text. This should only be used to give the user a
+hint of what kind of information, and in what format they should enter their
+text. Including instructions, requirements, or other detailed information into
+placeholder text is not accessible (as it disappears as soon as the user type
+ssomething else) and hence not recommended. Help text is the preferred way to
+communicate this information. Never use placeholder text instead of a label.
 
 ### Value
 
@@ -33,43 +47,62 @@ The value shows a user’s entered text.
 
 ### Width
 
-The width of a text area can be customized appropriately for its context. For example, when asking for a telephone number, the input field should be wide enough to accomodate the maximum number of digits, but no wider.
+The width of a text area can be customized appropriately for its context. For
+example, when asking for a telephone number, the input field should be wide
+enough to accomodate the maximum number of digits, but no wider.
 
 ### Required or optional
 
-Text areas can be marked as optional when user input is not required. Optional text areas are denoted with text added to the end of the label — “(optional)”.
+Text areas can be marked as optional when user input is not required. Optional
+text areas are denoted with text added to the end of the label — “(optional)”.
 
 ### Error
 
-A text area can be marked as having an error to show that a value needs to be entered in order to move forward or that a value that was entered is invalid.
+A text area can be marked as having an error to show that a value needs to be
+entered in order to move forward or that a value that was entered is invalid.
 
 ### Disabled
 
-A text area in a disabled state shows that an input field exists, but is not available in that circumstance. This can be used to maintain layout continuity and communicate that a field may become available later.
+A text area in a disabled state shows that an input field exists, but is not
+available in that circumstance. This can be used to maintain layout continuity
+and communicate that a field may become available later.
 
 ### Read-only
 
-Text areas have a read-only option for when content in the disabled state still needs to be shown. This allows for content to be copied, but not interacted with or changed. A text area does not have a read-only option if there is nothing entered in it.
+Text areas have a read-only option for when content in the disabled state still
+needs to be shown. This allows for content to be copied, but not interacted with
+or changed. A text area does not have a read-only option if there is nothing
+entered in it.
 
 ### Help text (description and error message)
 
-A text area can have help text below the field to give extra context or instruction about what a user should input in the field. The help text area has two options: a description and an error message. The description communicates a hint or helpful information, such as specific requirements for correctly filling out the field. The error message communicates an error for when the field requirements aren’t met, prompting a user to adjust what they had originally input. Keep help text short and informative and guide the user to the source of information when possible.
+A text area can have help text below the field to give extra context or
+instruction about what a user should input in the field. The help text area has
+two options: a description and an error message. The description communicates a
+hint or helpful information, such as specific requirements for correctly filling
+out the field. The error message communicates an error for when the field
+requirements aren’t met, prompting a user to adjust what they had originally
+input. Keep help text short and informative and guide the user to the source of
+information when possible.
 
 ## Behaviors
 
 ### Text overflow
 
-When the field label is too long for the available horizontal space, it wraps to form another line. The field text itself truncates.
+When the field label is too long for the available horizontal space, it wraps to
+form another line. The field text itself truncates.
 
 ### Help text overflow
 
-When the help text is too long for the available horizontal space, it wraps to form another line.
+When the help text is too long for the available horizontal space, it wraps to
+form another line.
 
 ## Usage guidelines
 
 ### Include a label
 
-Every text area should have a label. A field without a label is ambiguous and not accessible.
+Every text area should have a label. A field without a label is ambiguous and
+not accessible.
 
 ### Follow capitalization rules
 
@@ -77,28 +110,61 @@ Text area labels and placeholder text should be in sentence case.
 
 ### Use help text to show hints, formatting, and requirements
 
-The description in the help text is flexible and encompasses a range of guidance. Sometimes this guidance is about **what** to input, and sometime it’s about **how** to input. This includes information such as:
+The description in the help text is flexible and encompasses a range of
+guidance. Sometimes this guidance is about **what** to input, and sometime it’s
+about **how** to input. This includes information such as:
 
 - An overall description of the input field
 - Hints for what kind of information needs to be input
 - Specific formatting examples or requirements
 
-The help text’s message should not simply restate the same information in the label in order to prompt someone to interact with it. Don’t add help text if it isn’t actually relevant or meaningful to a user in order to try to maintain layout continuity with other inputs that require help text.
+The help text’s message should not simply restate the same information in the
+label in order to prompt someone to interact with it. Don’t add help text if it
+isn’t actually relevant or meaningful to a user in order to try to maintain
+layout continuity with other inputs that require help text.
 
 ### Use help text instead of placeholder text
 
-Putting instructions for how to complete an input, requirements, or any other essential information into placeholder text is not accessible, and should be avoided if possible. Once a value is entered, placeholder text is no longer viewable; if someone is using an automatic form filler, they will never get the information in the placeholder text.
+Putting instructions for how to complete an input, requirements, or any other
+essential information into placeholder text is not accessible, and should be
+avoided if possible. Once a value is entered, placeholder text is no longer
+viewable; if someone is using an automatic form filler, they will never get the
+information in the placeholder text.
 
-Instead of placeholder text, use the help text description to convey requirements or to show any formatting examples that would help user comprehension. If there's placeholder text and help text at the same time, it becomes redundant and distracting, and especially if they're communicating the same thing.
+Instead of placeholder text, use the help text description to convey
+requirements or to show any formatting examples that would help user
+comprehension. If there's placeholder text and help text at the same time, it
+becomes redundant and distracting, and especially if they're communicating the
+same thing.
 
 ### Switch help text with error text
 
-The help text area also displays an error message. When a text field already includes help text and an error is triggered, the help text is replaced with error text. Once the error is resolved, the help text description reappears below the field.
+The help text area also displays an error message. When a text field already
+includes help text and an error is triggered, the help text is replaced with
+error text. Once the error is resolved, the help text description reappears
+below the field.
 
-Since one gets replaced by the other, the language of the help text and error text need to work together to convey the same messaging. Help text explains the requirement or adds supplementary context for how to successfully complete the input. Error text tells a user how to fix the error by re-stating the input requirements or describing the necessary interaction. Make sure that the help text and the error text include the same essential information so that it isn’t lost if one replaces the other (e.g., password requirements).
+Since one gets replaced by the other, the language of the help text and error
+text need to work together to convey the same messaging. Help text explains the
+requirement or adds supplementary context for how to successfully complete the
+input. Error text tells a user how to fix the error by re-stating the input
+requirements or describing the necessary interaction. Make sure that the help
+text and the error text include the same essential information so that it isn’t
+lost if one replaces the other (e.g., password requirements).
 
 ### Write error text that shows a solution
 
-Write error messaging in a human-centered way by guiding a user and showing them a solution — don’t simply state what’s wrong and then leave them guessing as to how to resolve it. Ambiguous error messages can be frustrating and even shame-inducing for users. Also, keep in mind that something that a system may deem an error may not actually be perceived as an error to a user.
+Write error messaging in a human-centered way by guiding a user and showing them
+a solution — don’t simply state what’s wrong and then leave them guessing as to
+how to resolve it. Ambiguous error messages can be frustrating and even
+shame-inducing for users. Also, keep in mind that something that a system may
+deem an error may not actually be perceived as an error to a user.
 
-Error text should be written in 1-2 short, complete sentences and in a clear and straightforward way. End sentences with a period, and never with an exclamation point. For text areas, the nature of the error is often related to something that needs to be fixed for in-line validation, so a helpful tone is most appropriate. For example, if someone were to miss filling out a required field that asks for their email address, write the error text like you’re offering a hint or a tip to help guide them to understand what needs to go in the missing field: “Enter your email address.”
+Error text should be written in 1-2 short, complete sentences and in a clear and
+straightforward way. End sentences with a period, and never with an exclamation
+point. For text areas, the nature of the error is often related to something
+that needs to be fixed for in-line validation, so a helpful tone is most
+appropriate. For example, if someone were to miss filling out a required field
+that asks for their email address, write the error text like you’re offering a
+hint or a tip to help guide them to understand what needs to go in the missing
+field: “Enter your email address.”
