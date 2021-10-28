@@ -183,6 +183,16 @@ function App({ Component, pageProps }) {
                   },
                 ],
               },
+              {
+                title: 'Guides',
+                open: true,
+                items: [
+                  {
+                    title: 'Getting Started',
+                    href: '/guide-setup',
+                  },
+                ],
+              },
             ],
           }),
         }}

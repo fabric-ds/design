@@ -1,0 +1,24 @@
+# Update Express podlet constructor
+
+When making the transition to Fabric, we highly recommend making sure that no
+Troika files are being included in the page. If your app is using the
+`@finn-no/express-podlet` module, you can disable Troika file inclusion via a
+constructor flag.
+
+First, ensure Express podlet is installed at the latest version.
+
+```sh
+npm install @finn-no/express-podlet@latest
+```
+
+Next, set the `troika` option to `false` in the module constructor.
+
+```js
+import ExpressPodlet from '@finn-no/express-podlet';
+
+new ExpressPodlet({
+  // ...
+  troika: false,
+  // ...
+});
+```

@@ -1,0 +1,23 @@
+# Update HTML Template constructor
+
+When making the transition to Fabric, we highly recommend making sure that no
+Troika files are being included in the page. If your app is using the
+`@finn-no/html-template` module, you can disable Troika file inclusion via an
+options flag.
+
+First, ensure HTML template is installed at version `4.0.0` or later.
+
+```sh
+npm install @finn-no/html-template@latest
+```
+
+Next, set the `troika` option to `false` in the factory function.
+
+```js
+import { factory } from '@finn-no/html-template';
+const template = factory({ troika: false });
+
+layout.view(template);
+// or
+podlet.view(template);
+```
