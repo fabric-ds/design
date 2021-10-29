@@ -1,0 +1,69 @@
+# Setup Eik node client
+
+When working with Eik, you'll want to include the Eik client to support local
+development. This module switches asset locations between a local app path for
+development and an Eik server absolute URL for production. It uses values in
+your apps `eik.json` file to determine the location of your assets on the Eik
+server.
+
+## Setting it up
+
+First, ensure The Eik Node client is installed as a project dependency
+
+```sh
+npm install @eik/node-client@next
+```
+
+Next import the client in your app
+
+```js
+import Eik from '@eik/node-client';
+```
+
+Once imported, instantiate the client, passing it configuration options:
+
+- `base` a base path for where you are serving your apps CSS files for local
+  development
+- `development` a flag to tell it whether your app is running in local
+  development mode or production
+
+```js
+const eik = new Eik({
+  base: '/public'
+  development: true,
+});
+```
+
+After instantiation, call the `.load()` method. This will cause the client to
+read the app's `eik.json` file and use the values found within to construct
+URLs/paths to your app's CSS.
+
+```js
+await eik.load();
+```
+
+Once that's done, the `.file()` method can be called to get back a URL or an app
+route to your CSS file for use in your app.
+
+```js
+const href = eik.file('styles.css');
+// when development is set to true
+// href will be /public/styles.css
+
+// when development is set to false
+// href will be https://assets.finn.no/pkg/<eik.json name field>/<eik.json version field>/styles.css
+```
+
+You can now use the value in `href` in an HTML link tag:
+
+```js
+`<link href="${href}" rel="stylesheet" type="text/css">`;
+```
+
+Or pass it to Podium podlet or layout to load for you:
+
+```js
+podlet.css({ value: href });
+// or
+layout.css({ value: href });
+```
