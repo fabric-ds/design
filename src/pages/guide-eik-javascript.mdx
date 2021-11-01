@@ -1,3 +1,40 @@
-# Eik JavaScript
+### Setup Eik for JavaScript
 
-- JS esbuild setup
+Create a `scripts.js` file for your JavaScript code
+
+```sh
+touch client/scripts.js
+```
+
+Install build dependencies
+
+```sh
+npm install -D esbuild @eik/esbuild-plugin
+```
+
+Create an Esbuild build script (call it esbuild.js) that produces a production
+ready JavaScript bundle from your source code.
+
+```js
+// esbuild.js
+import * as eik from '@eik/esbuild-plugin';
+import esbuild from 'esbuild';
+
+await eik.load();
+
+await esbuild.build({
+  entryPoints: ['./client/scripts.js'],
+  bundle: true,
+  minify: true,
+  format: 'esm',
+  outfile: 'dist/scripts.js',
+  target: ['es2017'],
+  plugins: [eik.plugin()],
+});
+```
+
+You can now produce a build by running the command:
+
+```sh
+node esbuild.js
+```

@@ -19,7 +19,7 @@ export default function ColorPage() {
       <h1>Let's get you setup...</h1>
 
       <p>
-        We can taylor your instructions to your situation. Just answer a few
+        We can customise your instructions to your situation. Just answer a few
         questions to get started...
       </p>
 
@@ -57,7 +57,7 @@ export default function ColorPage() {
           <h2 className="mt-20">What server side framework are you using?</h2>
 
           <div className="flex">
-            <Card
+            {/* <Card
               selected={framework === 'next'}
               className="py-24 px-40 m-10"
               onClick={() => setFramework('next')}
@@ -68,7 +68,7 @@ export default function ColorPage() {
                 checked={framework === 'next'}
                 onChange={() => setFramework('next')}
               />
-            </Card>
+            </Card> */}
             <Card
               selected={framework === 'fastify'}
               className="py-24 px-40 m-10"
@@ -100,48 +100,52 @@ export default function ColorPage() {
         ''
       )}
 
-      <h2 className="mt-20">Is your app using Podium?</h2>
-      <div className="flex">
-        <Card
-          selected={podium === 'podlet'}
-          className="py-24 px-40 m-10"
-          onClick={() => setPodium('podlet')}
-        >
-          <Toggle
-            type="radio"
-            label="My app is a podlet"
-            checked={podium === 'podlet'}
-            onChange={() => setPodium('podlet')}
-          />
-        </Card>
-        <Card
-          selected={podium === 'layout'}
-          className="py-24 px-40 m-10"
-          onClick={() => setPodium('layout')}
-        >
-          <Toggle
-            type="radio"
-            label="My app is a layout"
-            checked={podium === 'layout'}
-            onChange={() => setPodium('layout')}
-          />
-        </Card>
-        <Card
-          selected={podium === 'none'}
-          className="py-24 px-40 m-10"
-          onClick={() => setPodium('none')}
-        >
-          <Toggle
-            type="radio"
-            label="My app is not a Podium layout or podlet"
-            checked={podium === 'none'}
-            onChange={() => setPodium('none')}
-          />
-        </Card>
-      </div>
-      <hr className="mt-20" />
+      {platform === 'node' && framework === 'express' && (
+        <>
+          <h2 className="mt-20">Is your app using Podium?</h2>
+          <div className="flex">
+            <Card
+              selected={podium === 'podlet'}
+              className="py-24 px-40 m-10"
+              onClick={() => setPodium('podlet')}
+            >
+              <Toggle
+                type="radio"
+                label="My app is a podlet"
+                checked={podium === 'podlet'}
+                onChange={() => setPodium('podlet')}
+              />
+            </Card>
+            <Card
+              selected={podium === 'layout'}
+              className="py-24 px-40 m-10"
+              onClick={() => setPodium('layout')}
+            >
+              <Toggle
+                type="radio"
+                label="My app is a layout"
+                checked={podium === 'layout'}
+                onChange={() => setPodium('layout')}
+              />
+            </Card>
+            <Card
+              selected={podium === 'none'}
+              className="py-24 px-40 m-10"
+              onClick={() => setPodium('none')}
+            >
+              <Toggle
+                type="radio"
+                label="My app is not a Podium layout or podlet"
+                checked={podium === 'none'}
+                onChange={() => setPodium('none')}
+              />
+            </Card>
+          </div>
+          <hr className="mt-20" />
+        </>
+      )}
 
-      {platform === 'node' ? (
+      {platform === 'node' && framework === 'express' ? (
         <>
           <h2 className="mt-20">
             Is your app using a Podium abstraction module?
@@ -210,7 +214,7 @@ export default function ColorPage() {
         ''
       )}
 
-      <h2 className="mt-20">Do you need help getting Eik setup?</h2>
+      {/* <h2 className="mt-20">Do you need help getting Eik setup?</h2>
       <div className="flex">
         <Card
           selected={eikHelp === true}
@@ -237,7 +241,7 @@ export default function ColorPage() {
           />
         </Card>
       </div>
-      <hr className="mt-20" />
+      <hr className="mt-20" /> */}
 
       <h2 className="mt-20">Are you using a client side framework?</h2>
       <div className="flex">

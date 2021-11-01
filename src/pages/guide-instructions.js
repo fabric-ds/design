@@ -17,30 +17,22 @@ import GuideEikJavascriptElements from './guide-eik-javascript-elements.mdx';
 
 export default function Instructions() {
   const router = useRouter();
-  const {
-    eik,
-    react,
-    vue,
-    elements,
-    nodeClient,
-    htmlTemplate,
-    layout,
-    podlet,
-  } = router.query;
+  const { react, vue, elements, nodeClient, htmlTemplate, layout, podlet } =
+    router.query;
   return (
     <>
       <Head>
         <title>Guide - Instructions | FINN Fabric</title>
       </Head>
-      {eik && <GuideEik></GuideEik>}
-      {eik && (react || vue || elements) && (
-        <GuideEikJavascript></GuideEikJavascript>
-      )}
-      {eik && react && <GuideEikJavascriptReact></GuideEikJavascriptReact>}
-      {eik && vue && <GuideEikJavascriptVue></GuideEikJavascriptVue>}
-      {eik && elements && (
-        <GuideEikJavascriptElements></GuideEikJavascriptElements>
-      )}
+      <h1>Setup Guide</h1>
+      <GuideEik></GuideEik>
+      {(react || vue || elements) && <GuideEikJavascript></GuideEikJavascript>}
+      {react && <GuideEikJavascriptReact></GuideEikJavascriptReact>}
+      {vue && <GuideEikJavascriptVue></GuideEikJavascriptVue>}
+      {elements && <GuideEikJavascriptElements></GuideEikJavascriptElements>}
+      {react && <GuideReact></GuideReact>}
+      {vue && <GuideVue></GuideVue>}
+      {elements && <GuideCustomElements></GuideCustomElements>}
       {nodeClient && <GuideEikNodeClient></GuideEikNodeClient>}
       {nodeClient && (react || vue || elements) && (
         <GuideEikNodeClientJavascript></GuideEikNodeClientJavascript>
@@ -48,9 +40,6 @@ export default function Instructions() {
       {layout && <GuideExpressLayout></GuideExpressLayout>}
       {podlet && <GuideExpressPodlet></GuideExpressPodlet>}
       {htmlTemplate && <GuideHTMLTemplate></GuideHTMLTemplate>}
-      {react && <GuideReact></GuideReact>}
-      {vue && <GuideVue></GuideVue>}
-      {elements && <GuideCustomElements></GuideCustomElements>}
     </>
   );
 }

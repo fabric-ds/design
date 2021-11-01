@@ -1,7 +1,44 @@
-# Eik Setup
+At Finn, we use Eik for streamlining and optimising the serving of client side
+assets such as CSS and JavaScript. When working with Fabric, we create a CSS
+file, import the Fabric core library and publish to Eik for production.
 
-- Install dependencies
-- create eik.json
-- Add Fabric CSS import map to eik.json
-- Post CSS setup
-- etc
+### Setup Eik
+
+Create an `eik.json` file in the app root folder. This file is used to define
+meta information about the app's client side assets.
+
+```json
+{
+  "name": "<put your app name here>",
+  "version": "1.0.0",
+  "server": "https://assets.finn.no",
+  "type": "package",
+  "files": "./dist",
+  "import-map": ["https://assets.finn.no/map/fabric/v1"]
+}
+```
+
+### Setup Post CSS
+
+Install PostCSS and Fabric depenendencies
+
+```sh
+npm i -D postcss @eik/postcss-plugin @fabric-ds/css
+```
+
+Create a PostCSS config file called `postcss.config.cjs`
+
+```js
+module.exports = () => ({
+  plugins: [require('@eik/postcss-plugin')(), require('postcss-import')()],
+});
+```
+
+### Import Fabric
+
+Create a CSS file for your app. For example `styles.css`. In it, import the
+Fabric core library
+
+```css
+@import ('@fabric-ds/css');
+```
