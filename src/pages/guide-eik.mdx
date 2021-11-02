@@ -2,14 +2,96 @@ At Finn, we use Eik for streamlining and optimising the serving of client side
 assets such as CSS and JavaScript. When working with Fabric, we create a CSS
 file, import the Fabric core library and publish to Eik for production.
 
-### Setup Eik
+### Import Fabric
 
-Create an `eik.json` file in the app root folder. This file is used to define
-meta information about the app's client side assets.
+First, install the Fabric dependency using NPM
+
+```sh
+npm install -D @fabric-ds/css
+```
+
+Then create a CSS file for your app. We'll use `styles.css` in these examples.
+In this file, import the Fabric core library.
+
+```css
+@import ('@fabric-ds/css');
+```
+
+If you need custom CSS style rules in your app you can also put them in this
+file though most of the time with Fabric you won't need to since you can find
+Fabric utility classes for most things you'll need.
+
+### Transform CSS with PostCSS
+
+[PostCSS](https://postcss.org) is a tool for transforming CSS with JavaScript.
+It can be used to create a production ready Fabric CSS file for our app. We use
+it with the [Eik PostCSS plugin](https://github.com/eik-lib/postcss-plugin) to
+ensure teams at Finn are using the same version.
+
+To start with, install PostCSS and the Eik plugin:
+
+```sh
+npm i -D postcss @eik/postcss-plugin
+```
+
+Afterwards, create a PostCSS config file called `postcss.config.cjs` and give it
+the following contents:
+
+```js
+module.exports = () => ({
+  plugins: [require('@eik/postcss-plugin')(), require('postcss-import')()],
+});
+```
+
+Now that we have things configured, we can produce a production ready file with
+the following command:
+
+```sh
+npx postcss ./styles.css -o ./dist/styles.css
+```
+
+Note that we create this file in the `dist` folder. Normally, you won't want to
+commit this folder to source control so remember to add and entry for it in
+`.gitignore`
+
+For convenience, you can add an npm run script in your app's `package.json`
+file:
 
 ```json
 {
-  "name": "<put your app name here>",
+  ...
+  "scripts": {
+    ...
+    "build:css": "npx postcss ./styles.css -o ./dist/styles.css"
+  }
+}
+```
+
+which can be run with:
+
+```sh
+npm run build:css
+```
+
+### Setup Eik
+
+Now that we are producing a production ready CSS file into a `./dist` folder, we
+need to setup Eik so that we can publish this folder and make it available on
+the Eik CDN.
+
+To learn more about Eik and how it works, please refer to the following links:
+
+- https://eik.dev/docs/overview
+- https://eik.dev/docs/overview_concepts
+- https://eik.dev/docs/overview_workflow
+
+Create an [eik.json](https://eik.dev/docs/overview_eik_json) file in the app
+root folder. This file is used to define meta information about the app's client
+side assets and will be used by Eik to determine where to publish to.
+
+```json
+{
+  "name": "<your app name>",
   "version": "1.0.0",
   "server": "https://assets.finn.no",
   "type": "package",
@@ -18,27 +100,30 @@ meta information about the app's client side assets.
 }
 ```
 
-### Setup Post CSS
+The `files` field tells Eik which local files/folders to include when
+publishing, the `import-map` field is used during the PostCSS build for
+optimisation purposes. The other fields are used when determining the URL path
+to the published files on the Eik server.
 
-Install PostCSS and Fabric depenendencies
+With `eik.json` in place, we need to
+[authenticate with the Eik server](https://eik.dev/docs/client_login) and then
+we should be ready to publish.
 
 ```sh
-npm i -D postcss @eik/postcss-plugin @fabric-ds/css
+npx @eik/cli login
 ```
 
-Create a PostCSS config file called `postcss.config.cjs`
+**N.B.** You will be asked for a **key** when running this command. Ask about
+this in the **#finn-eik** slack channel.
 
-```js
-module.exports = () => ({
-  plugins: [require('@eik/postcss-plugin')(), require('postcss-import')()],
-});
+Once authenticated, run publish
+
+```sh
+npx @eik/cli publish
 ```
 
-### Import Fabric
+You'll find your published file on the CDN at:
 
-Create a CSS file for your app. For example `styles.css`. In it, import the
-Fabric core library
-
-```css
-@import ('@fabric-ds/css');
+```
+https://assets.finn.no/pkg/<your app name>/1.0.0/styles.css
 ```
