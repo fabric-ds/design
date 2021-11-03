@@ -1,5 +1,5 @@
 {
-  "name": "@finn-no/fabric-design",
+  "name": "@fabric-ds/design",
   "version": "0.0.0",
   "description": "Fabric design system design documentation",
   "private": "true",
@@ -19,7 +19,7 @@
   "license": "ISC",
   "dependencies": {
     "@fabric-ds/react": "0.0.6",
-    "@finn-no/fabric-icons": "^0.3.2",
+    "@fabric-ds/icons": "^0.3.2",
     "@mdx-js/loader": "^1.6.22",
     "@next/mdx": "^11.1.2",
     "@sindresorhus/slugify": "^1.1.0",
@@ -35,7 +35,7 @@
     "tailwindcss": "^2.0.2"
   },
   "devDependencies": {
-    "@finn-no/fabric-tailwind-config": "^0.5.14",
+    "@fabric-ds/tailwind-config": "^0.5.14",
     "husky": "^6.0.0",
     "lint-staged": "^10.5.4",
     "ora": "^5.2.0",
