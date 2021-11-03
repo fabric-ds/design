@@ -6,6 +6,20 @@ import decamelize from 'decamelize';
 
 import { AssetLink, AssetLinks } from '../components/AssetLink';
 
+export function getStaticProps() {
+  let colors = theme.colors;
+
+  // decamlize the color names and uppercase the first letter
+  colors = mapObject(colors, (key, value) => [
+    decamelizeCaptitalize(key),
+    value,
+  ]);
+
+  return {
+    props: { colors },
+  };
+}
+
 export default function ColorPage({ colors }) {
   return (
     <>
@@ -98,20 +112,6 @@ function Color({ token, colorHex }) {
       </div>
     </div>
   );
-}
-
-export function getStaticProps() {
-  let colors = theme.colors;
-
-  // decamlize the color names and uppercase the first letter
-  colors = mapObject(colors, (key, value) => [
-    decamelizeCaptitalize(key),
-    value,
-  ]);
-
-  return {
-    props: { colors },
-  };
 }
 
 function decamelizeCaptitalize(str) {

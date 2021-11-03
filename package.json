@@ -14,12 +14,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:finn-no/fabric-design.git"
+    "url": "git@github.com:fabric-ds/design.git"
   },
   "license": "ISC",
   "dependencies": {
+    "@fabric-ds/icons": "^0.3.10",
     "@fabric-ds/react": "0.0.6",
-    "@fabric-ds/icons": "^0.3.2",
     "@mdx-js/loader": "^1.6.22",
     "@next/mdx": "^11.1.2",
     "@sindresorhus/slugify": "^1.1.0",
@@ -35,7 +35,8 @@
     "tailwindcss": "^2.0.2"
   },
   "devDependencies": {
-    "@fabric-ds/tailwind-config": "^0.5.14",
+    "@fabric-ds/tailwind-config": "^0.5.24",
+    "@tailwindcss/aspect-ratio": "^0.3.0",
     "husky": "^6.0.0",
     "lint-staged": "^10.5.4",
     "ora": "^5.2.0",

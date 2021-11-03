@@ -2,7 +2,7 @@ import { MDXProvider } from '@mdx-js/react';
 import React from 'react';
 import { shortcodes } from '../utils/shortcodes';
 import { useRouter } from 'next/router';
-import { Head } from 'next/head';
+import Head from 'next/head';
 
 function App({ Component, pageProps }) {
   const router = useRouter();

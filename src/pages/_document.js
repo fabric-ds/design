@@ -21,6 +21,10 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
           <link
+            href="https://assets.finn.no/pkg/@fabric-ds/common/v1/css/markdown.css"
+            rel="stylesheet"
+          />
+          <link
             href="https://assets.finn.no/pkg/@fabric-ds/common/v1/template/index.js?a=1"
             rel="modulepreload"
           />
