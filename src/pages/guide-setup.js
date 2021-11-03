@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head';
-import { Card, Toggle } from '@fabric-ds/react';
+import { Card, Toggle, Button } from '@fabric-ds/react';
+import { useRouter } from 'next/router';
 
 export default function GuideSetup() {
-  const [platform, setPlatform] = React.useState();
-  const [framework, setFramework] = React.useState();
-  const [podium, setPodium] = React.useState();
-  const [abstraction, setAbstraction] = React.useState();
-  // const [eikHelp, setEikHelp] = React.useState();
-  const [clientSideFramework, setClientSideFramework] = React.useState();
+  const Router = useRouter();
+
+  const [platform, setPlatform] = useState();
+  const [framework, setFramework] = useState();
+  const [podium, setPodium] = useState();
+  const [abstraction, setAbstraction] = useState();
+  // const [eikHelp, setEikHelp] = useState();
+  const [clientSideFramework, setClientSideFramework] = useState();
 
   const query = new URLSearchParams();
   if (platform) query.append('platform', platform);
@@ -254,68 +257,75 @@ export default function GuideSetup() {
       </div>
       <hr className="mt-20" /> */}
 
-      {abstraction ||
-        (platform == 'other' && (
-          <>
-            <h4 className="mt-20">Are you using a client side framework?</h4>
-            <div className="flex flex-wrap">
-              <Card
-                selected={clientSideFramework === 'react'}
-                className="py-12 px-20 m-10"
-                onClick={() => setClientSideFramework('react')}
-              >
-                <Toggle
-                  type="radio"
-                  label="I'm using React"
-                  checked={clientSideFramework === 'react'}
-                  onChange={() => setClientSideFramework('react')}
-                />
-              </Card>
-              <Card
-                selected={clientSideFramework === 'vue'}
-                className="py-12 px-20 m-10"
-                onClick={() => setClientSideFramework('vue')}
-              >
-                <Toggle
-                  type="radio"
-                  label="I'm using Vue"
-                  checked={clientSideFramework === 'vue'}
-                  onChange={() => setClientSideFramework('vue')}
-                />
-              </Card>
-              <Card
-                selected={clientSideFramework === 'elements'}
-                className="py-12 px-20 m-10"
-                onClick={() => setClientSideFramework('elements')}
-              >
-                <Toggle
-                  type="radio"
-                  label="I need to setup custom element support (web components)"
-                  checked={clientSideFramework === 'elements'}
-                  onChange={() => setClientSideFramework('elements')}
-                />
-              </Card>
-              <Card
-                selected={clientSideFramework === 'none'}
-                className="py-12 px-20 m-10"
-                onClick={() => setClientSideFramework('none')}
-              >
-                <Toggle
-                  type="radio"
-                  label="Plain old HTML for me!"
-                  checked={clientSideFramework === 'none'}
-                  onChange={() => setClientSideFramework('none')}
-                />
-              </Card>
-            </div>
-          </>
-        ))}
+      {((!abstraction && platform == 'other') ||
+        (abstraction && platform == 'node')) && (
+        <>
+          <h4 className="mt-20">Are you using a client side framework?</h4>
+          <div className="flex flex-wrap">
+            <Card
+              selected={clientSideFramework === 'react'}
+              className="py-12 px-20 m-10"
+              onClick={() => setClientSideFramework('react')}
+            >
+              <Toggle
+                type="radio"
+                label="I'm using React"
+                checked={clientSideFramework === 'react'}
+                onChange={() => setClientSideFramework('react')}
+              />
+            </Card>
+            <Card
+              selected={clientSideFramework === 'vue'}
+              className="py-12 px-20 m-10"
+              onClick={() => setClientSideFramework('vue')}
+            >
+              <Toggle
+                type="radio"
+                label="I'm using Vue"
+                checked={clientSideFramework === 'vue'}
+                onChange={() => setClientSideFramework('vue')}
+              />
+            </Card>
+            <Card
+              selected={clientSideFramework === 'elements'}
+              className="py-12 px-20 m-10"
+              onClick={() => setClientSideFramework('elements')}
+            >
+              <Toggle
+                type="radio"
+                label="I need to setup custom element support (web components)"
+                checked={clientSideFramework === 'elements'}
+                onChange={() => setClientSideFramework('elements')}
+              />
+            </Card>
+            <Card
+              selected={clientSideFramework === 'none'}
+              className="py-12 px-20 m-10"
+              onClick={() => setClientSideFramework('none')}
+            >
+              <Toggle
+                type="radio"
+                label="Plain old HTML for me!"
+                checked={clientSideFramework === 'none'}
+                onChange={() => setClientSideFramework('none')}
+              />
+            </Card>
+          </div>
+        </>
+      )}
 
-      <div className="flex flex-wrap justify-center mt-20">
-        <a href={`/guide-instructions?${query.toString()}`} primary>
-          Show me the docs!
-        </a>
-      </div>
+      {platform && (
+        <div className="flex flex-wrap justify-center mt-20">
+          <Button
+            onClick={() =>
+              Router.push(`/guide-instructions?${query.toString()}`)
+            }
+            utility
+          >
+            Show me the docs!
+          </Button>
+        </div>
+      )}
     </>
   );
 }
