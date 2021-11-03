@@ -30,11 +30,11 @@ export default function GuideSetup() {
         questions to get started...
       </p>
 
-      <h2 className="mt-20">Which platform are you using?</h2>
-      <div className="flex">
+      <h4 className="mt-20">Which platform are you using?</h4>
+      <div className="flex flex-wrap">
         <Card
           selected={platform === 'node'}
-          className="py-24 px-40 m-10"
+          className="py-12 px-20 m-10"
           onClick={() => setPlatform('node')}
         >
           <Toggle
@@ -46,7 +46,7 @@ export default function GuideSetup() {
         </Card>
         <Card
           selected={platform === 'other'}
-          className="py-24 px-40 m-10"
+          className="py-12 px-20 m-10"
           onClick={() => setPlatform('other')}
         >
           <Toggle
@@ -61,12 +61,12 @@ export default function GuideSetup() {
 
       {platform === 'node' ? (
         <>
-          <h2 className="mt-20">What server side framework are you using?</h2>
+          <h4 className="mt-20">What server side framework are you using?</h4>
 
-          <div className="flex">
+          <div className="flex flex-wrap">
             {/* <Card
               selected={framework === 'next'}
-              className="py-24 px-40 m-10"
+              className="py-12 px-20 m-10"
               onClick={() => setFramework('next')}
             >
               <Toggle
@@ -78,7 +78,7 @@ export default function GuideSetup() {
             </Card> */}
             <Card
               selected={framework === 'fastify'}
-              className="py-24 px-40 m-10"
+              className="py-12 px-20 m-10"
               onClick={() => setFramework('fastify')}
             >
               <Toggle
@@ -90,7 +90,7 @@ export default function GuideSetup() {
             </Card>
             <Card
               selected={framework === 'express'}
-              className="py-24 px-40 m-10"
+              className="py-12 px-20 m-10"
               onClick={() => setFramework('express')}
             >
               <Toggle
@@ -109,11 +109,11 @@ export default function GuideSetup() {
 
       {/* {platform === 'node' && framework === 'express' && (
         <>
-          <h2 className="mt-20">Is your app using Podium?</h2>
-          <div className="flex">
+          <h4 className="mt-20">Is your app using Podium?</h4>
+          <div className="flex flex-wrap">
             <Card
               selected={podium === 'podlet'}
-              className="py-24 px-40 m-10"
+              className="py-12 px-20 m-10"
               onClick={() => setPodium('podlet')}
             >
               <Toggle
@@ -125,7 +125,7 @@ export default function GuideSetup() {
             </Card>
             <Card
               selected={podium === 'layout'}
-              className="py-24 px-40 m-10"
+              className="py-12 px-20 m-10"
               onClick={() => setPodium('layout')}
             >
               <Toggle
@@ -137,7 +137,7 @@ export default function GuideSetup() {
             </Card>
             <Card
               selected={podium === 'none'}
-              className="py-24 px-40 m-10"
+              className="py-12 px-20 m-10"
               onClick={() => setPodium('none')}
             >
               <Toggle
@@ -152,18 +152,18 @@ export default function GuideSetup() {
         </>
       )} */}
 
-      {platform === 'node' ? (
+      {platform === 'node' && framework ? (
         <>
-          <h2 className="mt-20">
+          <h4 className="mt-20">
             Is your app using a Podium abstraction module?
-          </h2>
-          <div className="flex">
+          </h4>
+          <div className="flex flex-wrap">
             {framework === 'express' && (
               <>
                 {/* {podium === 'podlet' ? ( */}
                 <Card
                   selected={abstraction === 'express-podlet'}
-                  className="py-24 px-40 m-10"
+                  className="py-12 px-20 m-10"
                   onClick={() => setAbstraction('express-podlet')}
                 >
                   <Toggle
@@ -179,7 +179,7 @@ export default function GuideSetup() {
                 {/* {podium === 'layout' ? ( */}
                 <Card
                   selected={abstraction === 'express-layout'}
-                  className="py-24 px-40 m-10"
+                  className="py-12 px-20 m-10"
                   onClick={() => setAbstraction('express-layout')}
                 >
                   <Toggle
@@ -196,7 +196,7 @@ export default function GuideSetup() {
             )}
             <Card
               selected={abstraction === 'html-template'}
-              className="py-24 px-40 m-10"
+              className="py-12 px-20 m-10"
               onClick={() => setAbstraction('html-template')}
             >
               <Toggle
@@ -208,7 +208,7 @@ export default function GuideSetup() {
             </Card>
             <Card
               selected={abstraction === 'none'}
-              className="py-24 px-40 m-10"
+              className="py-12 px-20 m-10"
               onClick={() => setAbstraction('none')}
             >
               <Toggle
@@ -225,11 +225,11 @@ export default function GuideSetup() {
         ''
       )}
 
-      {/* <h2 className="mt-20">Do you need help getting Eik setup?</h2>
-      <div className="flex">
+      {/* <h4 className="mt-20">Do you need help getting Eik setup?</h4>
+      <div className="flex flex-wrap">
         <Card
           selected={eikHelp === true}
-          className="py-24 px-40 m-10"
+          className="py-12 px-20 m-10"
           onClick={() => setEikHelp(true)}
         >
           <Toggle
@@ -241,7 +241,7 @@ export default function GuideSetup() {
         </Card>
         <Card
           selected={eikHelp === false}
-          className="py-24 px-40 m-10"
+          className="py-12 px-20 m-10"
           onClick={() => setEikHelp(false)}
         >
           <Toggle
@@ -254,59 +254,64 @@ export default function GuideSetup() {
       </div>
       <hr className="mt-20" /> */}
 
-      <h2 className="mt-20">Are you using a client side framework?</h2>
-      <div className="flex">
-        <Card
-          selected={clientSideFramework === 'react'}
-          className="py-24 px-40 m-10"
-          onClick={() => setClientSideFramework('react')}
-        >
-          <Toggle
-            type="radio"
-            label="I'm using React"
-            checked={clientSideFramework === 'react'}
-            onChange={() => setClientSideFramework('react')}
-          />
-        </Card>
-        <Card
-          selected={clientSideFramework === 'vue'}
-          className="py-24 px-40 m-10"
-          onClick={() => setClientSideFramework('vue')}
-        >
-          <Toggle
-            type="radio"
-            label="I'm using Vue"
-            checked={clientSideFramework === 'vue'}
-            onChange={() => setClientSideFramework('vue')}
-          />
-        </Card>
-        <Card
-          selected={clientSideFramework === 'elements'}
-          className="py-24 px-40 m-10"
-          onClick={() => setClientSideFramework('elements')}
-        >
-          <Toggle
-            type="radio"
-            label="I need to setup custom element support (web components)"
-            checked={clientSideFramework === 'elements'}
-            onChange={() => setClientSideFramework('elements')}
-          />
-        </Card>
-        <Card
-          selected={clientSideFramework === 'none'}
-          className="py-24 px-40 m-10"
-          onClick={() => setClientSideFramework('none')}
-        >
-          <Toggle
-            type="radio"
-            label="Plain old HTML for me!"
-            checked={clientSideFramework === 'none'}
-            onChange={() => setClientSideFramework('none')}
-          />
-        </Card>
-      </div>
+      {abstraction ||
+        (platform == 'other' && (
+          <>
+            <h4 className="mt-20">Are you using a client side framework?</h4>
+            <div className="flex flex-wrap">
+              <Card
+                selected={clientSideFramework === 'react'}
+                className="py-12 px-20 m-10"
+                onClick={() => setClientSideFramework('react')}
+              >
+                <Toggle
+                  type="radio"
+                  label="I'm using React"
+                  checked={clientSideFramework === 'react'}
+                  onChange={() => setClientSideFramework('react')}
+                />
+              </Card>
+              <Card
+                selected={clientSideFramework === 'vue'}
+                className="py-12 px-20 m-10"
+                onClick={() => setClientSideFramework('vue')}
+              >
+                <Toggle
+                  type="radio"
+                  label="I'm using Vue"
+                  checked={clientSideFramework === 'vue'}
+                  onChange={() => setClientSideFramework('vue')}
+                />
+              </Card>
+              <Card
+                selected={clientSideFramework === 'elements'}
+                className="py-12 px-20 m-10"
+                onClick={() => setClientSideFramework('elements')}
+              >
+                <Toggle
+                  type="radio"
+                  label="I need to setup custom element support (web components)"
+                  checked={clientSideFramework === 'elements'}
+                  onChange={() => setClientSideFramework('elements')}
+                />
+              </Card>
+              <Card
+                selected={clientSideFramework === 'none'}
+                className="py-12 px-20 m-10"
+                onClick={() => setClientSideFramework('none')}
+              >
+                <Toggle
+                  type="radio"
+                  label="Plain old HTML for me!"
+                  checked={clientSideFramework === 'none'}
+                  onChange={() => setClientSideFramework('none')}
+                />
+              </Card>
+            </div>
+          </>
+        ))}
 
-      <div className="flex justify-center mt-20">
+      <div className="flex flex-wrap justify-center mt-20">
         <a href={`/guide-instructions?${query.toString()}`} primary>
           Show me the docs!
         </a>
