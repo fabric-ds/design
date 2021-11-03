@@ -4,7 +4,7 @@ import { shortcodes } from '../utils/shortcodes';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 
-function App({ Component, pageProps }) {
+export default function App({ Component, pageProps }) {
   const router = useRouter();
 
   return (
@@ -196,10 +196,10 @@ function App({ Component, pageProps }) {
                       title: 'Getting Setup',
                       href: '/guide-setup',
                     },
-                    {
-                      title: 'Getting Started',
-                      href: '/guide-getting-started',
-                    },
+                    // {
+                    //   title: 'Getting Started',
+                    //   href: '/guide-getting-started',
+                    // },
                   ],
                 },
               ],
@@ -322,5 +322,3 @@ function App({ Component, pageProps }) {
     </>
   );
 }
-
-export default App;

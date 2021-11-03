@@ -1,8 +1,8 @@
-import * as React from 'react';
+import React from 'react';
 import Head from 'next/head';
-import { Card, Toggle, Button } from '@fabric-ds/react';
+import { Card, Toggle } from '@fabric-ds/react';
 
-export default function ColorPage() {
+export default function GuideSetup() {
   const [platform, setPlatform] = React.useState();
   const [framework, setFramework] = React.useState();
   const [podium, setPodium] = React.useState();
