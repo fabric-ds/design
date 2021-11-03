@@ -2,7 +2,7 @@ At Finn, we use Eik for streamlining and optimising the serving of client side
 assets such as CSS and JavaScript. When working with Fabric, we create a CSS
 file, import the Fabric core library and publish to Eik for production.
 
-### Import Fabric
+### Installing Fabric
 
 First, install the Fabric dependency using NPM
 
@@ -21,7 +21,7 @@ If you need custom CSS style rules in your app you can also put them in this
 file though most of the time with Fabric you won't need to since you can find
 Fabric utility classes for most things you'll need.
 
-### Setup PostCSS build
+### Setting up a PostCSS build
 
 [PostCSS](https://postcss.org) is a tool for transforming CSS with JavaScript.
 It can be used to create a production ready Fabric CSS file for our app. We use
@@ -78,7 +78,7 @@ style rules. This is because all of the CSS in the `@fabric-ds/css` NPM package
 has been inlined into this file. In the next step we'll use Eik to replace all
 this CSS with something production ready.
 
-### Setup Eik
+### Setting up Eik
 
 Now that we are producing a production ready CSS file into a `./dist` folder, we
 need to setup Eik so that we can publish this folder and make it available on
@@ -173,7 +173,7 @@ And you can find out what files are contained in a specific version with:
 https://assets.finn.no/pkg/<your app name>/1.0.0
 ```
 
-### Automate publishing from the CI
+### Automating publishing from the CI
 
 In most cases, it is preferrable to have publishing performed as part of your
 app's CI build pipeline. You can find a guide for setting this up here:
