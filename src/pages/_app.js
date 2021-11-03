@@ -188,8 +188,12 @@ function App({ Component, pageProps }) {
                 open: true,
                 items: [
                   {
-                    title: 'Getting Started',
+                    title: 'Getting Setup',
                     href: '/guide-setup',
+                  },
+                  {
+                    title: 'Getting Started',
+                    href: '/guide-getting-started',
                   },
                 ],
               },
