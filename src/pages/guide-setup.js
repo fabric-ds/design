@@ -107,7 +107,7 @@ export default function ColorPage() {
         ''
       )}
 
-      {platform === 'node' && framework === 'express' && (
+      {/* {platform === 'node' && framework === 'express' && (
         <>
           <h2 className="mt-20">Is your app using Podium?</h2>
           <div className="flex">
@@ -150,7 +150,7 @@ export default function ColorPage() {
           </div>
           <hr className="mt-20" />
         </>
-      )}
+      )} */}
 
       {platform === 'node' ? (
         <>
@@ -160,38 +160,38 @@ export default function ColorPage() {
           <div className="flex">
             {framework === 'express' && (
               <>
-                {podium === 'podlet' ? (
-                  <Card
-                    selected={abstraction === 'express-podlet'}
-                    className="py-24 px-40 m-10"
-                    onClick={() => setAbstraction('express-podlet')}
-                  >
-                    <Toggle
-                      type="radio"
-                      label="I'm using Express podlet"
-                      checked={abstraction === 'express-podlet'}
-                      onChange={() => setAbstraction('express-podlet')}
-                    />
-                  </Card>
-                ) : (
+                {/* {podium === 'podlet' ? ( */}
+                <Card
+                  selected={abstraction === 'express-podlet'}
+                  className="py-24 px-40 m-10"
+                  onClick={() => setAbstraction('express-podlet')}
+                >
+                  <Toggle
+                    type="radio"
+                    label="I'm using Express podlet"
+                    checked={abstraction === 'express-podlet'}
+                    onChange={() => setAbstraction('express-podlet')}
+                  />
+                </Card>
+                {/* ) : (
                   ''
-                )}
-                {podium === 'layout' ? (
-                  <Card
-                    selected={abstraction === 'express-layout'}
-                    className="py-24 px-40 m-10"
-                    onClick={() => setAbstraction('express-layout')}
-                  >
-                    <Toggle
-                      type="radio"
-                      label="I'm using Express layout"
-                      checked={abstraction === 'express-layout'}
-                      onChange={() => setAbstraction('express-layout')}
-                    />
-                  </Card>
-                ) : (
+                )} */}
+                {/* {podium === 'layout' ? ( */}
+                <Card
+                  selected={abstraction === 'express-layout'}
+                  className="py-24 px-40 m-10"
+                  onClick={() => setAbstraction('express-layout')}
+                >
+                  <Toggle
+                    type="radio"
+                    label="I'm using Express layout"
+                    checked={abstraction === 'express-layout'}
+                    onChange={() => setAbstraction('express-layout')}
+                  />
+                </Card>
+                {/* ) : (
                   ''
-                )}
+                )} */}
               </>
             )}
             <Card
