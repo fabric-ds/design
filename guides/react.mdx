@@ -1,10 +1,9 @@
-# Setup Fabric React components
+### Install and use Fabric React components
 
-If you use React in your app, you can use the Fabric React components to get out
-of the box functionality with baked in best practices. With Eik in place,
-getting setup to use Fabric React components is straight forward.
+Fabric React components can be used to get out of the box functionality with baked in best practices. 
+With Eik in place, getting setup is pretty straight forward.
 
-## Setting it up
+#### Install @fabric-ds/react
 
 First, install the Fabric React package from NPM
 
@@ -12,15 +11,23 @@ First, install the Fabric React package from NPM
 npm install @fabric-ds/react
 ```
 
-Next import the Fabric React package in your app. You specify which component(s)
-you need to use as part of the import. Refer to the Fabric React docs to learn
-more about the various components and how to use them.
+#### Import your first component
+
+Next import the Fabric React package in your app. All our components are provided from a single package
+and you can simply specify which component(s) you want to use as part of an import statement.
+
+Refer to the Fabric React docs to learn more about the various components and how to use them.
+
+In the following example, we import the button component
 
 ```js
 import { Button } from '@fabric-ds/react';
 ```
 
-Components can then be used like any other React components in your code
+#### Using components
+
+Once imported, components can then be used like any other React component in your code.
+Refer to the docs for component usage.
 
 ```jsx
 <Button onClick={() => console.log('clicked!')}>Call to Action</Button>
