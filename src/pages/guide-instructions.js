@@ -1,24 +1,30 @@
 import * as React from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import GuideReact from './guide-react.mdx';
-import GuideCustomElements from './guide-custom-elements.mdx';
-import GuideEikNodeClient from './guide-eik-node-client.mdx';
-import GuideEikNodeClientJavascript from './guide-eik-node-client-javascript.mdx';
-import GuideExpressLayout from './guide-express-layout.mdx';
-import GuideExpressPodlet from './guide-express-podlet.mdx';
-import GuideHTMLTemplate from './guide-html-template.mdx';
-import GuideVue from './guide-vue.mdx';
-import GuideEik from './guide-eik.mdx';
-import GuideEikJavascript from './guide-eik-javascript.mdx';
-import GuideEikJavascriptReact from './guide-eik-javascript-react.mdx';
-import GuideEikJavascriptVue from './guide-eik-javascript-vue.mdx';
-import GuideEikJavascriptElements from './guide-eik-javascript-elements.mdx';
+import GuideReact from '../../guides/react.mdx';
+import GuideCustomElements from '../../guides/custom-elements.mdx';
+import GuideEikNodeClient from '../../guides/eik-node-client.mdx';
+import GuideEikNodeClientJavascript from '../../guides/eik-node-client-javascript.mdx';
+import GuideExpressLayout from '../../guides/express-layout.mdx';
+import GuideExpressPodlet from '../../guides/express-podlet.mdx';
+import GuideHTMLTemplate from '../../guides/html-template.mdx';
+import GuideVue from '../../guides/vue.mdx';
+import GuideEik from '../../guides/eik.mdx';
+import GuideEikJavascript from '../../guides/eik-javascript.mdx';
+import GuideEikJavascriptReact from '../../guides/eik-javascript-react.mdx';
+import GuideEikJavascriptVue from '../../guides/eik-javascript-vue.mdx';
+import GuideEikJavascriptElements from '../../guides/eik-javascript-elements.mdx';
 
 export default function Instructions() {
   const router = useRouter();
-  const { react, vue, elements, nodeClient, htmlTemplate, layout, podlet } =
+  const { csframework, nodeClient, htmlTemplate, layout, podlet } =
     router.query;
+
+  const isCSFramework =
+    csframework === 'react' ||
+    csframework === 'vue' ||
+    csframework === 'elements';
+
   return (
     <>
       <Head>
@@ -26,15 +32,21 @@ export default function Instructions() {
       </Head>
       <h1>Setup Guide</h1>
       <GuideEik></GuideEik>
-      {(react || vue || elements) && <GuideEikJavascript></GuideEikJavascript>}
-      {react && <GuideEikJavascriptReact></GuideEikJavascriptReact>}
-      {vue && <GuideEikJavascriptVue></GuideEikJavascriptVue>}
-      {elements && <GuideEikJavascriptElements></GuideEikJavascriptElements>}
-      {react && <GuideReact></GuideReact>}
-      {vue && <GuideVue></GuideVue>}
-      {elements && <GuideCustomElements></GuideCustomElements>}
+      {isCSFramework && <GuideEikJavascript></GuideEikJavascript>}
+      {csframework === 'react' && (
+        <GuideEikJavascriptReact></GuideEikJavascriptReact>
+      )}
+      {csframework === 'vue' && <GuideEikJavascriptVue></GuideEikJavascriptVue>}
+      {csframework === 'elements' && (
+        <GuideEikJavascriptElements></GuideEikJavascriptElements>
+      )}
+      {csframework === 'react' && <GuideReact></GuideReact>}
+      {csframework === 'vue' && <GuideVue></GuideVue>}
+      {csframework === 'elements' && (
+        <GuideCustomElements></GuideCustomElements>
+      )}
       {nodeClient && <GuideEikNodeClient></GuideEikNodeClient>}
-      {nodeClient && (react || vue || elements) && (
+      {nodeClient && isCSFramework && (
         <GuideEikNodeClientJavascript></GuideEikNodeClientJavascript>
       )}
       {layout && <GuideExpressLayout></GuideExpressLayout>}

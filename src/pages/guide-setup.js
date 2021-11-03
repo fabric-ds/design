@@ -7,8 +7,15 @@ export default function ColorPage() {
   const [framework, setFramework] = React.useState();
   const [podium, setPodium] = React.useState();
   const [abstraction, setAbstraction] = React.useState();
-  const [eikHelp, setEikHelp] = React.useState();
+  // const [eikHelp, setEikHelp] = React.useState();
   const [clientSideFramework, setClientSideFramework] = React.useState();
+
+  const query = new URLSearchParams();
+  if (platform) query.append('platform', platform);
+  if (framework) query.append('framework', framework);
+  if (podium) query.append('podium', podium);
+  if (abstraction) query.append('abstraction', abstraction);
+  if (clientSideFramework) query.append('csframework', clientSideFramework);
 
   return (
     <>
@@ -296,7 +303,7 @@ export default function ColorPage() {
       </div>
 
       <div className="flex justify-center mt-20">
-        <a href="/guide-instructions" primary>
+        <a href={`/guide-instructions?${query.toString()}`} primary>
           Show me the docs!
         </a>
       </div>
