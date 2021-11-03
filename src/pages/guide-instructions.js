@@ -2,19 +2,19 @@ import React from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-import GuideReact from '../../guides/react.mdx';
-import GuideCustomElements from '../../guides/custom-elements.mdx';
-import GuideEikNodeClient from '../../guides/eik-node-client.mdx';
-import GuideEikNodeClientJavascript from '../../guides/eik-node-client-javascript.mdx';
-import GuideExpressLayout from '../../guides/express-layout.mdx';
-import GuideExpressPodlet from '../../guides/express-podlet.mdx';
-import GuideHTMLTemplate from '../../guides/html-template.mdx';
-import GuideVue from '../../guides/vue.mdx';
-import GuideEik from '../../guides/eik.mdx';
-import GuideEikJavascript from '../../guides/eik-javascript.mdx';
-import GuideEikJavascriptReact from '../../guides/eik-javascript-react.mdx';
-import GuideEikJavascriptVue from '../../guides/eik-javascript-vue.mdx';
-import GuideEikJavascriptElements from '../../guides/eik-javascript-elements.mdx';
+import GuideReact from '../../docs/guides/react.mdx';
+import GuideCustomElements from '../../docs/guides/custom-elements.mdx';
+import GuideEikNodeClient from '../../docs/guides/eik-node-client.mdx';
+import GuideEikNodeClientJavascript from '../../docs/guides/eik-node-client-javascript.mdx';
+import GuideExpressLayout from '../../docs/guides/express-layout.mdx';
+import GuideExpressPodlet from '../../docs/guides/express-podlet.mdx';
+import GuideHTMLTemplate from '../../docs/guides/html-template.mdx';
+import GuideVue from '../../docs/guides/vue.mdx';
+import GuideEik from '../../docs/guides/eik.mdx';
+import GuideEikJavascript from '../../docs/guides/eik-javascript.mdx';
+import GuideEikJavascriptReact from '../../docs/guides/eik-javascript-react.mdx';
+import GuideEikJavascriptVue from '../../docs/guides/eik-javascript-vue.mdx';
+import GuideEikJavascriptElements from '../../docs/guides/eik-javascript-elements.mdx';
 
 export default function Instructions() {
   const router = useRouter();
