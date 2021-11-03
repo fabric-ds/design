@@ -1,9 +1,8 @@
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 
 import { getDocBySlug, getDocSlugs } from '../utils/api';
-import { components } from '../utils/components';
+import { components } from '../utils/markdown';
 
 export async function getStaticPaths() {
   const slugs = getDocSlugs();
