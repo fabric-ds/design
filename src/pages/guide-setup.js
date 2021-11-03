@@ -296,7 +296,9 @@ export default function ColorPage() {
       </div>
 
       <div className="flex justify-center mt-20">
-        <Button primary>Show me the docs!</Button>
+        <a href="/guide-instructions" primary>
+          Show me the docs!
+        </a>
       </div>
     </>
   );
