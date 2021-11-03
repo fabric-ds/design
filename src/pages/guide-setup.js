@@ -152,43 +152,47 @@ export default function ColorPage() {
         </>
       )}
 
-      {platform === 'node' && framework === 'express' ? (
+      {platform === 'node' ? (
         <>
           <h2 className="mt-20">
             Is your app using a Podium abstraction module?
           </h2>
           <div className="flex">
-            {podium === 'podlet' ? (
-              <Card
-                selected={abstraction === 'express-podlet'}
-                className="py-24 px-40 m-10"
-                onClick={() => setAbstraction('express-podlet')}
-              >
-                <Toggle
-                  type="radio"
-                  label="I'm using Express podlet"
-                  checked={abstraction === 'express-podlet'}
-                  onChange={() => setAbstraction('express-podlet')}
-                />
-              </Card>
-            ) : (
-              ''
-            )}
-            {podium === 'layout' ? (
-              <Card
-                selected={abstraction === 'express-layout'}
-                className="py-24 px-40 m-10"
-                onClick={() => setAbstraction('express-layout')}
-              >
-                <Toggle
-                  type="radio"
-                  label="I'm using Express layout"
-                  checked={abstraction === 'express-layout'}
-                  onChange={() => setAbstraction('express-layout')}
-                />
-              </Card>
-            ) : (
-              ''
+            {framework === 'express' && (
+              <>
+                {podium === 'podlet' ? (
+                  <Card
+                    selected={abstraction === 'express-podlet'}
+                    className="py-24 px-40 m-10"
+                    onClick={() => setAbstraction('express-podlet')}
+                  >
+                    <Toggle
+                      type="radio"
+                      label="I'm using Express podlet"
+                      checked={abstraction === 'express-podlet'}
+                      onChange={() => setAbstraction('express-podlet')}
+                    />
+                  </Card>
+                ) : (
+                  ''
+                )}
+                {podium === 'layout' ? (
+                  <Card
+                    selected={abstraction === 'express-layout'}
+                    className="py-24 px-40 m-10"
+                    onClick={() => setAbstraction('express-layout')}
+                  >
+                    <Toggle
+                      type="radio"
+                      label="I'm using Express layout"
+                      checked={abstraction === 'express-layout'}
+                      onChange={() => setAbstraction('express-layout')}
+                    />
+                  </Card>
+                ) : (
+                  ''
+                )}
+              </>
             )}
             <Card
               selected={abstraction === 'html-template'}

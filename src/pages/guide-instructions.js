@@ -17,13 +17,17 @@ import GuideEikJavascriptElements from '../../guides/eik-javascript-elements.mdx
 
 export default function Instructions() {
   const router = useRouter();
-  const { csframework, nodeClient, htmlTemplate, layout, podlet } =
-    router.query;
+  const { csframework, platform, abstraction } = router.query;
 
   const isCSFramework =
     csframework === 'react' ||
     csframework === 'vue' ||
     csframework === 'elements';
+
+  const nodeClient = platform === 'node';
+  const htmlTemplate = abstraction === 'html-template';
+  const expressLayout = abstraction === 'express-layout';
+  const expressPodlet = abstraction === 'express-podlet';
 
   return (
     <>
@@ -49,8 +53,8 @@ export default function Instructions() {
       {nodeClient && isCSFramework && (
         <GuideEikNodeClientJavascript></GuideEikNodeClientJavascript>
       )}
-      {layout && <GuideExpressLayout></GuideExpressLayout>}
-      {podlet && <GuideExpressPodlet></GuideExpressPodlet>}
+      {expressLayout && <GuideExpressLayout></GuideExpressLayout>}
+      {expressPodlet && <GuideExpressPodlet></GuideExpressPodlet>}
       {htmlTemplate && <GuideHTMLTemplate></GuideHTMLTemplate>}
     </>
   );
