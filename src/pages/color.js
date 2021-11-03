@@ -1,6 +1,6 @@
-import * as React from 'react';
+import React from 'react';
 import Head from 'next/head';
-import { theme } from '@finn-no/fabric-tailwind-config';
+import { theme } from '@fabric-ds/tailwind-config';
 import mapObject from 'map-obj';
 import decamelize from 'decamelize';
 
@@ -116,6 +116,6 @@ export function getStaticProps() {
 
 function decamelizeCaptitalize(str) {
   return decamelize(str, { separator: ' ' }).replace(/^\w/, (c) =>
-    c.toUpperCase()
+    c.toUpperCase(),
   );
 }
