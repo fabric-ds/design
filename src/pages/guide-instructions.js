@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import GuideReact from '../../guides/react.mdx';
@@ -17,12 +17,17 @@ import GuideEikJavascriptElements from '../../guides/eik-javascript-elements.mdx
 
 export default function Instructions() {
   const router = useRouter();
-  const { react, vue, elements, nodeClient, htmlTemplate, layout, podlet } =
-    router.query;
+  const { csframework, platform, abstraction } = router.query;
 
-  React.useEffect(() => {
-    console.log(react, vue, elements, nodeClient, htmlTemplate, layout, podlet);
-  }, [router]);
+  const isCSFramework =
+    csframework === 'react' ||
+    csframework === 'vue' ||
+    csframework === 'elements';
+
+  const nodeClient = platform === 'node';
+  const htmlTemplate = abstraction === 'html-template';
+  const expressLayout = abstraction === 'express-layout';
+  const expressPodlet = abstraction === 'express-podlet';
 
   return (
     <>
@@ -31,19 +36,25 @@ export default function Instructions() {
       </Head>
       <h1>Setup Guide</h1>
       <GuideEik></GuideEik>
-      {(react || vue || elements) && <GuideEikJavascript></GuideEikJavascript>}
-      {react && <GuideEikJavascriptReact></GuideEikJavascriptReact>}
-      {vue && <GuideEikJavascriptVue></GuideEikJavascriptVue>}
-      {elements && <GuideEikJavascriptElements></GuideEikJavascriptElements>}
-      {react && <GuideReact></GuideReact>}
-      {vue && <GuideVue></GuideVue>}
-      {elements && <GuideCustomElements></GuideCustomElements>}
+      {isCSFramework && <GuideEikJavascript></GuideEikJavascript>}
+      {csframework === 'react' && (
+        <GuideEikJavascriptReact></GuideEikJavascriptReact>
+      )}
+      {csframework === 'vue' && <GuideEikJavascriptVue></GuideEikJavascriptVue>}
+      {csframework === 'elements' && (
+        <GuideEikJavascriptElements></GuideEikJavascriptElements>
+      )}
+      {csframework === 'react' && <GuideReact></GuideReact>}
+      {csframework === 'vue' && <GuideVue></GuideVue>}
+      {csframework === 'elements' && (
+        <GuideCustomElements></GuideCustomElements>
+      )}
       {nodeClient && <GuideEikNodeClient></GuideEikNodeClient>}
-      {nodeClient && (react || vue || elements) && (
+      {nodeClient && isCSFramework && (
         <GuideEikNodeClientJavascript></GuideEikNodeClientJavascript>
       )}
-      {layout && <GuideExpressLayout></GuideExpressLayout>}
-      {podlet && <GuideExpressPodlet></GuideExpressPodlet>}
+      {expressLayout && <GuideExpressLayout></GuideExpressLayout>}
+      {expressPodlet && <GuideExpressPodlet></GuideExpressPodlet>}
       {htmlTemplate && <GuideHTMLTemplate></GuideHTMLTemplate>}
     </>
   );

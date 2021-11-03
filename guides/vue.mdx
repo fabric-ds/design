@@ -1,0 +1,27 @@
+# Setup Fabric Vue components
+
+If you use Vue in your app, you can use the Fabric Vue components to get out of
+the box functionality with baked in best practices. With Eik in place, getting
+setup to use Fabric Vue components is straight forward.
+
+## Setting it up
+
+First, install the Fabric Vue package from NPM
+
+```sh
+npm install @fabric-ds/vue
+```
+
+Next import the Fabric Vue package in your app. You specify which component(s)
+you need to use as part of the import. Refer to the Fabric Vue docs to learn
+more about the various components and how to use them.
+
+```js
+import { fButton } from '@fabric-ds/vue';
+```
+
+Components can then be used like any other Vue components in your code
+
+```js
+<f-button v-on:click="count++">You clicked me {{ count }} times.</f-button>
+```

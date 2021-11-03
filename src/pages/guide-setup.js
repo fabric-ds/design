@@ -7,8 +7,15 @@ export default function GuideSetup() {
   const [framework, setFramework] = React.useState();
   const [podium, setPodium] = React.useState();
   const [abstraction, setAbstraction] = React.useState();
-  const [eikHelp, setEikHelp] = React.useState();
+  // const [eikHelp, setEikHelp] = React.useState();
   const [clientSideFramework, setClientSideFramework] = React.useState();
+
+  const query = new URLSearchParams();
+  if (platform) query.append('platform', platform);
+  if (framework) query.append('framework', framework);
+  if (podium) query.append('podium', podium);
+  if (abstraction) query.append('abstraction', abstraction);
+  if (clientSideFramework) query.append('csframework', clientSideFramework);
 
   return (
     <>
@@ -100,7 +107,7 @@ export default function GuideSetup() {
         ''
       )}
 
-      {platform === 'node' && framework === 'express' && (
+      {/* {platform === 'node' && framework === 'express' && (
         <>
           <h2 className="mt-20">Is your app using Podium?</h2>
           <div className="flex">
@@ -143,45 +150,49 @@ export default function GuideSetup() {
           </div>
           <hr className="mt-20" />
         </>
-      )}
+      )} */}
 
-      {platform === 'node' && framework === 'express' ? (
+      {platform === 'node' ? (
         <>
           <h2 className="mt-20">
             Is your app using a Podium abstraction module?
           </h2>
           <div className="flex">
-            {podium === 'podlet' ? (
-              <Card
-                selected={abstraction === 'express-podlet'}
-                className="py-24 px-40 m-10"
-                onClick={() => setAbstraction('express-podlet')}
-              >
-                <Toggle
-                  type="radio"
-                  label="I'm using Express podlet"
-                  checked={abstraction === 'express-podlet'}
-                  onChange={() => setAbstraction('express-podlet')}
-                />
-              </Card>
-            ) : (
-              ''
-            )}
-            {podium === 'layout' ? (
-              <Card
-                selected={abstraction === 'express-layout'}
-                className="py-24 px-40 m-10"
-                onClick={() => setAbstraction('express-layout')}
-              >
-                <Toggle
-                  type="radio"
-                  label="I'm using Express layout"
-                  checked={abstraction === 'express-layout'}
-                  onChange={() => setAbstraction('express-layout')}
-                />
-              </Card>
-            ) : (
-              ''
+            {framework === 'express' && (
+              <>
+                {/* {podium === 'podlet' ? ( */}
+                <Card
+                  selected={abstraction === 'express-podlet'}
+                  className="py-24 px-40 m-10"
+                  onClick={() => setAbstraction('express-podlet')}
+                >
+                  <Toggle
+                    type="radio"
+                    label="I'm using Express podlet"
+                    checked={abstraction === 'express-podlet'}
+                    onChange={() => setAbstraction('express-podlet')}
+                  />
+                </Card>
+                {/* ) : (
+                  ''
+                )} */}
+                {/* {podium === 'layout' ? ( */}
+                <Card
+                  selected={abstraction === 'express-layout'}
+                  className="py-24 px-40 m-10"
+                  onClick={() => setAbstraction('express-layout')}
+                >
+                  <Toggle
+                    type="radio"
+                    label="I'm using Express layout"
+                    checked={abstraction === 'express-layout'}
+                    onChange={() => setAbstraction('express-layout')}
+                  />
+                </Card>
+                {/* ) : (
+                  ''
+                )} */}
+              </>
             )}
             <Card
               selected={abstraction === 'html-template'}
@@ -296,7 +307,7 @@ export default function GuideSetup() {
       </div>
 
       <div className="flex justify-center mt-20">
-        <a href="/guide-instructions" primary>
+        <a href={`/guide-instructions?${query.toString()}`} primary>
           Show me the docs!
         </a>
       </div>
