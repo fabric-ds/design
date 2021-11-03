@@ -1,31 +1,16 @@
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+
 import { getDocBySlug, getDocSlugs } from '../utils/api';
-import { shortcodes } from '../utils/shortcodes';
-
-const components = {
-  pre: (props) => <div {...props} />,
-  code: (props) => <CodeBlock {...props} />,
-  ...shortcodes,
-};
-
-const CodeBlock = (props) => {
-  return (
-    <SyntaxHighlighter language={props.className?.replace(/language-/, '')}>
-      {props.children}
-    </SyntaxHighlighter>
-  );
-};
+import { components } from '../utils/components';
 
 export async function getStaticPaths() {
-  const docs = getDocSlugs();
-
-  console.log(docs);
+  const slugs = getDocSlugs();
 
   return {
-    paths: docs.map((doc) => ({
-      params: { slug: doc },
+    paths: slugs.map((slug) => ({
+      params: { slug },
     })),
     fallback: false,
   };
@@ -38,9 +23,5 @@ export async function getStaticProps(context) {
 }
 
 export default function Doc({ source }) {
-  return (
-    <div>
-      <MDXRemote {...source} components={components} />
-    </div>
-  );
+  return <MDXRemote {...source} components={components} />;
 }

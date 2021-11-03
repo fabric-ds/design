@@ -1,7 +1,8 @@
 import path, { join } from 'path';
 import fs from 'fs';
 
-const directory = join(process.cwd(), 'guides/components');
+const docPath = 'docs/components';
+const directory = join(process.cwd(), docPath);
 
 export function getDocBySlug(slug) {
   const realSlug = slug.replace(/\.mdx$/, '');
@@ -11,6 +12,6 @@ export function getDocBySlug(slug) {
 }
 
 export function getDocSlugs() {
-  const filenames = fs.readdirSync(path.resolve('guides/components'));
+  const filenames = fs.readdirSync(path.resolve(docPath));
   return filenames.map((name) => name.replace('.mdx', ''));
 }

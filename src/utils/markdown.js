@@ -4,8 +4,9 @@ import { Good } from '../components/Good';
 import { Fig } from '../components/Fig';
 import { Guideline } from '../components/Guideline';
 import { AssetLink, AssetLinks } from '../components/AssetLink';
+import { CodeBlock } from '../components/CodeBlock';
 
-export const shortcodes = {
+export const components = {
   TableOfContents,
   AssetLink,
   AssetLinks,
@@ -13,4 +14,6 @@ export const shortcodes = {
   Good,
   Guideline,
   Fig,
+  pre: (props) => <div {...props} />,
+  code: (props) => <CodeBlock {...props} />,
 };
