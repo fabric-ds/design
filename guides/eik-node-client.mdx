@@ -1,4 +1,4 @@
-## Setup Eik node client
+### Setup the Eik node client
 
 When working with Eik, you'll want to include the Eik client to support local
 development. This module switches asset locations between a local app path for
@@ -6,7 +6,7 @@ development and an Eik server absolute URL for production. It uses values in
 your apps `eik.json` file to determine the location of your assets on the Eik
 server.
 
-### Setting it up
+#### Installation and setup
 
 First, ensure The Eik Node client is installed as a project dependency
 
@@ -60,7 +60,7 @@ You can now use the value in `href` in an HTML link tag:
 `<link href="${href}" rel="stylesheet" type="text/css">`;
 ```
 
-Or pass it to Podium podlet or layout to load for you:
+Or pass it to podlet or layout to load for you if you are using Podium:
 
 ```js
 podlet.css({ value: href });

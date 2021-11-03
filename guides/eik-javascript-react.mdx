@@ -1,11 +1,15 @@
-Add the React Eik import map file to your `eik.json` file
+To complete the JavaScript setup, we need to add an appropriate import map.
+We use different import map files depending on the libraries our apps use.
+For React, add the React Eik import map file to your `eik.json` file alongside the Fabric import map we added earlier.
 
 ```json
 {
     ...
     "import-map": [
-        ...
+        "https://assets.finn.no/map/fabric/v1",
         "https://assets.finn.no/map/react/v1"
     ]
 }
 ```
+
+With that, you should be ready to start using Fabric React components in your app.

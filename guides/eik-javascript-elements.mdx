@@ -1,11 +1,15 @@
-Add the Custom Elements Eik import map file to your `eik.json` file
+To complete the JavaScript setup, we need to add an appropriate import map.
+We use different import map files depending on the libraries our apps use.
+For custom elements, add the custom elements Eik import map file to your `eik.json` file alongside the Fabric import map we added earlier.
 
 ```json
 {
     ...
     "import-map": [
-        ...
+        "https://assets.finn.no/map/fabric/v1",
         "https://assets.finn.no/map/custom-elements/v1"
     ]
 }
 ```
+
+With that, you should be ready to start using Fabric custom elements components in your app.
