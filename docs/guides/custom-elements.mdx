@@ -1,0 +1,41 @@
+### Install and use Fabric elements components
+
+If you use don't use React or Vue in your app, you can still get the benefits of Fabric components and get out of the
+box functionality with baked in best practices via custom elements. With Eik in place, getting setup to use custom
+elements is straight forward.
+
+#### Install @fabric-ds/elements
+
+First, install the Fabric elements package from NPM
+
+```sh
+npm install @fabric-ds/elements
+```
+
+#### Import your first custom element
+
+Next import the Fabric Elements package into your app. You do not need specify which elements(s) you need to use as part
+of the import. Refer to the Fabric Elements docs to learn more about the various elements and how to use them.
+
+**Please note:** For the time being, the elements package contains only a limited set of components with more to come in
+the near future.
+
+```js
+import from '@fabric-ds/elements';
+```
+
+#### Using custom elements
+
+Once the package has been imported, all custom elements will then be available to use in your HTML. Refer to the docs
+for element usage.
+
+```jsx
+<f-breadcrumbs>
+  <a href="#/url/1">Eiendom</a>
+  <a href="#/url/2">Bolig til salgs</a>
+  <a href="#/url/3" aria-current="page">
+    {' '}
+    Oslo{' '}
+  </a>
+</f-breadcrumbs>
+```

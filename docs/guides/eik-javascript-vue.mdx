@@ -1,0 +1,15 @@
+To complete the JavaScript setup, we need to add an appropriate import map. We use different import map files depending
+on the libraries our apps use. For Vue, add the Vue Eik import map file to your `eik.json` file alongside the Fabric
+import map we added earlier.
+
+```json:eik.json
+{
+    ...
+    "import-map": [
+        "https://assets.finn.no/map/fabric/v1",
+        "https://assets.finn.no/map/vue/v1"
+    ]
+}
+```
+
+With that, you should be ready to start using Fabric Vue components in your app.

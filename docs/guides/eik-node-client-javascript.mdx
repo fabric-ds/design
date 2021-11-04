@@ -1,0 +1,25 @@
+The `.file()` method should also be called to get back a URL or an app route to
+your JavaScript file for use when working with Fabric JavaScript components.
+
+```js
+const href = eik.file('scripts.js');
+// when development is set to true
+// href will be /public/scripts.js
+
+// when development is set to false
+// href will be https://assets.finn.no/pkg/<eik.json name field>/<eik.json version field>/scripts.js
+```
+
+You can now use the value in href in an HTML script tag:
+
+```js
+<script src="${href}" type="module"></script>
+```
+
+Or pass it to podlet or layout to load for you if you are using Podium:
+
+```js
+podlet.js({ value: href, type: 'module' });
+// or
+layout.js({ value: href, type: 'module' });
+```

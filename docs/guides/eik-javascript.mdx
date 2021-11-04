@@ -1,0 +1,46 @@
+### Add JavaScript support to Eik
+
+Since we are going to be using Fabric JavaScript components, we need to extend our setup to support JavaScript files. To
+do this we will need to create a scripts file to write our client side JavaScript code in and then bundle our source
+code for production. In the example below we use Esbuild but you can also use Rollup or Webpack.
+
+Firstly, create a `scripts.js` file for your JavaScript code
+
+```sh:scripts.js
+touch client/scripts.js
+```
+
+Next, install build dependencies for Esbuild.
+
+```sh
+npm install -D esbuild @eik/esbuild-plugin
+```
+
+With Esbuild dependencies installed, we now need to create a build script that produces a production ready JavaScript
+bundle from your source code. We will name this `esbuild.js` but you can call it whatever you like.
+
+Inside `esbuild.js` paste in the following configuration code:
+
+```js:esbuild.js
+// esbuild.js
+import * as eik from '@eik/esbuild-plugin';
+import esbuild from 'esbuild';
+
+await eik.load();
+
+await esbuild.build({
+  entryPoints: ['./client/scripts.js'],
+  bundle: true,
+  minify: true,
+  format: 'esm',
+  outfile: 'dist/scripts.js',
+  target: ['es2017'],
+  plugins: [eik.plugin()],
+});
+```
+
+You should now be able to produce a build by running the build file with Node.js like so:
+
+```sh
+node esbuild.js
+```

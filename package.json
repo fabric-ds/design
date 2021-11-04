@@ -1,5 +1,5 @@
 {
-  "name": "@finn-no/fabric-design",
+  "name": "@fabric-ds/design",
   "version": "0.0.0",
   "description": "Fabric design system design documentation",
   "private": "true",
@@ -14,28 +14,35 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:finn-no/fabric-design.git"
+    "url": "git@github.com:fabric-ds/design.git"
   },
   "license": "ISC",
   "dependencies": {
-    "@fabric-ds/react": "^0.0.1",
-    "@finn-no/fabric-icons": "^0.3.2",
+    "@fabric-ds/icons": "^0.3.10",
+    "@fabric-ds/react": "0.0.6",
+    "@jsdevtools/rehype-toc": "^3.0.2",
     "@mdx-js/loader": "^1.6.22",
     "@next/mdx": "^11.1.2",
     "@sindresorhus/slugify": "^1.1.0",
     "autoprefixer": "^10.1.0",
     "decamelize": "^5.0.0",
     "map-obj": "^4.1.0",
+    "mdx-prism": "^0.3.4",
     "next": "^11.1.2",
+    "next-mdx-remote": "^3.0.7",
     "next-transpile-modules": "^8.0.0",
     "postcss": "^8.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-syntax-highlighter": "^15.4.4",
+    "rehype-autolink-headings": "^6.1.0",
     "rehype-slug": "^4.0.1",
+    "remark-code-titles": "^0.1.2",
     "tailwindcss": "^2.0.2"
   },
   "devDependencies": {
-    "@finn-no/fabric-tailwind-config": "^0.5.14",
+    "@fabric-ds/tailwind-config": "^0.5.24",
+    "@tailwindcss/aspect-ratio": "^0.3.0",
     "husky": "^6.0.0",
     "lint-staged": "^10.5.4",
     "ora": "^5.2.0",

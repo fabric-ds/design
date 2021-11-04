@@ -1,12 +1,11 @@
-import * as React from 'react';
+import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import fs from 'fs';
 import path from 'path';
-import { Fig } from '../components/Fig';
-import { iconsPath } from '@finn-no/fabric-icons';
+import { iconsPath } from '@fabric-ds/icons';
 
-import '@finn-no/fabric-icons';
+import '@fabric-ds/icons';
 
 export default function Icons({ iconsBySize, iconSizes }) {
   return (
@@ -70,7 +69,8 @@ const IconsForSize = ({ icons, size, filterText }) => {
           ({filteredIcons.length}/{icons.length})
         </span>
       </h2>
-      <div className="grid gap-24"
+      <div
+        className="grid gap-24"
         style={{
           gridTemplateColumns: 'repeat(auto-fill, 100px)',
         }}

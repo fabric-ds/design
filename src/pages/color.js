@@ -1,10 +1,24 @@
-import * as React from 'react';
+import React from 'react';
 import Head from 'next/head';
-import { theme } from '@finn-no/fabric-tailwind-config';
+import { theme } from '@fabric-ds/tailwind-config';
 import mapObject from 'map-obj';
 import decamelize from 'decamelize';
 
 import { AssetLink, AssetLinks } from '../components/AssetLink';
+
+export function getStaticProps() {
+  let colors = theme.colors;
+
+  // decamlize the color names and uppercase the first letter
+  colors = mapObject(colors, (key, value) => [
+    decamelizeCaptitalize(key),
+    value,
+  ]);
+
+  return {
+    props: { colors },
+  };
+}
 
 export default function ColorPage({ colors }) {
   return (
@@ -100,22 +114,8 @@ function Color({ token, colorHex }) {
   );
 }
 
-export function getStaticProps() {
-  let colors = theme.colors;
-
-  // decamlize the color names and uppercase the first letter
-  colors = mapObject(colors, (key, value) => [
-    decamelizeCaptitalize(key),
-    value,
-  ]);
-
-  return {
-    props: { colors },
-  };
-}
-
 function decamelizeCaptitalize(str) {
   return decamelize(str, { separator: ' ' }).replace(/^\w/, (c) =>
-    c.toUpperCase()
+    c.toUpperCase(),
   );
 }
