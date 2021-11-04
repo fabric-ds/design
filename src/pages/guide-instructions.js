@@ -1,15 +1,12 @@
+import toc from '@jsdevtools/rehype-toc';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import Head from 'next/head';
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import toc from '@jsdevtools/rehype-toc';
-
-import 'rehype-autolink-headings';
 import slug from 'rehype-slug';
 import { getGuideContentBySlug } from '../utils/api';
 import { components } from '../utils/markdown';
-import { useEffect } from 'react';
 
 export async function getServerSideProps(context) {
   const { csframework, platform, abstraction } = context.query;
@@ -48,7 +45,7 @@ export async function getServerSideProps(context) {
   return { props: { source: mdxSource } };
 }
 
-export default function Instructions({ source }) {
+function Instructions({ source }) {
   useEffect(() => {
     const blocks = document.querySelectorAll('pre');
     for (const block of blocks) {
@@ -111,3 +108,5 @@ export default function Instructions({ source }) {
     </>
   );
 }
+
+export default Instructions;

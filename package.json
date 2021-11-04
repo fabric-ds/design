@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "next dev",
     "start": "next start",
-    "build": "next build && next export && touch ./out/.nojekyll",
+    "build": "next build && touch ./out/.nojekyll",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install",
     "import": "rm -rf public/figma && mkdir -p public/figma && ./scripts/figma-import.js"
