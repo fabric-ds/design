@@ -9,6 +9,7 @@ import 'rehype-autolink-headings';
 import slug from 'rehype-slug';
 import { getGuideContentBySlug } from '../utils/api';
 import { components } from '../utils/markdown';
+import { useEffect } from 'react';
 
 export async function getServerSideProps(context) {
   const { csframework, platform, abstraction } = context.query;
@@ -39,7 +40,7 @@ export async function getServerSideProps(context) {
 
   const mdxSource = await serialize(content, {
     mdxOptions: {
-      remarkPlugins: [require('remark-code-titles')],
+      remarkPlugins: [require('mdx-prism'), require('remark-code-titles')],
       rehypePlugins: [slug, rehypeAutolinkHeadings, toc],
     },
   });
@@ -48,6 +49,13 @@ export async function getServerSideProps(context) {
 }
 
 export default function Instructions({ source }) {
+  useEffect(() => {
+    const blocks = document.querySelectorAll('pre');
+    for (const block of blocks) {
+      block.style.height = `${block.clientHeight - 22}px`;
+    }
+  }, []);
+
   return (
     <>
       <Head>
