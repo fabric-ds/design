@@ -94,6 +94,7 @@ export default function Instructions({ source }) {
               .toc {
                 border-radius: 5px;
                 background: #f7f6f6;
+                border: 1px solid #006bfb0a;
                 padding: 20px;
                 padding-bottom: 10px;
                 margin-bottom: 20px;
