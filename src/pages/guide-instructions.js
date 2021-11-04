@@ -49,15 +49,12 @@ export async function getServerSideProps(context) {
 }
 
 export default function Instructions({ source }) {
-  const [loaded, setLoaded] = useState(false);
-
   useEffect(() => {
     const blocks = document.querySelectorAll('pre');
     for (const block of blocks) {
       block.style.height = `${block.clientHeight - 22}px`;
       block.style.overflowY = 'hidden';
     }
-    setLoaded(true);
   }, []);
 
   return (
@@ -73,6 +70,9 @@ export default function Instructions({ source }) {
               main pre code {
                 background-color: transparent;
                 padding: 0;
+              }
+              main pre code span {
+                white-space: pre-wrap;
               }
               main pre {
                 border-radius: 5px;
