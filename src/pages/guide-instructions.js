@@ -77,10 +77,6 @@ export default function Instructions({ source }) {
               main pre {
                 border-radius: 5px;
                 margin: 20px 0 20px 0 !important;
-                white-space: nowrap !important;
-              }
-              main code {
-                white-space: pre !important;
               }
               .remark-code-title {
                 margin-top: 20px;
