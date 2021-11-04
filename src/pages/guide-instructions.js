@@ -1,7 +1,7 @@
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import Head from 'next/head';
-import React from 'react';
+import React, { useState } from 'react';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import toc from '@jsdevtools/rehype-toc';
 
@@ -49,11 +49,15 @@ export async function getServerSideProps(context) {
 }
 
 export default function Instructions({ source }) {
+  const [loaded, setLoaded] = useState(false);
+
   useEffect(() => {
     const blocks = document.querySelectorAll('pre');
     for (const block of blocks) {
       block.style.height = `${block.clientHeight - 22}px`;
+      block.style.overflowY = 'hidden';
     }
+    setLoaded(true);
   }, []);
 
   return (
