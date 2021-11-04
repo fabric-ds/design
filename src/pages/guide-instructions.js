@@ -1,62 +1,104 @@
-import React from 'react';
+import { MDXRemote } from 'next-mdx-remote';
+import { serialize } from 'next-mdx-remote/serialize';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
+import React from 'react';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import toc from '@jsdevtools/rehype-toc';
 
-import GuideReact from '../../docs/guides/react.mdx';
-import GuideCustomElements from '../../docs/guides/custom-elements.mdx';
-import GuideEikNodeClient from '../../docs/guides/eik-node-client.mdx';
-import GuideEikNodeClientJavascript from '../../docs/guides/eik-node-client-javascript.mdx';
-import GuideExpressLayout from '../../docs/guides/express-layout.mdx';
-import GuideExpressPodlet from '../../docs/guides/express-podlet.mdx';
-import GuideHTMLTemplate from '../../docs/guides/html-template.mdx';
-import GuideVue from '../../docs/guides/vue.mdx';
-import GuideEik from '../../docs/guides/eik.mdx';
-import GuideEikJavascript from '../../docs/guides/eik-javascript.mdx';
-import GuideEikJavascriptReact from '../../docs/guides/eik-javascript-react.mdx';
-import GuideEikJavascriptVue from '../../docs/guides/eik-javascript-vue.mdx';
-import GuideEikJavascriptElements from '../../docs/guides/eik-javascript-elements.mdx';
+import 'rehype-autolink-headings';
+import slug from 'rehype-slug';
+import { getGuideContentBySlug } from '../utils/api';
+import { components } from '../utils/markdown';
 
-export default function Instructions() {
-  const router = useRouter();
-  const { csframework, platform, abstraction } = router.query;
+export async function getServerSideProps(context) {
+  const { csframework, platform, abstraction } = context.query;
 
-  const isCSFramework =
-    csframework === 'react' ||
-    csframework === 'vue' ||
-    csframework === 'elements';
-
+  const isCSFramework = csframework === 'react' || csframework === 'vue' || csframework === 'elements';
   const nodeClient = platform === 'node';
   const htmlTemplate = abstraction === 'html-template';
   const expressLayout = abstraction === 'express-layout';
   const expressPodlet = abstraction === 'express-podlet';
 
+  let content = getGuideContentBySlug('eik.mdx');
+
+  if (isCSFramework) content += getGuideContentBySlug('eik-javascript.mdx');
+  if (csframework === 'react') content += getGuideContentBySlug('eik-javascript-react.mdx');
+  if (csframework === 'vue') content += getGuideContentBySlug('eik-javascript-vue.mdx');
+  if (csframework === 'elements') content += getGuideContentBySlug('eik-javascript-elements.mdx');
+
+  if (csframework === 'react') content += getGuideContentBySlug('react.mdx');
+  if (csframework === 'vue') content += getGuideContentBySlug('vue.mdx');
+  if (csframework === 'elements') content += getGuideContentBySlug('custom-elements.mdx');
+
+  if (nodeClient) content += getGuideContentBySlug('eik-node-client.mdx');
+  if (nodeClient && isCSFramework) content += getGuideContentBySlug('eik-node-client-javascript.mdx');
+
+  if (expressLayout) content += getGuideContentBySlug('express-layout.mdx');
+  if (expressPodlet) content += getGuideContentBySlug('express-podlet.mdx');
+  if (htmlTemplate) content += getGuideContentBySlug('html-template.mdx');
+
+  const mdxSource = await serialize(content, {
+    mdxOptions: {
+      remarkPlugins: [require('remark-code-titles')],
+      rehypePlugins: [slug, rehypeAutolinkHeadings, toc],
+    },
+  });
+
+  return { props: { source: mdxSource } };
+}
+
+export default function Instructions({ source }) {
   return (
     <>
       <Head>
         <title>Guide - Instructions | FINN Fabric</title>
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              main > h3 {
+                margin-top: 45px;
+              }
+              main pre code {
+                background-color: transparent;
+                padding: 0;
+              }
+              main pre {
+                border-radius: 5px;
+                margin: 20px 0 20px 0 !important;
+                white-space: nowrap !important;
+              }
+              main code {
+                white-space: pre !important;
+              }
+              .remark-code-title {
+                margin-top: 20px;
+                margin-bottom: -23px;
+                padding: 9px 10px;
+                background: #292d36;
+                border: 1px solid #2e3440;
+                border-top-right-radius: 5px;
+                color: white;
+                border-top-left-radius: 5px;
+                font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+                width: 100%;
+                font-size: 12px;
+              }
+              .toc {
+                border-radius: 5px;
+                background: #f7f6f6;
+                padding: 20px;
+                padding-bottom: 10px;
+                margin-bottom: 20px;
+              }
+              .toc-item {
+                font-family: Finntype, Arial, Helvetica, sans-serif;
+              }
+            `,
+          }}
+        ></style>
       </Head>
       <h1>Setup Guide</h1>
-      <GuideEik></GuideEik>
-      {isCSFramework && <GuideEikJavascript></GuideEikJavascript>}
-      {csframework === 'react' && (
-        <GuideEikJavascriptReact></GuideEikJavascriptReact>
-      )}
-      {csframework === 'vue' && <GuideEikJavascriptVue></GuideEikJavascriptVue>}
-      {csframework === 'elements' && (
-        <GuideEikJavascriptElements></GuideEikJavascriptElements>
-      )}
-      {csframework === 'react' && <GuideReact></GuideReact>}
-      {csframework === 'vue' && <GuideVue></GuideVue>}
-      {csframework === 'elements' && (
-        <GuideCustomElements></GuideCustomElements>
-      )}
-      {nodeClient && <GuideEikNodeClient></GuideEikNodeClient>}
-      {nodeClient && isCSFramework && (
-        <GuideEikNodeClientJavascript></GuideEikNodeClientJavascript>
-      )}
-      {expressLayout && <GuideExpressLayout></GuideExpressLayout>}
-      {expressPodlet && <GuideExpressPodlet></GuideExpressPodlet>}
-      {htmlTemplate && <GuideHTMLTemplate></GuideHTMLTemplate>}
+      <MDXRemote {...source} components={components} />
     </>
   );
 }

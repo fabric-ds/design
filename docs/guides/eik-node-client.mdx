@@ -1,10 +1,8 @@
 ### Setup the Eik node client
 
-When working with Eik, you'll want to include the Eik client to support local
-development. This module switches asset locations between a local app path for
-development and an Eik server absolute URL for production. It uses values in
-your apps `eik.json` file to determine the location of your assets on the Eik
-server.
+When working with Eik, you'll want to include the Eik client to support local development. This module switches asset
+locations between a local app path for development and an Eik server absolute URL for production. It uses values in your
+apps `eik.json` file to determine the location of your assets on the Eik server.
 
 #### Installation and setup
 
@@ -22,10 +20,8 @@ import Eik from '@eik/node-client';
 
 Once imported, instantiate the client, passing it configuration options:
 
-- `base` a base path for where you are serving your apps CSS files for local
-  development
-- `development` a flag to tell it whether your app is running in local
-  development mode or production
+- `base` a base path for where you are serving your apps CSS files for local development
+- `development` a flag to tell it whether your app is running in local development mode or production
 
 ```js
 const eik = new Eik({
@@ -34,16 +30,15 @@ const eik = new Eik({
 });
 ```
 
-After instantiation, call the `.load()` method. This will cause the client to
-read the app's `eik.json` file and use the values found within to construct
-URLs/paths to your app's CSS.
+After instantiation, call the `.load()` method. This will cause the client to read the app's `eik.json` file and use the
+values found within to construct URLs/paths to your app's CSS.
 
 ```js
 await eik.load();
 ```
 
-Once that's done, the `.file()` method can be called to get back a URL or an app
-route to your CSS file for use in your app.
+Once that's done, the `.file()` method can be called to get back a URL or an app route to your CSS file for use in your
+app.
 
 ```js
 const href = eik.file('styles.css');

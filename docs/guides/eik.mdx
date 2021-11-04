@@ -1,6 +1,5 @@
-At Finn, we use Eik for streamlining and optimising the serving of client side
-assets such as CSS and JavaScript. When working with Fabric, we create a CSS
-file, import the Fabric core library and publish to Eik for production.
+At Finn, we use Eik for streamlining and optimising the serving of client side assets such as CSS and JavaScript. When
+working with Fabric, we create a CSS file, import the Fabric core library and publish to Eik for production.
 
 ### Installing Fabric
 
@@ -10,22 +9,20 @@ First, install the Fabric dependency using NPM
 npm install -D @fabric-ds/css
 ```
 
-Then create a CSS file for your app. We'll use `styles.css` in these examples.
-In this file, import the Fabric core library.
+Then create a CSS file for your app. We'll use `styles.css` in these examples. In this file, import the Fabric core
+library.
 
-```css
+```css:styles.css
 @import url('@fabric-ds/css');
 ```
 
-If you need custom CSS style rules in your app you can also put them in this
-file though most of the time with Fabric you won't need to since you can find
-Fabric utility classes for most things you'll need.
+If you need custom CSS style rules in your app you can also put them in this file though most of the time with Fabric
+you won't need to since you can find Fabric utility classes for most things you'll need.
 
 ### Setting up a PostCSS build
 
-[PostCSS](https://postcss.org) is a tool for transforming CSS with JavaScript.
-It can be used to create a production ready Fabric CSS file for our app. We use
-it with the [Eik PostCSS plugin](https://github.com/eik-lib/postcss-plugin) to
+[PostCSS](https://postcss.org) is a tool for transforming CSS with JavaScript. It can be used to create a production
+ready Fabric CSS file for our app. We use it with the [Eik PostCSS plugin](https://github.com/eik-lib/postcss-plugin) to
 ensure teams at Finn are using the same version.
 
 To start with, install PostCSS and the Eik plugin:
@@ -34,30 +31,26 @@ To start with, install PostCSS and the Eik plugin:
 npm i -D postcss postcss-cli postcss-import @eik/postcss-plugin
 ```
 
-Afterwards, create a PostCSS config file called `postcss.config.cjs` and give it
-the following contents:
+Afterwards, create a PostCSS config file called `postcss.config.cjs` and give it the following contents:
 
-```js
+```js:postcss.config.cjs
 module.exports = () => ({
   plugins: [require('@eik/postcss-plugin')(), require('postcss-import')()],
 });
 ```
 
-Now that we have things configured, we can produce a production ready file with
-the following command:
+Now that we have things configured, we can produce a production ready file with the following command:
 
 ```sh
 npx postcss ./styles.css -o ./dist/styles.css
 ```
 
-Note that we create this file in the `dist` folder. Normally, you won't want to
-commit this folder to source control so remember to add and entry for it in
-`.gitignore`
+Note that we create this file in the `dist` folder. Normally, you won't want to commit this folder to source control so
+remember to add and entry for it in `.gitignore`
 
-For convenience, you can add an npm run script in your app's `package.json`
-file:
+For convenience, you can add an npm run script in your app's `package.json` file:
 
-```json
+```json:package.json
 {
   ...
   "scripts": {
@@ -73,16 +66,14 @@ which can be run with:
 npm run build:css
 ```
 
-If you open up `./dist/styles.css`, you should see a file loaded up with CSS
-style rules. This is because all of the CSS in the `@fabric-ds/css` NPM package
-has been inlined into this file. In the next step we'll use Eik to replace all
-this CSS with something production ready.
+If you open up `./dist/styles.css`, you should see a file loaded up with CSS style rules. This is because all of the CSS
+in the `@fabric-ds/css` NPM package has been inlined into this file. In the next step we'll use Eik to replace all this
+CSS with something production ready.
 
 ### Setting up Eik
 
-Now that we are producing a production ready CSS file into a `./dist` folder, we
-need to setup Eik so that we can publish this folder and make it available on
-the Eik CDN.
+Now that we are producing a production ready CSS file into a `./dist` folder, we need to setup Eik so that we can
+publish this folder and make it available on the Eik CDN.
 
 To learn more about Eik and how it works, please refer to the following links:
 
@@ -90,11 +81,10 @@ To learn more about Eik and how it works, please refer to the following links:
 - https://eik.dev/docs/overview_concepts
 - https://eik.dev/docs/overview_workflow
 
-Create an [eik.json](https://eik.dev/docs/overview_eik_json) file in the app
-root folder. This file is used to define meta information about the app's client
-side assets and will be used by Eik to determine where to publish to.
+Create an [eik.json](https://eik.dev/docs/overview_eik_json) file in the app root folder. This file is used to define
+meta information about the app's client side assets and will be used by Eik to determine where to publish to.
 
-```json
+```json:eik.json
 {
   "name": "<your app name>",
   "version": "1.0.0",
@@ -105,23 +95,19 @@ side assets and will be used by Eik to determine where to publish to.
 }
 ```
 
-The `files` field tells Eik which local files/folders to include when
-publishing, the `import-map` field is used during the PostCSS build for
-optimisation purposes. The other fields are used when determining the URL path
-to the published files on the Eik server.
+The `files` field tells Eik which local files/folders to include when publishing, the `import-map` field is used during
+the PostCSS build for optimisation purposes. The other fields are used when determining the URL path to the published
+files on the Eik server.
 
 ### Production ready files with Eik plugins
 
-The file located at `https://assets.finn.no/map/fabric/v1` is an import map. If
-you visit the link in a browser, you'll see that `@fabric-ds/css` is mapped to
-`https://assets.finn.no/pkg/@fabric-ds/css/v0/fabric.min.css`. Now that we've
-setup Eik and added this import map in `eik.json`, when we run our build
-command, PostCSS, instead of inlining the Fabric CSS code, is going to replace
-references to `@fabric-ds/css` in import statements with value found in the
-import map instead. It's this mechanism that we use to line everyone up on the
-same version of Fabric across all of Finn. With everyone on the same version, we
-get great benefits as users will not need to re-download the Fabric CSS code as
-they navigate across the Finn website.
+The file located at `https://assets.finn.no/map/fabric/v1` is an import map. If you visit the link in a browser, you'll
+see that `@fabric-ds/css` is mapped to `https://assets.finn.no/pkg/@fabric-ds/css/v0/fabric.min.css`. Now that we've
+setup Eik and added this import map in `eik.json`, when we run our build command, PostCSS, instead of inlining the
+Fabric CSS code, is going to replace references to `@fabric-ds/css` in import statements with value found in the import
+map instead. It's this mechanism that we use to line everyone up on the same version of Fabric across all of Finn. With
+everyone on the same version, we get great benefits as users will not need to re-download the Fabric CSS code as they
+navigate across the Finn website.
 
 Run the build command one more time:
 
@@ -131,22 +117,20 @@ npm run build:css
 
 And check `./dist/styles.css` and make sure that it contains a single line:
 
-```css
+```css:styles.css
 @import 'https://assets.finn.no/pkg/@fabric-ds/css/v0/fabric.min.css';
 ```
 
 ### Publishing to the Eik server
 
-With a build and Eik setup in place, we need to
-[authenticate with the Eik server](https://eik.dev/docs/client_login) and then
-we should be ready to publish.
+With a build and Eik setup in place, we need to [authenticate with the Eik server](https://eik.dev/docs/client_login)
+and then we should be ready to publish.
 
 ```sh
 npx @eik/cli login
 ```
 
-**N.B.** You will be asked for a **key** when running this command. Ask about
-this in the **#finn-eik** slack channel.
+**N.B.** You will be asked for a **key** when running this command. Ask about this in the **#finn-eik** slack channel.
 
 Once authenticated, run publish
 
@@ -160,8 +144,8 @@ You'll find your published file on the CDN at:
 https://assets.finn.no/pkg/<your app name>/1.0.0/styles.css
 ```
 
-The Eik server provides metadata about your published assets so you can always
-check which version are available by visiting:
+The Eik server provides metadata about your published assets so you can always check which version are available by
+visiting:
 
 ```
 https://assets.finn.no/pkg/<your app name>
@@ -175,6 +159,6 @@ https://assets.finn.no/pkg/<your app name>/1.0.0
 
 ### Automating publishing from the CI
 
-In most cases, it is preferrable to have publishing performed as part of your
-app's CI build pipeline. You can find a guide for setting this up here:
+In most cases, it is preferrable to have publishing performed as part of your app's CI build pipeline. You can find a
+guide for setting this up here:
 https://gist.github.schibsted.io/richard-walker/2b0cc1027aa6b503b0a5e740739bbcf7#file-guide-md

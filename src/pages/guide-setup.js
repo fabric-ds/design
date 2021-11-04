@@ -28,36 +28,15 @@ export default function GuideSetup() {
 
       <h1>Let's get you setup...</h1>
 
-      <p>
-        We can customise your instructions to your situation. Just answer a few
-        questions to get started...
-      </p>
+      <p>We can customise your instructions to your situation. Just answer a few questions to get started...</p>
 
       <h4 className="mt-20">Which platform are you using?</h4>
       <div className="flex flex-wrap">
-        <Card
-          selected={platform === 'node'}
-          className="py-12 px-20 m-10"
-          onClick={() => setPlatform('node')}
-        >
-          <Toggle
-            type="radio"
-            checked={platform === 'node'}
-            label="Node.js"
-            onChange={() => setPlatform('node')}
-          />
+        <Card selected={platform === 'node'} className="py-12 px-20 m-10" onClick={() => setPlatform('node')}>
+          <Toggle type="radio" checked={platform === 'node'} label="Node.js" onChange={() => setPlatform('node')} />
         </Card>
-        <Card
-          selected={platform === 'other'}
-          className="py-12 px-20 m-10"
-          onClick={() => setPlatform('other')}
-        >
-          <Toggle
-            type="radio"
-            label="Other"
-            checked={platform === 'other'}
-            onChange={() => setPlatform('other')}
-          />
+        <Card selected={platform === 'other'} className="py-12 px-20 m-10" onClick={() => setPlatform('other')}>
+          <Toggle type="radio" label="Other" checked={platform === 'other'} onChange={() => setPlatform('other')} />
         </Card>
       </div>
       <hr className="mt-20" />
@@ -157,9 +136,7 @@ export default function GuideSetup() {
 
       {platform === 'node' && framework ? (
         <>
-          <h4 className="mt-20">
-            Is your app using a Podium abstraction module?
-          </h4>
+          <h4 className="mt-20">Is your app using a Podium abstraction module?</h4>
           <div className="flex flex-wrap">
             {framework === 'express' && (
               <>
@@ -209,11 +186,7 @@ export default function GuideSetup() {
                 onChange={() => setAbstraction('html-template')}
               />
             </Card>
-            <Card
-              selected={abstraction === 'none'}
-              className="py-12 px-20 m-10"
-              onClick={() => setAbstraction('none')}
-            >
+            <Card selected={abstraction === 'none'} className="py-12 px-20 m-10" onClick={() => setAbstraction('none')}>
               <Toggle
                 type="radio"
                 label="I'm not using any abstractions"
@@ -257,8 +230,7 @@ export default function GuideSetup() {
       </div>
       <hr className="mt-20" /> */}
 
-      {((!abstraction && platform == 'other') ||
-        (abstraction && platform == 'node')) && (
+      {((!abstraction && platform == 'other') || (abstraction && platform == 'node')) && (
         <>
           <h4 className="mt-20">Are you using a client side framework?</h4>
           <div className="flex flex-wrap">
@@ -316,12 +288,7 @@ export default function GuideSetup() {
 
       {platform && (
         <div className="flex flex-wrap justify-center mt-20">
-          <Button
-            onClick={() =>
-              Router.push(`/guide-instructions?${query.toString()}`)
-            }
-            utility
-          >
+          <Button onClick={() => Router.push(`/guide-instructions?${query.toString()}`)} utility>
             Show me the docs!
           </Button>
         </div>
