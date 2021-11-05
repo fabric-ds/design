@@ -10,7 +10,7 @@ First, ensure Express podlet is installed at the latest version.
 npm install @finn-no/express-podlet@latest
 ```
 
-Next, set the `troika` option to `false` in the module constructor.
+Next, set the `troika` option to `false` and the `fabric` option to `true` in the module constructor.
 
 ```js
 import ExpressPodlet from '@finn-no/express-podlet';
@@ -18,6 +18,7 @@ import ExpressPodlet from '@finn-no/express-podlet';
 new ExpressPodlet({
   // ...
   troika: false,
+  fabric: true,
   // ...
 });
 ```
