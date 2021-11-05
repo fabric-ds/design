@@ -1,58 +1,82 @@
-import toc from '@jsdevtools/rehype-toc';
+import fs from 'fs';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
+import { useRouter } from 'next/dist/client/router';
 import Head from 'next/head';
-import React, { useEffect } from 'react';
+import path from 'path';
+import React, { useEffect, useState } from 'react';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import slug from 'rehype-slug';
-import { getGuideContentBySlug } from '../utils/api';
+import { getGuideContentBySlug, guidePath } from '../utils/api';
 import { components } from '../utils/markdown';
 
-export async function getServerSideProps(context) {
-  const { csframework, platform, abstraction } = context.query;
+export async function getStaticProps() {
+  const guideSlugs = await fs.readdirSync(path.resolve(guidePath));
+  const allGuides = {};
 
-  const isCSFramework = csframework === 'react' || csframework === 'vue' || csframework === 'elements';
-  const nodeClient = platform === 'node';
-  const htmlTemplate = abstraction === 'html-template';
-  const expressLayout = abstraction === 'express-layout';
-  const expressPodlet = abstraction === 'express-podlet';
+  for (const guideSlug of guideSlugs) {
+    allGuides[guideSlug] = await serialize(getGuideContentBySlug(guideSlug.replace('.mdx', '')), {
+      mdxOptions: {
+        remarkPlugins: [require('mdx-prism'), require('remark-code-titles')],
+        rehypePlugins: [slug, rehypeAutolinkHeadings],
+      },
+    });
+  }
 
-  let content = getGuideContentBySlug('eik.mdx');
-
-  if (isCSFramework) content += getGuideContentBySlug('eik-javascript.mdx');
-  if (csframework === 'react') content += getGuideContentBySlug('eik-javascript-react.mdx');
-  if (csframework === 'vue') content += getGuideContentBySlug('eik-javascript-vue.mdx');
-  if (csframework === 'elements') content += getGuideContentBySlug('eik-javascript-elements.mdx');
-
-  if (csframework === 'react') content += getGuideContentBySlug('react.mdx');
-  if (csframework === 'vue') content += getGuideContentBySlug('vue.mdx');
-  if (csframework === 'elements') content += getGuideContentBySlug('custom-elements.mdx');
-
-  if (nodeClient) content += getGuideContentBySlug('eik-node-client.mdx');
-  if (nodeClient && isCSFramework) content += getGuideContentBySlug('eik-node-client-javascript.mdx');
-
-  if (expressLayout) content += getGuideContentBySlug('express-layout.mdx');
-  if (expressPodlet) content += getGuideContentBySlug('express-podlet.mdx');
-  if (htmlTemplate) content += getGuideContentBySlug('html-template.mdx');
-
-  const mdxSource = await serialize(content, {
-    mdxOptions: {
-      remarkPlugins: [require('mdx-prism'), require('remark-code-titles')],
-      rehypePlugins: [slug, rehypeAutolinkHeadings, toc],
-    },
-  });
-
-  return { props: { source: mdxSource } };
+  return { props: { allGuides } };
 }
 
-function Instructions({ source }) {
+export default function Instructions({ allGuides }) {
+  const router = useRouter();
+  const [guides, setGuides] = useState({});
+
+  useEffect(() => {
+    if (!router.query) return;
+    const { csframework, platform, abstraction } = router.query;
+
+    const isCSFramework = csframework === 'react' || csframework === 'vue' || csframework === 'elements';
+    const nodeClient = platform === 'node';
+    const htmlTemplate = abstraction === 'html-template';
+    const expressLayout = abstraction === 'express-layout';
+    const expressPodlet = abstraction === 'express-podlet';
+
+    const guides = {
+      'eik.mdx': allGuides['eik.mdx'],
+      'eik-javascript.mdx': isCSFramework ? allGuides['eik-javascript.mdx'] : undefined,
+      'eik-javascript-react.mdx': csframework === 'react' ? allGuides['eik-javascript-react.mdx'] : undefined,
+      'eik-javascript-vue.mdx': csframework === 'vue' ? allGuides['eik-javascript-vue.mdx'] : undefined,
+      'eik-javascript-elements.mdx': csframework === 'elements' ? allGuides['eik-javascript-elements.mdx'] : undefined,
+      'react.mdx': csframework === 'react' ? allGuides['react.mdx'] : undefined,
+      'vue.mdx': csframework === 'vue' ? allGuides['vue.mdx'] : undefined,
+      'custom-elements.mdx': csframework === 'elements' ? allGuides['custom-elements.mdx'] : undefined,
+      'eik-node-client.mdx': nodeClient ? allGuides['eik-node-client.mdx'] : undefined,
+      'eik-node-client-javascript.mdx':
+        nodeClient && isCSFramework ? allGuides['eik-node-client-javascript.mdx'] : undefined,
+      'express-layout.mdx': expressLayout ? allGuides['express-layout.mdx'] : undefined,
+      'express-podlet.mdx': expressPodlet ? allGuides['express-podlet.mdx'] : undefined,
+      'html-template.mdx': htmlTemplate ? allGuides['html-template.mdx'] : undefined,
+    };
+
+    const enabledGuides = Object.keys(guides).filter((guide) => guides[guide]);
+
+    for (const key in guides) {
+      if (!enabledGuides.includes(key)) {
+        delete guides[key];
+      }
+    }
+
+    setGuides(guides);
+  }, [router]);
+
   useEffect(() => {
     const blocks = document.querySelectorAll('pre');
-    for (const block of blocks) {
+
+    for (const block of [...blocks].filter((block) => !block.dataset.updated)) {
       block.style.height = `${block.clientHeight - 22}px`;
       block.style.overflowY = 'hidden';
+      block.dataset.updated = true;
     }
-  }, []);
+  });
 
   return (
     <>
@@ -104,9 +128,10 @@ function Instructions({ source }) {
         ></style>
       </Head>
       <h1>Setup Guide</h1>
-      <MDXRemote {...source} components={components} />
+
+      {Object.keys(guides).map((guide) => (
+        <MDXRemote key={guide} {...guides[guide]} components={components} />
+      ))}
     </>
   );
 }
-
-export default Instructions;
