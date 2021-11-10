@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import { theme } from '@fabric-ds/tailwind-config';
+import { colors } from '@fabric-ds/tailwind-config/colors.js';
 import mapObject from 'map-obj';
 import decamelize from 'decamelize';
 
@@ -40,7 +40,6 @@ export default function ColorPage({ colors }) {
       <section className="my-48">
         <h3 className="mt-24">Logo colors</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
-  
           <div>
             <div className="bg-blue-600 rounded-t-8 h-64"></div>
             <div className="p-16 border-2 border-t-0 rounded-b-8">
@@ -74,12 +73,10 @@ export default function ColorPage({ colors }) {
               </dl>
             </div>
           </div>
-
         </div>
 
         <h3 className="mt-24">Text colors</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
-  
           <div>
             <div className="bg-gray-700 rounded-t-8 h-64"></div>
             <div className="p-16 border-2 border-t-0 rounded-b-8">
@@ -130,8 +127,6 @@ export default function ColorPage({ colors }) {
               </dl>
             </div>
           </div>
-        
-
         </div>
 
         <h3 className="mt-24">Background colors</h3>
@@ -152,7 +147,7 @@ export default function ColorPage({ colors }) {
               </dl>
             </div>
           </div>
-        
+
           <div>
             <div className="bg-aqua-50 rounded-t-8 h-64 border-2"></div>
             <div className="p-16 border-2 border-t-0 rounded-b-8">
@@ -237,7 +232,7 @@ export default function ColorPage({ colors }) {
               </dl>
             </div>
           </div>
-         
+
           <div>
             <div className="bg-red-200 rounded-t-8 h-64 border-2"></div>
             <div className="p-16 border-2 border-t-0 rounded-b-8">
@@ -254,12 +249,10 @@ export default function ColorPage({ colors }) {
               </dl>
             </div>
           </div>
-
         </div>
 
         <h3 className="mt-24">Detail colors</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
-          
           <div>
             <div className="bg-green-600 rounded-t-8 h-64"></div>
             <div className="p-16 border-2 border-t-0 rounded-b-8">
@@ -276,7 +269,7 @@ export default function ColorPage({ colors }) {
               </dl>
             </div>
           </div>
-          
+
           <div>
             <div className="bg-green-400 rounded-t-8 h-64"></div>
             <div className="p-16 border-2 border-t-0 rounded-b-8">
@@ -293,7 +286,7 @@ export default function ColorPage({ colors }) {
               </dl>
             </div>
           </div>
-          
+
           <div>
             <div className="bg-red-600 rounded-t-8 h-64"></div>
             <div className="p-16 border-2 border-t-0 rounded-b-8">
@@ -327,7 +320,6 @@ export default function ColorPage({ colors }) {
               </dl>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -356,7 +348,6 @@ export default function ColorPage({ colors }) {
           </p>
         </div>
       </div>
-     
     </>
   );
 }
@@ -396,7 +387,6 @@ function Color({ token, colorHex }) {
       <div
         className="width-max-width h-48 rounded-t-4 border-2"
         style={{ backgroundColor: colorHex }}
-        
       />
 
       <div className="border-2 border-t-0 rounded-b-4 p-8">
