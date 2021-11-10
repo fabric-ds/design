@@ -39,6 +39,7 @@ export default function Instructions({ allGuides }) {
     const htmlTemplate = abstraction === 'html-template';
     const expressLayout = abstraction === 'express-layout';
     const expressPodlet = abstraction === 'express-podlet';
+    const podium = htmlTemplate || expressPodlet || expressLayout;
 
     const guides = {
       'eik.mdx': allGuides['eik.mdx'],
@@ -55,6 +56,9 @@ export default function Instructions({ allGuides }) {
       'express-layout.mdx': expressLayout ? allGuides['express-layout.mdx'] : undefined,
       'express-podlet.mdx': expressPodlet ? allGuides['express-podlet.mdx'] : undefined,
       'html-template.mdx': htmlTemplate ? allGuides['html-template.mdx'] : undefined,
+      'page-setup.mdx': !podium ? allGuides['page-setup.mdx'] : undefined,
+      'page-setup-podium.mdx': podium ? allGuides['page-setup-podium.mdx'] : undefined,
+      'page-setup-javascript.mdx': !podium && isCSFramework ? allGuides['page-setup-javascript.mdx'] : undefined,
     };
 
     const enabledGuides = Object.keys(guides).filter((guide) => guides[guide]);

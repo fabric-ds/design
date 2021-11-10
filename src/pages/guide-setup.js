@@ -16,7 +16,7 @@ export default function GuideSetup() {
   const query = new URLSearchParams();
   if (platform) query.append('platform', platform);
   if (framework) query.append('framework', framework);
-  if (podium) query.append('podium', podium);
+  // if (podium) query.append('podium', podium);
   if (abstraction) query.append('abstraction', abstraction);
   if (clientSideFramework) query.append('csframework', clientSideFramework);
 

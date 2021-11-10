@@ -1,0 +1,22 @@
+### Usage in a document
+
+In a Podium podlet or layout,
+your content will automatically be wrapped in an HTML document such that you can simply 
+implement the content that should be placed within the HTML document's `<body>` tag.
+
+```html
+<html>
+<head>
+    ...
+</head>
+<body>
+    You only need to implement the content here.
+</body>
+</html>
+```
+
+For this to work, you need to ensure that you are using the `podiumSend` method when rendering your content.
+
+```js
+(req, res) => res.podiumSend(`You only need to implement the content here.`);
+```

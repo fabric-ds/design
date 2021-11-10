@@ -1,0 +1,19 @@
+Fabric client-side JavaScript code should be loaded at the bottom of the `<body>` of the document with a preload link tag in the document `<head>`
+The URL should be the URL pointing to the JS file you published to Eik earlier.
+
+Create HTML `<link>` and `<script>` tags using the URL like so:
+
+```html
+<html>
+<head>
+    ...
+    <link href="https://assets.finn.no/pkg/<eik.json name field>/<eik.json version field>/scripts.js" rel="preload" as="script" crossorigin>
+    ...
+</head>
+<body>
+    Your content here
+    <script src="https://assets.finn.no/pkg/<eik.json name field>/<eik.json version field>/scripts.js" type="module"></script>
+</body>
+</html>
+```
+
