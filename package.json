@@ -18,8 +18,8 @@
   },
   "license": "ISC",
   "dependencies": {
-    "@fabric-ds/icons": "^0.3.10",
-    "@fabric-ds/react": "0.0.6",
+    "@fabric-ds/icons": "^0.3.12",
+    "@fabric-ds/react": "^0.0.6",
     "@jsdevtools/rehype-toc": "^3.0.2",
     "@mdx-js/loader": "^1.6.22",
     "@next/mdx": "^11.1.2",
@@ -41,7 +41,7 @@
     "tailwindcss": "^2.0.2"
   },
   "devDependencies": {
-    "@fabric-ds/tailwind-config": "^0.5.24",
+    "@fabric-ds/tailwind-config": "^0.5.27",
     "@tailwindcss/aspect-ratio": "^0.3.0",
     "husky": "^6.0.0",
     "lint-staged": "^10.5.4",
