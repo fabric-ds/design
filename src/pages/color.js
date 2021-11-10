@@ -7,8 +7,6 @@ import decamelize from 'decamelize';
 import { AssetLink, AssetLinks } from '../components/AssetLink';
 
 export function getStaticProps() {
-  let colors = theme.colors;
-
   // decamlize the color names and uppercase the first letter
   colors = mapObject(colors, (key, value) => [
     decamelizeCaptitalize(key),
