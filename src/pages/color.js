@@ -29,7 +29,7 @@ export default function ColorPage({ colors }) {
 
       <p>
         Fabric colors are designed to be clear and accessible. They come in
-        different color ranges.
+        different color ranges. 
       </p>
 
       <AssetLinks>
@@ -43,11 +43,11 @@ export default function ColorPage({ colors }) {
             <div className="p-16 border-2 border-t-0 rounded-b-8">
               <h4>Primary-blue</h4>
               <dl className="m-0 text-12">
-                <div className="grid grid-cols-2 lg:grid-cols-2">
+                <div className="grid grid-cols-2">
                   <dt className="m-0">HEX</dt>
                   <dd className="m-0">#2563eb</dd>
                 </div>
-                <div className="grid grid-cols-2 lg:grid-cols-2">
+                <div className="grid grid-cols-2">
                   <dt className="m-0">Alias of</dt>
                   <dd className="m-0">blue-600</dd>
                 </div>
@@ -60,11 +60,11 @@ export default function ColorPage({ colors }) {
             <div className="p-16 border-2 border-t-0 rounded-b-8">
               <h4>Secondary-blue</h4>
               <dl className="m-0 text-12">
-                <div className="grid grid-cols-2 lg:grid-cols-2">
+                <div className="grid grid-cols-2">
                   <dt className="m-0">HEX</dt>
                   <dd className="m-0">#38bdf8</dd>
                 </div>
-                <div className="grid grid-cols-2 lg:grid-cols-2">
+                <div className="grid grid-cols-2">
                   <dt className="m-0">Alias of</dt>
                   <dd className="m-0">aqua-400</dd>
                 </div>
@@ -80,11 +80,11 @@ export default function ColorPage({ colors }) {
             <div className="p-16 border-2 border-t-0 rounded-b-8">
               <h4>Licorice</h4>
               <dl className="m-0 text-12">
-                <div className="grid grid-cols-2 lg:grid-cols-2">
+                <div className="grid grid-cols-2">
                   <dt className="m-0">HEX</dt>
                   <dd className="m-0">#474445</dd>
                 </div>
-                <div className="grid grid-cols-2 lg:grid-cols-2">
+                <div className="grid grid-cols-2">
                   <dt className="m-0">Alias of</dt>
                   <dd className="m-0">gray-700</dd>
                 </div>
@@ -97,11 +97,11 @@ export default function ColorPage({ colors }) {
             <div className="p-16 border-2 border-t-0 rounded-b-8">
               <h4>Stone</h4>
               <dl className="m-0 text-12">
-                <div className="grid grid-cols-2 lg:grid-cols-2">
+                <div className="grid grid-cols-2">
                   <dt className="m-0">HEX</dt>
                   <dd className="m-0">#767676</dd>
                 </div>
-                <div className="grid grid-cols-2 lg:grid-cols-2">
+                <div className="grid grid-cols-2">
                   <dt className="m-0">Alias of</dt>
                   <dd className="m-0">gray-500</dd>
                 </div>
@@ -114,11 +114,11 @@ export default function ColorPage({ colors }) {
             <div className="p-16 border-2 border-t-0 rounded-b-8">
               <h4>Sardine</h4>
               <dl className="m-0 text-12">
-                <div className="grid grid-cols-2 lg:grid-cols-2">
+                <div className="grid grid-cols-2">
                   <dt className="m-0">HEX</dt>
                   <dd className="m-0">#C3CCD9</dd>
                 </div>
-                <div className="grid grid-cols-2 lg:grid-cols-2">
+                <div className="grid grid-cols-2">
                   <dt className="m-0">Alias of</dt>
                   <dd className="m-0">bluegray-300</dd>
                 </div>
@@ -128,121 +128,270 @@ export default function ColorPage({ colors }) {
         </div>
 
         <h3 className="mt-24">Background colors</h3>
+        <p className="mb-24">These colors should only be used as background colors. Here you can see which colors and font sizes are safe to use for text on top of the different color backgrounds.</p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
-          <div>
-            <div className="bg-aqua-200 rounded-t-8 h-64 border-2"></div>
-            <div className="p-16 border-2 border-t-0 rounded-b-8">
-              <h4>Toothpaste</h4>
+          <div className="border-2 rounded-8 overflow-hidden">
+            <div className="bg-aqua-200 h-64 border-b-2">
+              <h4 className="p-16">Toothpaste</h4>
+            </div>
+            <div className="p-16">
               <dl className="m-0 text-12">
-                <div className="grid grid-cols-2 lg:grid-cols-2">
+                <div className="grid grid-cols-2">
                   <dt className="m-0">HEX</dt>
                   <dd className="m-0">#B6F0FF</dd>
                 </div>
-                <div className="grid grid-cols-2 lg:grid-cols-2">
+                <div className="grid grid-cols-2">
                   <dt className="m-0">Alias of</dt>
                   <dd className="m-0">aqua-200</dd>
                 </div>
               </dl>
+              <hr className="border-t-2 -mr-16 -ml-16 my-16" />
+              <h4 className="text-12" >Valid text colors</h4>
+              <dl className="m-0 text-12">
+                <div class="flex text-blue-600"> 
+                  <dt class="m-0">primary-blue</dt>
+                  <dd class="m-0 ml-auto">AA Large</dd>
+                </div>
+                <div class="flex text-gray-700"> 
+                  <dt class="m-0">licorice</dt>
+                  <dd class="m-0 ml-auto">AAA</dd>
+                </div>
+                <div class="flex text-red-600"> 
+                  <dt class="m-0">cherry</dt>
+                  <dd class="m-0 ml-auto">AA Large</dd>
+                </div>
+              </dl>
             </div>
           </div>
+<<<<<<< Updated upstream
 
           <div>
             <div className="bg-aqua-50 rounded-t-8 h-64 border-2"></div>
             <div className="p-16 border-2 border-t-0 rounded-b-8">
               <h4>Ice</h4>
+=======
+        
+          <div className="border-2 rounded-8 overflow-hidden">
+            <div className="bg-aqua-50 h-64 border-b-2">
+              <h4 className="p-16">Ice</h4>
+            </div>
+            <div className="p-16 ">
+              
+>>>>>>> Stashed changes
               <dl className="m-0 text-12">
-                <div className="grid grid-cols-2 lg:grid-cols-2">
+                <div className="grid grid-cols-2">
                   <dt className="m-0">HEX</dt>
                   <dd className="m-0">#F1F9FF</dd>
                 </div>
-                <div className="grid grid-cols-2 lg:grid-cols-2">
+                <div className="grid grid-cols-2">
                   <dt className="m-0">Alias of</dt>
                   <dd className="m-0">aqua-50</dd>
                 </div>
               </dl>
+              <hr className="border-t-2 -mr-16 -ml-16 my-16" />
+              <h4 className="text-12" >Valid text colors</h4>
+              <dl className="m-0 text-12">
+                <div class="flex text-blue-600"> 
+                  <dt class="m-0">primary-blue</dt>
+                  <dd class="m-0 ml-auto">AA</dd>
+                </div>
+                <div class="flex text-gray-700"> 
+                  <dt class="m-0">licorice</dt>
+                  <dd class="m-0 ml-auto">AAA</dd>
+                </div>
+                <div class="flex text-red-600"> 
+                  <dt class="m-0">cherry</dt>
+                  <dd class="m-0 ml-auto">AA</dd>
+                </div>
+              </dl>
             </div>
           </div>
 
-          <div>
-            <div className="bg-bluegray-100 rounded-t-8 h-64 border-2"></div>
-            <div className="p-16 border-2 border-t-0 rounded-b-8">
-              <h4>Marble</h4>
+          <div className="border-2 rounded-8 overflow-hidden">
+            <div className="bg-bluegray-100 h-64">
+              <h4 className="p-16">Marble</h4>
+            </div>
+            <div className="p-16 border-t-2">
+              
               <dl className="m-0 text-12">
-                <div className="grid grid-cols-2 lg:grid-cols-2">
+                <div className="grid grid-cols-2">
                   <dt className="m-0">HEX</dt>
                   <dd className="m-0">#F6F8FB</dd>
                 </div>
-                <div className="grid grid-cols-2 lg:grid-cols-2">
+                <div className="grid grid-cols-2 ">
                   <dt className="m-0">Alias of</dt>
                   <dd className="m-0">bluegray-100</dd>
                 </div>
               </dl>
+              <hr className="border-t-2 -mr-16 -ml-16 my-16" />
+              <h4 className="text-12" >Valid text colors</h4>
+              <dl className="m-0 text-12">
+                <div class="flex text-blue-600"> 
+                  <dt class="m-0">primary-blue</dt>
+                  <dd class="m-0 ml-auto">AA</dd>
+                </div>
+                <div class="flex text-gray-700"> 
+                  <dt class="m-0">licorice</dt>
+                  <dd class="m-0 ml-auto">AAA</dd>
+                </div>
+                <div class="flex text-red-600"> 
+                  <dt class="m-0">cherry</dt>
+                  <dd class="m-0 ml-auto">AA</dd>
+                </div>
+              </dl>
             </div>
           </div>
 
-          <div>
-            <div className="bg-white rounded-t-8 h-64 border-2"></div>
-            <div className="p-16 border-2 border-t-0 rounded-b-8">
-              <h4>Milk</h4>
+          <div className="border-2 rounded-8 overflow-hidden">
+            <div className="bg-white h-64">
+              <h4 className="p-16">Milk</h4>
+            </div>
+            <div className="p-16 border-t-2">
+              
               <dl className="m-0 text-12">
-                <div className="grid grid-cols-2 lg:grid-cols-2">
+                <div className="grid grid-cols-2">
                   <dt className="m-0">HEX</dt>
                   <dd className="m-0">#FFFFFF</dd>
                 </div>
-                <div className="grid grid-cols-2 lg:grid-cols-2">
+                <div className="grid grid-cols-2">
                   <dt className="m-0">Alias of</dt>
                   <dd className="m-0">white</dd>
                 </div>
               </dl>
+              <hr className="border-t-2 -mr-16 -ml-16 my-16" />
+              <h4 className="text-12" >Valid text colors</h4>
+              <dl className="m-0 text-12">
+                <div class="flex text-blue-600"> 
+                  <dt class="m-0">primary-blue</dt>
+                  <dd class="m-0 ml-auto">AA</dd>
+                </div>
+                <div class="flex text-gray-700"> 
+                  <dt class="m-0">licorice</dt>
+                  <dd class="m-0 ml-auto">AAA</dd>
+                </div>
+                <div class="flex text-gray-500"> 
+                  <dt class="m-0">stone</dt>
+                  <dd class="m-0 ml-auto">AA</dd>
+                </div>
+                <div class="flex text-red-600"> 
+                  <dt class="m-0">cherry</dt>
+                  <dd class="m-0 ml-auto">AA</dd>
+                </div>
+                <div class="flex text-red-400"> 
+                  <dt class="m-0">text-watermelon</dt>
+                  <dd class="m-0 ml-auto">AA Large</dd>
+                </div>
+              </dl>
             </div>
           </div>
 
-          <div>
-            <div className="bg-green-200 rounded-t-8 h-64 border-2"></div>
-            <div className="p-16 border-2 border-t-0 rounded-b-8">
-              <h4>Mint</h4>
+          <div className="border-2 rounded-8 overflow-hidden">
+            <div className="bg-green-200 h-64">
+              <h4 className="p-16">Mint</h4>
+            </div>
+            <div className="p-16 border-t-2">
+              
               <dl className="m-0 text-12">
-                <div className="grid grid-cols-2 lg:grid-cols-2">
+                <div className="grid grid-cols-2">
                   <dt className="m-0">HEX</dt>
                   <dd className="m-0">#CCFFEC</dd>
                 </div>
-                <div className="grid grid-cols-2 lg:grid-cols-2">
+                <div className="grid grid-cols-2">
                   <dt className="m-0">Alias of</dt>
                   <dd className="m-0">green-200</dd>
                 </div>
               </dl>
-            </div>
-          </div>
-
-          <div>
-            <div className="bg-yellow-100 rounded-t-8 h-64 border-2"></div>
-            <div className="p-16 border-2 border-t-0 rounded-b-8">
-              <h4>Banana</h4>
+              <hr className="border-t-2 -mr-16 -ml-16 my-16" />
+              <h4 className="text-12" >Valid text colors</h4>
               <dl className="m-0 text-12">
-                <div className="grid grid-cols-2 lg:grid-cols-2">
-                  <dt className="m-0">HEX</dt>
-                  <dd className="m-0">#FFF5C8</dd>
+                <div class="flex text-blue-600"> 
+                  <dt class="m-0">primary-blue</dt>
+                  <dd class="m-0 ml-auto">AA</dd>
                 </div>
-                <div className="grid grid-cols-2 lg:grid-cols-2">
-                  <dt className="m-0">Alias of</dt>
-                  <dd className="m-0">yellow-100</dd>
+                <div class="flex text-gray-700"> 
+                  <dt class="m-0">licorice</dt>
+                  <dd class="m-0 ml-auto">AA</dd>
+                </div>
+                <div class="flex text-red-600"> 
+                  <dt class="m-0">cherry</dt>
+                  <dd class="m-0 ml-auto">AA</dd>
                 </div>
               </dl>
             </div>
           </div>
+
+          <div className="border-2 rounded-8 overflow-hidden">
+            <div className="bg-yellow-100 h-64">
+              <h4 className="p-16">Banana</h4>
+            </div>
+            <div className="p-16 border-t-2">
+             
+              <dl className="m-0 text-12">
+                <div className="grid grid-cols-2">
+                  <dt className="m-0">HEX</dt>
+                  <dd className="m-0">#FFF5C8</dd>
+                </div>
+                <div className="grid grid-cols-2">
+                  <dt className="m-0">Alias of</dt>
+                  <dd className="m-0">yellow-100</dd>
+                </div>
+              </dl>
+              <hr className="border-t-2 -mr-16 -ml-16 my-16" />
+              <h4 className="text-12" >Valid text colors</h4>
+              <dl className="m-0 text-12">
+                <div class="flex text-blue-600"> 
+                  <dt class="m-0">primary-blue</dt>
+                  <dd class="m-0 ml-auto">AA</dd>
+                </div>
+                <div class="flex text-gray-700"> 
+                  <dt class="m-0">licorice</dt>
+                  <dd class="m-0 ml-auto">AAA</dd>
+                </div>
+                <div class="flex text-red-600"> 
+                  <dt class="m-0">cherry</dt>
+                  <dd class="m-0 ml-auto">AA</dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+<<<<<<< Updated upstream
 
           <div>
             <div className="bg-red-200 rounded-t-8 h-64 border-2"></div>
             <div className="p-16 border-2 border-t-0 rounded-b-8">
               <h4>Salmon</h4>
+=======
+         
+          <div className="border-2 rounded-8">
+            <div className="bg-red-200 h-64">
+              <h4 className="p-16">Salmon</h4>
+            </div>
+            <div className="p-16 border-t-2">
+>>>>>>> Stashed changes
               <dl className="m-0 text-12">
-                <div className="grid grid-cols-2 lg:grid-cols-2">
+                <div className="grid grid-cols-2">
                   <dt className="m-0">HEX</dt>
                   <dd className="m-0">#FFEFEF</dd>
                 </div>
-                <div className="grid grid-cols-2 lg:grid-cols-2">
+                <div className="grid grid-cols-2">
                   <dt className="m-0">Alias of</dt>
                   <dd className="m-0">red-200</dd>
+                </div>
+              </dl>
+              <hr className="border-t-2 -mr-16 -ml-16 my-16" />
+              <h4 className="text-12" >Valid text colors</h4>
+              <dl className="m-0 text-12">
+                <div class="flex text-blue-600"> 
+                  <dt class="m-0">primary-blue</dt>
+                  <dd class="m-0 ml-auto">AA Large</dd>
+                </div>
+                <div class="flex text-gray-700"> 
+                  <dt class="m-0">licorice</dt>
+                  <dd class="m-0 ml-auto">AA</dd>
+                </div>
+                <div class="flex text-red-600"> 
+                  <dt class="m-0">cherry</dt>
+                  <dd class="m-0 ml-auto">AA Large</dd>
                 </div>
               </dl>
             </div>
@@ -256,11 +405,11 @@ export default function ColorPage({ colors }) {
             <div className="p-16 border-2 border-t-0 rounded-b-8">
               <h4>Lime</h4>
               <dl className="m-0 text-12">
-                <div className="grid grid-cols-2 lg:grid-cols-2">
+                <div className="grid grid-cols-2">
                   <dt className="m-0">HEX</dt>
                   <dd className="m-0">#007200</dd>
                 </div>
-                <div className="grid grid-cols-2 lg:grid-cols-2">
+                <div className="grid grid-cols-2">
                   <dt className="m-0">Alias of</dt>
                   <dd className="m-0">green-600</dd>
                 </div>
@@ -273,11 +422,11 @@ export default function ColorPage({ colors }) {
             <div className="p-16 border-2 border-t-0 rounded-b-8">
               <h4>Pea</h4>
               <dl className="m-0 text-12">
-                <div className="grid grid-cols-2 lg:grid-cols-2">
+                <div className="grid grid-cols-2">
                   <dt className="m-0">HEX</dt>
                   <dd className="m-0">#2EE69F</dd>
                 </div>
-                <div className="grid grid-cols-2 lg:grid-cols-2">
+                <div className="grid grid-cols-2">
                   <dt className="m-0">Alias of</dt>
                   <dd className="m-0">green-400</dd>
                 </div>
@@ -290,11 +439,11 @@ export default function ColorPage({ colors }) {
             <div className="p-16 border-2 border-t-0 rounded-b-8">
               <h4>Cherry</h4>
               <dl className="m-0 text-12">
-                <div className="grid grid-cols-2 lg:grid-cols-2">
+                <div className="grid grid-cols-2">
                   <dt className="m-0">HEX</dt>
                   <dd className="m-0">#D9270A</dd>
                 </div>
-                <div className="grid grid-cols-2 lg:grid-cols-2">
+                <div className="grid grid-cols-2">
                   <dt className="m-0">Alias of</dt>
                   <dd className="m-0">red-600</dd>
                 </div>
@@ -307,11 +456,11 @@ export default function ColorPage({ colors }) {
             <div className="p-16 border-2 border-t-0 rounded-b-8">
               <h4>Watermelon</h4>
               <dl className="m-0 text-12">
-                <div className="grid grid-cols-2 lg:grid-cols-2">
+                <div className="grid grid-cols-2">
                   <dt className="m-0">HEX</dt>
                   <dd className="m-0">#FF5844</dd>
                 </div>
-                <div className="grid grid-cols-2 lg:grid-cols-2">
+                <div className="grid grid-cols-2">
                   <dt className="m-0">Alias of</dt>
                   <dd className="m-0">red-400</dd>
                 </div>
@@ -320,6 +469,8 @@ export default function ColorPage({ colors }) {
           </div>
         </div>
       </section>
+
+      
 
       <section className="my-32">
         <h3>Full palette</h3>
