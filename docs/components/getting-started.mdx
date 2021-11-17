@@ -1,13 +1,17 @@
-
 # Fabric Concepts
-	## utility classes
-	## customised subset of Tailwind classes
 
+## utility classes
 
+..
 
+## customised subset of Tailwind classes
+
+..
 
 ## Lets make a FINN page
-So lets pretend we get a task to create a FINN page, we will use the [Min FINN](https://www.finn.no/min-finn) page as an example.
+
+So lets pretend we get a task to create a FINN page, we will use the [Min FINN](https://www.finn.no/min-finn) page as an
+example.
 
 ### Screenshot, minfinn on smaller screen
 
@@ -17,146 +21,232 @@ So lets pretend we get a task to create a FINN page, we will use the [Min FINN](
 
 [<img alt="Screenshot of minfinn" src="guide-img/minfinn-large.png" height="500" width="500" />](guide-img/minfinn-large.png)
 
+As we can see the main layout follows the same pattern as most pages on finn.
 
-As we can see the main layout follows the same pattern as most pages on finn. 
-
-We will dig a little deeper into the main menu part of it. 
+We will dig a little deeper into the main menu part of it.
 ![Screenshot of minfinn, the main menu](guide-img/minfinn-menu-full.png)
 
 ### 1. Getting setup
-If not already done, there is a compehensive [setup-guide](https://www.fabric-ds.io/guide-setup) to get up and running. 
+
+If not already done, there is a compehensive [setup-guide](https://www.fabric-ds.io/guide-setup) to get up and running.
 
 ### 2. Header/Footer
+
 The top-bar and Footer are standard finn components (excists as podlets) We will ignore these for now.
 [FINN Header podlet on github](https://github.schibsted.io/finn/header)
 [FINN Footer podlet on github](https://github.schibsted.io/finn/footer)
 
 ### 3. Page-container
-The purpose of this is to keep the page align correctly across the site, making it scale correctly on different window sizes/devices, and also keep it nice and tidy inside the outer banners. 
 
-The sketch shows a background going full width outside the page-container, so we need to wrap it inside something that holds the background-color.
+The purpose of this is to keep the page align correctly across the site, making it scale correctly on different window
+sizes/devices, and also keep it nice and tidy inside the outer banners.
+
+The sketch shows a background going full width outside the page-container, so we need to wrap it inside something that
+holds the background-color.
 
 ```html
-	<div class="bg-blue-100">
-		<div class="page-container"> ... </div>
-	</div>
+<div class="bg-blue-100">
+  <div class="page-container">...</div>
+</div>
 ```
 
 ### 4. Grid
-Thinking mobile first we just need standard `div` (display:block) behavior to get the 1 col layout we need on smaller devices.
+
+Thinking mobile first we just need standard `div` (display:block) behavior to get the 1 col layout we need on smaller
+devices.
 
 ```html
-	<div> ... </div>
+<div>...</div>
 ```
 
-We add a grid to help us with the layout. The grid can start at the medium (md:) breakpoint and up from there giving us multiple columns only when we need them.
+We add a grid to help us with the layout. The grid can start at the medium (md:) breakpoint and up from there giving us
+multiple columns only when we need them.
 
 ```html
-	<div class="md:grid"> ... </div>
+<div class="md:grid">...</div>
 ```
 
 Adding 2 columns from medium breakpoint, and 3 columns from large and up.
 
 ```html
-<div class="md:grid md:grid-cols-2 lg:grid-cols3"> ... </div>
+<div class="md:grid md:grid-cols-2 lg:grid-cols3">...</div>
 ```
 
 ### 5. Adding cards
-React/Vue/Element cards? Maybe choose one and show how its done? 
-[Card in React](https://react.fabric-ds.io/card)
-[Card in Vue](https://vue.fabric-ds.io/card)
-[Card in Element](https://elements.fabric-ds.io/pages/components/card.html)
 
-	
+Fabric includes component libraries for React, Vue and custom elements. In these libraries you can find a card component
+that suits your app. In this example, we'll use the `f-card` component from the custom elements library to add a custom
+HTML element that we use to make cards with. application and demonstrate using the React card component.
+
+First we import the Fabric custom elements library in a JavaScript file somewhere in our application as shown:
+
+```js
+import '@fabric-ds/elements';
+```
+
+After this we can use the `f-card` element in our markup like so.
+
+```html
+<f-card>
+  <div aria-owns="title"></div>
+  <div class="flex items-center">
+    <div>
+      <div class="flex items-center">
+        <svg></svg>
+        <h3 id="title">
+          <a href="#" class="ml-16">Min konto</a>
+        </h3>
+      </div>
+      <p class="pt-8 mr-8 hidden md:block">Se dine opplysninger på FINN og Schibstedkonto</p>
+    </div>
+    <div class="ml-auto">
+      <svg>...</svg>
+    </div>
+  </div>
+</f-card>
+```
+
+You can find out more about the `f-card` custom element in the
+[Element card docs](https://elements.fabric-ds.io/pages/components/card.html).
+
+If you are writing your application using React, you'll want to take a look at the
+[React Card component](https://react.fabric-ds.io/card). Likewise, if you are using Vue, you can see the
+[Vue Card docs](https://vue.fabric-ds.io/card) for more information.
+
 ### 6. Card content
 
 #### Screenshot, card content on smaller screens
+
 ![Screenshot of minfinn, one item from the main menu, on small device ](guide-img/minfinn-menu-item-small.png)
 
 #### Screenshot, card content on larger screens
+
 ![Screenshot of minfinn, one item from the main menu](guide-img/minfinn-menu-item-large.png)
 
 Looking at the layout for each card we would need a little bit of markup to start with, something like:
-```html
-	<div>
-		<div>
-			<svg></svg>
-			<a href="#">Title</a>
-		</div>	
-		<p>text-content</p>
-	</div>
-```
-Starting with the title, this should prob be the main linked item for the card. 
-
-Screen readers do not like it if we wrap a whole card of content like this inside, neither a button or an A tag, the screenreader would treat all the content as one very long sentence with no other structure. 
-
-The card component uses a trick where the `A` element (its required to have either an `A` element or a `Button` element to make a card component clickable) interactive area is stretched to the size of the full clickable card, so this is perfect for this use-case: 
-
-We vertically center the icon and the title with flex. 
 
 ```html
-	<div>
-		<div class="flex items-center">
-			<svg></svg>
-			<a href="#">Title</a>
-		</div>	
-		<p>text-content</p>
-	</div>
+<div>
+  <div>
+    <svg></svg>
+    <a href="#">Title</a>
+  </div>
+  <p>text-content</p>
+</div>
 ```
 
-Dependent on the final page markup structure we probably want to wrap this title in an appropriate H tag. The H tags should be used in a semantic way, forming a clear tree structure not skipping any levels. The sizes and look of them can be set using the `t1`-`t5` class.
+Starting with the title, this should prob be the main linked item for the card.
+
+Screen readers do not like it if we wrap a whole card of content like this inside, neither a button or an A tag, the
+screenreader would treat all the content as one very long sentence with no other structure.
+
+The card component uses a trick where the `A` element (its required to have either an `A` element or a `Button` element
+to make a card component clickable) interactive area is stretched to the size of the full clickable card, so this is
+perfect for this use-case:
+
+We vertically center the icon and the title with flex.
 
 ```html
-	<div>
-	  <div class="flex items-center">
-	    <svg></svg>
-	    <h3>
-	      <a href="#" class="ml-16">Title</a>
-	    </h3>
-	  </div>
-	  <p class="pt-8">text-content</p>
-	</div>
+<div>
+  <div class="flex items-center">
+    <svg></svg>
+    <a href="#">Title</a>
+  </div>
+  <p>text-content</p>
+</div>
 ```
 
-The text-content bit is supposed to be hidden on mobile, since the responsive setup in Fabric is mobile first, we need to hide it for smaller devices and then un-hide it for bigger ones. This is easy using classes `hidden` and `md:block`. 
+Dependent on the final page markup structure we probably want to wrap this title in an appropriate H tag. The H tags
+should be used in a semantic way, forming a clear tree structure not skipping any levels. The sizes and look of them can
+be set using the `t1`-`t5` class.
+
+```html
+<div>
+  <div class="flex items-center">
+    <svg></svg>
+    <h3>
+      <a href="#" class="ml-16">Title</a>
+    </h3>
+  </div>
+  <p class="pt-8">text-content</p>
+</div>
+```
+
+The text-content bit is supposed to be hidden on mobile, since the responsive setup in Fabric is mobile first, we need
+to hide it for smaller devices and then un-hide it for bigger ones. This is easy using classes `hidden` and `md:block`.
 
 One thing to consider is if this hidden content should be available for screen-readers, even when hidden visually.
 
 ```html
-	<div>
-		<div class="flex items-center">
-      		<svg></svg>
-      		<h3>
-        		<a href="#" class="ml-16">Min konto</a>
-      		</h3>
-    	</div>
-    	<p class="pt-8 mr-8 hidden md:block">Se dine opplysninger på FINN og Schibstedkonto</p>
-	</div>
+<div>
+  <div class="flex items-center">
+    <svg></svg>
+    <h3>
+      <a href="#" class="ml-16">Min konto</a>
+    </h3>
+  </div>
+  <p class="pt-8 mr-8 hidden md:block">Se dine opplysninger på FINN og Schibstedkonto</p>
+</div>
 ```
 
-The friendly UX person is now annoyed because we forgot the arrow to the right on the card, but that is no problem, we just wrap around another flex container.
+The friendly UX person is now annoyed because we forgot the arrow to the right on the card, but that is no problem, we
+just wrap around another flex container.
 
 ```html
-	<div class="flex items-center">
-	  <div>
-	    <div class="flex items-center">
-	      <svg></svg>
-	      <h3>
-	        <a href="#" class="ml-16">Min konto</a>
-	      </h3>
-	    </div>
-	    <p class="pt-8 mr-8 hidden md:block">Se dine opplysninger på FINN og Schibstedkonto</p>
-	  </div>
-	  <div class="ml-auto">
-	    <svg></svg>
-	  </div>
-	</div>
+<div class="flex items-center">
+  <div>
+    <div class="flex items-center">
+      <svg></svg>
+      <h3>
+        <a href="#" class="ml-16">Min konto</a>
+      </h3>
+    </div>
+    <p class="pt-8 mr-8 hidden md:block">Se dine opplysninger på FINN og Schibstedkonto</p>
+  </div>
+  <div class="ml-auto">
+    <svg></svg>
+  </div>
+</div>
 ```
+
 [Card Content example on Tailwind.play](https://play.tailwindcss.com/IJwdywizdl)
 
 ### 7. Serving SVG's
-Fabric comes with its own [Icon library](https://github.com/fabric-ds/icons) 
 
+Fabric comes with its own [Icon library](https://github.com/fabric-ds/icons)
 
+If you are building a React application, you can import and use the Fabric icons React components like this:
 
- 
+```jsx
+import { IconCog16 } from '@fabric-ds/icons/react';
+
+<IconCog16></IconCog16>
+```
+
+And if you are building a Vue application, you can import and use the Fabric icons Vue components like so:
+
+```js
+import { IconCog16 } from '@fabric-ds/icons/vue';
+
+<IconCog16></IconCog16>
+```
+
+### 8. Completed Card
+
+<f-card>
+  <div aria-owns="title"></div>
+  <div class="flex items-center">
+    <div>
+      <div class="flex items-center">
+        <svg width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.75 16C1.75 8.13 8.13 1.75 16 1.75S30.25 8.13 30.25 16c0 4.337-1.937 8.22-4.993 10.834a13.746 13.746 0 00-18.514 0A14.218 14.218 0 011.75 16zm6.205 11.764A14.184 14.184 0 0016 30.25c2.985 0 5.756-.918 8.045-2.486a12.245 12.245 0 00-16.09 0zm17.72.665A15.682 15.682 0 0116 31.75C7.302 31.75.25 24.698.25 16S7.302.25 16 .25 31.75 7.302 31.75 16c0 5.048-2.375 9.542-6.069 12.424l-.007.005zM9.75 13c0-.815.156-1.594.44-2.308a12.364 12.364 0 008.143 3.058l-8.143-3.058 8.144 3.058c1.333 0 2.655-.214 3.915-.634A6.25 6.25 0 019.75 13zm8.584-.75c1.282 0 2.553-.226 3.755-.667A6.252 6.252 0 0010.932 9.34a10.864 10.864 0 007.401 2.909zM8.25 13a7.714 7.714 0 011.086-3.959A7.75 7.75 0 118.25 13z" fill="#474445"></path></svg>
+        <h3 id="title">
+          <a href="#" class="ml-16 hover:no-underline">Min konto</a>
+        </h3>
+      </div>
+      <p class="pt-8 mr-8 hidden md:block">Se dine opplysninger på FINN og Schibstedkonto</p>
+    </div>
+    <div class="ml-auto">
+      <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 4.5l7.5 7.5L9 19.5" stroke="#767676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    </div>
+  </div>
+</f-card>

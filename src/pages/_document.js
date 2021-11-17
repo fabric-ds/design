@@ -29,6 +29,7 @@ export default class MyDocument extends Document {
           <script src="https://assets.finn.no/pkg/@fabric-ds/common/v1/template/index.js" type="module"></script>
           <script src="https://assets.finn.no/pkg/@fabric-ds/common/v1/asset-links/index.js" type="module"></script>
           <script src="https://assets.finn.no/pkg/@fabric-ds/common/v1/highlight-box/index.js" type="module"></script>
+          <script src="https://assets.finn.no/pkg/@fabric-ds/elements/v0/index.js" type="module"></script>
         </body>
       </Html>
     );
