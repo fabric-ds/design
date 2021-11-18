@@ -1,13 +1,5 @@
 # Fabric Concepts
 
-## utility classes
-
-..
-
-## customised subset of Tailwind classes
-
-..
-
 ## Lets make a FINN page
 
 So lets pretend we get a task to create a FINN page, we will use the [Min FINN](https://www.finn.no/min-finn) page as an
@@ -72,48 +64,7 @@ Adding 2 columns from medium breakpoint, and 3 columns from large and up.
 <div class="md:grid md:grid-cols-2 lg:grid-cols3">...</div>
 ```
 
-### 5. Adding cards
-
-Fabric includes component libraries for React, Vue and custom elements. In these libraries you can find a card component
-that suits your app. In this example, we'll use the `f-card` component from the custom elements library to add a custom
-HTML element that we use to make cards with. application and demonstrate using the React card component.
-
-First we import the Fabric custom elements library in a JavaScript file somewhere in our application as shown:
-
-```js
-import '@fabric-ds/elements';
-```
-
-After this we can use the `f-card` element in our markup like so.
-
-```html
-<f-card>
-  <div aria-owns="title"></div>
-  <div class="flex items-center">
-    <div>
-      <div class="flex items-center">
-        <svg></svg>
-        <h3 id="title">
-          <a href="#" class="ml-16">Min konto</a>
-        </h3>
-      </div>
-      <p class="pt-8 mr-8 hidden md:block">Se dine opplysninger på FINN og Schibstedkonto</p>
-    </div>
-    <div class="ml-auto">
-      <svg>...</svg>
-    </div>
-  </div>
-</f-card>
-```
-
-You can find out more about the `f-card` custom element in the
-[Element card docs](https://elements.fabric-ds.io/pages/components/card.html).
-
-If you are writing your application using React, you'll want to take a look at the
-[React Card component](https://react.fabric-ds.io/card). Likewise, if you are using Vue, you can see the
-[Vue Card docs](https://vue.fabric-ds.io/card) for more information.
-
-### 6. Card content
+### 5. Card content
 
 #### Screenshot, card content on smaller screens
 
@@ -134,6 +85,8 @@ Looking at the layout for each card we would need a little bit of markup to star
   <p>text-content</p>
 </div>
 ```
+
+We will afterwards wrap this content in a card component, but lets look at the content first. The svg tag is just a placeholder offcourse, for actual implementation details of svgs with fabric, look at stage 8 in this guide. 
 
 Starting with the title, this should prob be the main linked item for the card.
 
@@ -211,9 +164,55 @@ just wrap around another flex container.
 
 [Card Content example on Tailwind.play](https://play.tailwindcss.com/IJwdywizdl)
 
+### 6. Adding cards
+
+Fabric includes component libraries for React, Vue and custom elements. In these libraries you can find a card component
+that suits your app. In this example, we'll use the `f-card` component from the custom elements library to add a custom
+HTML element that we use to make cards with. 
+
+#### Lets implement the custom element version of the card component.
+
+First we import the Fabric custom elements library in a JavaScript file somewhere in our application as shown:
+
+```js
+import '@fabric-ds/elements';
+```
+
+After this we can use the `f-card` element in our markup like so.
+
+```html
+<f-card>
+  <div aria-owns="title"></div>
+  <div class="flex items-center">
+    <div>
+      <div class="flex items-center">
+        <svg></svg>
+        <h3 id="title">
+          <a href="#" class="ml-16">Min konto</a>
+        </h3>
+      </div>
+      <p class="pt-8 mr-8 hidden md:block">Se dine opplysninger på FINN og Schibstedkonto</p>
+    </div>
+    <div class="ml-auto">
+      <svg>...</svg>
+    </div>
+  </div>
+</f-card>
+```
+
+You can find out more about the `f-card` custom element in the
+[Element card docs](https://elements.fabric-ds.io/pages/components/card.html).
+
+If you are writing your application using React, you'll want to take a look at the
+[React Card component](https://react.fabric-ds.io/card). Likewise, if you are using Vue, you can see the
+[Vue Card docs](https://vue.fabric-ds.io/card) for more information.
+
+
+
 ### 7. Serving SVG's
 
 Fabric comes with its own [Icon library](https://github.com/fabric-ds/icons)
+All the icons are generated in the [icons section](https://www.fabric-ds.io/icons), so lets find our icons there. The icon for min conto looks like the 'circle-user' icon under 32. 
 
 If you are building a React application, you can import and use the Fabric icons React components like this:
 
@@ -233,20 +232,22 @@ import { IconCog16 } from '@fabric-ds/icons/vue';
 
 ### 8. Completed Card
 
+<div class="example">
 <f-card>
   <div aria-owns="title"></div>
-  <div class="flex items-center">
+  <div class="flex items-center p-8 md:p-16">
     <div>
       <div class="flex items-center">
         <svg width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.75 16C1.75 8.13 8.13 1.75 16 1.75S30.25 8.13 30.25 16c0 4.337-1.937 8.22-4.993 10.834a13.746 13.746 0 00-18.514 0A14.218 14.218 0 011.75 16zm6.205 11.764A14.184 14.184 0 0016 30.25c2.985 0 5.756-.918 8.045-2.486a12.245 12.245 0 00-16.09 0zm17.72.665A15.682 15.682 0 0116 31.75C7.302 31.75.25 24.698.25 16S7.302.25 16 .25 31.75 7.302 31.75 16c0 5.048-2.375 9.542-6.069 12.424l-.007.005zM9.75 13c0-.815.156-1.594.44-2.308a12.364 12.364 0 008.143 3.058l-8.143-3.058 8.144 3.058c1.333 0 2.655-.214 3.915-.634A6.25 6.25 0 019.75 13zm8.584-.75c1.282 0 2.553-.226 3.755-.667A6.252 6.252 0 0010.932 9.34a10.864 10.864 0 007.401 2.909zM8.25 13a7.714 7.714 0 011.086-3.959A7.75 7.75 0 118.25 13z" fill="#474445"></path></svg>
-        <h3 id="title">
-          <a href="#" class="ml-16 hover:no-underline">Min konto</a>
+        <h3 id="title" className="mb-0 h4">
+          <a href="#" class="ml-16 no-underline hover:no-underline text-gray-700">Min konto</a>
         </h3>
       </div>
-      <p class="pt-8 mr-8 hidden md:block">Se dine opplysninger på FINN og Schibstedkonto</p>
+      <p class="pt-8 mr-8 mb-0 hidden md:block">Se dine opplysninger på FINN og Schibstedkonto</p>
     </div>
     <div class="ml-auto">
       <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 4.5l7.5 7.5L9 19.5" stroke="#767676" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
     </div>
   </div>
 </f-card>
+</div>
