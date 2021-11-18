@@ -191,10 +191,10 @@ export default function App({ Component, pageProps }) {
                       title: 'Getting Setup',
                       href: '/guide-setup',
                     },
-                    // {
-                    //   title: 'Getting Started',
-                    //   href: '/guide-getting-started',
-                    // },
+                    {
+                      title: 'Getting Started',
+                      href: '/getting-started',
+                    },
                   ],
                 },
               ],
