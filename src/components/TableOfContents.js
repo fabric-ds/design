@@ -1,36 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 
-const link = (title) => `#${title.toLowerCase().replaceAll(' ', '-')}`;
+const slugify = (title) => `${title.toLowerCase().replaceAll(' ', '-')}`;
 
-export class TableOfContents extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      toc: [],
-    };
-  }
+export function TableOfContents() {
+  const [elements, setElements] = useState([]);
+  const [toc, setToc] = useState([]);
 
-  componentDidMount() {
-    const toc = Array.from(document.querySelectorAll("main > h2")).map(
-      (h2) => h2.innerText
-    );
-    this.setState({ toc });
-  }
+  useEffect(() => {
+    if (elements.length) return;
+    setElements(document.querySelectorAll('main > h2'));
+  });
 
-  render() {
-    return this.state.toc.length ? (
-      <nav className="toc">
-        <h2>Table Of Contents</h2>
-        <ul>
-          {this.state.toc.map((title, i) => (
-            <li key={title}>
-              <a href={link(title)}>{title}</a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    ) : (
-      ''
-    );
-  }
+  useEffect(() => {
+    if (toc.length) return;
+
+    const mappedElements = [...elements].map((el) => {
+      const text = el.childNodes[0].nodeValue;
+      el.id = slugify(text);
+      el.className = `title ${el.className}`;
+      return text;
+    });
+
+    setToc(mappedElements);
+  }, [elements]);
+
+  return toc.length ? (
+    <nav className="mt-20">
+      <h2>Table Of Contents</h2>
+      <ul>
+        {toc.map((title, i) => (
+          <li key={title}>
+            <a href={`#${slugify(title)}`}>{title}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  ) : (
+    ''
+  );
 }

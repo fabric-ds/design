@@ -13,6 +13,12 @@ export default class MyDocument extends Document {
               f-docs-template:defined {
                 visibility: visible;
               }
+              .title:before {
+                content: "";
+                display: block;
+                height: 80px;
+                margin: -80px 0 0;
+              }
             `,
             }}
           ></style>
