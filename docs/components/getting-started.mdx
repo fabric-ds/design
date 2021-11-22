@@ -1,8 +1,8 @@
 # Fabric Concepts
 
-## Lets make a FINN page
+## Let's make a FINN page
 
-So lets pretend we get a task to create a FINN page, we will use the [Min FINN](https://www.finn.no/min-finn) page as an
+So let's pretend we get a task to create a FINN page, we will use the [Min FINN](https://www.finn.no/min-finn) page as an
 example.
 
 ### Screenshot, minfinn on smaller screen
@@ -24,13 +24,13 @@ If not already done, there is a compehensive [setup-guide](https://www.fabric-ds
 
 ### 2. Header/Footer
 
-The top-bar and Footer are standard finn components (excists as podlets) We will ignore these for now.
+The top-bar and Footer are standard FINN components (exists as podlets). We will ignore these for now.
 [FINN Header podlet on github](https://github.schibsted.io/finn/header)
 [FINN Footer podlet on github](https://github.schibsted.io/finn/footer)
 
 ### 3. Page-container
 
-The purpose of this is to keep the page align correctly across the site, making it scale correctly on different window
+The purpose of this is to keep the page aligned correctly across the site, making it scale correctly on different window
 sizes/devices, and also keep it nice and tidy inside the outer banners.
 
 The sketch shows a background going full width outside the page-container, so we need to wrap it inside something that
@@ -86,7 +86,7 @@ Looking at the layout for each card we would need a little bit of markup to star
 </div>
 ```
 
-We will afterwards wrap this content in a card component, but lets look at the content first. The svg tag is just a placeholder offcourse, for actual implementation details of svgs with fabric, look at stage 8 in this guide. 
+We will afterwards wrap this content in a card component, but let's look at the content first. The svg tag is just a placeholder of course. For actual implementation details of svgs with Fabric, look at stage 8 in this guide.
 
 Starting with the title, this should prob be the main linked item for the card.
 
@@ -125,7 +125,7 @@ be set using the `t1`-`t5` class.
 </div>
 ```
 
-The text-content bit is supposed to be hidden on mobile, since the responsive setup in Fabric is mobile first, we need
+The text-content bit is supposed to be hidden on mobile. Since the responsive setup in Fabric is mobile first, we need
 to hide it for smaller devices and then un-hide it for bigger ones. This is easy using classes `hidden` and `md:block`.
 
 One thing to consider is if this hidden content should be available for screen-readers, even when hidden visually.
@@ -170,7 +170,7 @@ Fabric includes component libraries for React, Vue and custom elements. In these
 that suits your app. In this example, we'll use the `f-card` component from the custom elements library to add a custom
 HTML element that we use to make cards with. 
 
-#### Lets implement the custom element version of the card component.
+#### Let's implement the custom element version of the card component.
 
 First we import the Fabric custom elements library in a JavaScript file somewhere in our application as shown:
 
