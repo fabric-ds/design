@@ -18,15 +18,16 @@ specify which component(s) you want to use as part of an import statement.
 
 Refer to the Fabric Vue docs to learn more about the various components and how to use them.
 
-In the following example, we import the button component
+In the following example, we import and install the button component
 
 ```js
 import { Button } from '@fabric-ds/vue';
+app.use(Button)
 ```
 
 #### Using components
 
-Once imported, components can then be used like any other Vue component in your code. Refer to the docs for component
+Once installed, components can then be used anywhere in your app like any normal Vue component. Refer to the docs for component
 usage.
 
 ```jsx
