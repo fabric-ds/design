@@ -102,7 +102,7 @@ files on the Eik server.
 ### Production ready files with Eik plugins
 
 The file located at `https://assets.finn.no/map/fabric/v1` is an import map. If you visit the link in a browser, you'll
-see that `@fabric-ds/css` is mapped to `https://assets.finn.no/pkg/@fabric-ds/css/v0/fabric.min.css`. Now that we've
+see that `@fabric-ds/css` is mapped to `https://assets.finn.no/pkg/@fabric-ds/css/v1/fabric.min.css`. Now that we've
 setup Eik and added this import map in `eik.json`, when we run our build command, PostCSS, instead of inlining the
 Fabric CSS code, is going to replace references to `@fabric-ds/css` in import statements with value found in the import
 map instead. It's this mechanism that we use to line everyone up on the same version of Fabric across all of Finn. With
@@ -118,7 +118,7 @@ npm run build:css
 And check `./dist/styles.css` and make sure that it contains a single line:
 
 ```css:styles.css
-@import 'https://assets.finn.no/pkg/@fabric-ds/css/v0/fabric.min.css';
+@import 'https://assets.finn.no/pkg/@fabric-ds/css/v1/fabric.min.css';
 ```
 
 ### Publishing to the Eik server
