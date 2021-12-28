@@ -263,25 +263,18 @@
   resolved "https://registry.yarnpkg.com/@chbphone55/classnames/-/classnames-2.0.0.tgz#fb0c6d122c3ba2030614613a5fe959b0e61f1a41"
   integrity sha512-tR9ph9yRNOHyZZveFs3hhUGmaeck5MTGvNKm6ACAy6+mKu46YeMN/1U1ZRcYfRNEmwV4iDAWQ839PFDmpZ3YnA==
 
-"@fabric-ds/component-classes@^0.0.31":
-  version "0.0.31"
-  resolved "https://registry.yarnpkg.com/@fabric-ds/component-classes/-/component-classes-0.0.31.tgz#3e1e83264479cd442b98ca08c0e1419c72b5d3e0"
-  integrity sha512-0BfgKBGop4aEFDwoherSr3YFYWCCwTF9HRwlYPG0PPPZi7dXBH0wgMm1SPfZ/xlSjExfkgrmR/Ls8ve2UCQ6Jg==
-
 "@fabric-ds/icons@^0.3.12":
   version "0.3.12"
   resolved "https://registry.yarnpkg.com/@fabric-ds/icons/-/icons-0.3.12.tgz#7ad9d20fd80fb4f73ab32770823c15720b3208bc"
   integrity sha512-QfJUo1hqFNvXXzKLqCS2lCDegcIljy0A2a2aaUpXbDRoESs+UDip70VAudOeTV0Itj4Tsy5mvTJxXFYB4jumkg==
 
-"@fabric-ds/react@^0.0.6":
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/@fabric-ds/react/-/react-0.0.6.tgz#0f52fb9e4e115e143bb2f22f9513c6296003f8a3"
-  integrity sha512-zzQ+HPgpxeMwZ22b+9yYloZZL1Lt79A5RtToupG4KU4XxPWuPpUkW0CRaBYFDnDrHk99uUujAsXrQAa/oh/+Pw==
+"@fabric-ds/react@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@fabric-ds/react/-/react-1.0.4.tgz#660ef2c2e3d87ab223a64427239bf5bcacc0841d"
+  integrity sha512-8v6H12OBJS9t4goaCiJuvw4xS5myJRt6kdbOfZ17v6ttLIJ8B7UxPqbAD6hRlxZlwGvi7V7NgO2s6DWM3UYVTQ==
   dependencies:
     "@chbphone55/classnames" "^2.0.0"
-    "@fabric-ds/component-classes" "^0.0.31"
     d3-scale "^4.0.2"
-    element-collapse "^0.9.1"
     react-focus-lock "^2.5.2"
     react-spring "^8.0.27"
     react-use-gesture "^9.1.3"
@@ -1388,11 +1381,6 @@ electron-to-chromium@^1.3.723, electron-to-chromium@^1.3.896:
   version "1.3.903"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.903.tgz#e2d3c3809f4ef05fdbe5cc88969dfc94b1bd15b9"
   integrity sha512-+PnYAyniRRTkNq56cqYDLq9LyklZYk0hqoDy9GpcU11H5QjRmFZVDbxtgHUMK/YzdNTcn1XWP5gb+hFlSCr20g==
-
-element-collapse@^0.9.1:
-  version "0.9.1"
-  resolved "https://registry.yarnpkg.com/element-collapse/-/element-collapse-0.9.1.tgz#70547120606b0b8858799b7e9a126f028c70520e"
-  integrity sha512-gkkpfDyme8j9iutpBjICxuZJZsqldxm7ibfmMsW2fFvrcTFoBe3qEHkqgiFjXaxUPSZ3RwnxGppapfZw4qxxEA==
 
 elliptic@^6.5.3:
   version "6.5.4"
