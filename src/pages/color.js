@@ -33,7 +33,7 @@ export default function ColorPage({ colors }) {
       </p>
 
       <AssetLinks>
-        <AssetLink href="https://www.figma.com/file/l85T4rDU53Cz5Rz0lo89z1/FINN-Colors-v2.0" />
+        <AssetLink href="https://www.figma.com/file/kQKLKZxaDQIjM07MXlzI8D/Fabric---Core-library?node-id=3174%3A30495" />
       </AssetLinks>
       <section className="my-48">
         <h3 className="mt-24">Logo colors</h3>
