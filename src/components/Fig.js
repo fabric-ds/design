@@ -5,9 +5,10 @@ const divStyle = {
 };
 
 export function Fig(props) {
+  const { image, title } = props;
   return (
     <figure 
-      className="bg-gray-100 mb-16 flex align-middle justify-center " 
+      className="bg-gray-100 mb-16 flex align-middle justify-center items-center" 
       style={divStyle}
       {...props} 
     />
