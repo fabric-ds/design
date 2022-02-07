@@ -13,7 +13,7 @@ npm run dev
 The examples images used on this site are maintained in this
 [Figma project](https://www.figma.com/file/xsiFr7BReeN66qqrdqnV5C/FINN-Fabric-Design-System?node-id=27%3A67).
 
-There is a [script](./scripts/figma-import.js) that extracts the images and stores them in
+There is a [script](./scripts/figma-import.cjs) that extracts the images and stores them in
 [the static folder](./public/figma/). Then you can refer them then using `<img>` tags with relative paths.
 
 Whenever a Github build runs, the import script will be run and the imported files will then be included in the final

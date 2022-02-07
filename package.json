@@ -10,7 +10,7 @@
     "build": "next build && next export && touch ./out/.nojekyll",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install",
-    "import": "rm -rf public/figma && mkdir -p public/figma && ./scripts/figma-import.js"
+    "import": "rm -rf public/figma && mkdir -p public/figma && ./scripts/figma-import.cjs"
   },
   "repository": {
     "type": "git",
@@ -44,6 +44,7 @@
     "@fabric-ds/tailwind-config": "^0.5.27",
     "husky": "^6.0.0",
     "lint-staged": "^10.5.4",
+    "node-fetch": "^3.2.0",
     "ora": "^5.2.0",
     "prettier": "^2.2.1",
     "prompts": "^2.4.0"
