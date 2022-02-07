@@ -17,8 +17,8 @@ export default function Icons({ iconsBySize, iconSizes }) {
       <h1 className="mb-16">Icons</h1>
 
       <p className="mb-64">
-        Fabric's icon set is designed to help users understand actions,
-        information and draw attention to elements. Review the{' '}
+        Fabric's icon set is designed to help users understand actions, information and draw attention to elements.
+        Review the{' '}
         <Link href="/iconography">
           <a>Iconography guidelines</a>
         </Link>{' '}
@@ -43,22 +43,14 @@ const FilterableIconGrid = ({ iconsBySize, iconSizes }) => {
       />
 
       {iconSizes.map((size, i) => (
-        <IconsForSize
-          icons={iconsBySize[i]}
-          size={size}
-          key={size}
-          filterText={filterText}
-        />
+        <IconsForSize icons={iconsBySize[i]} size={size} key={size} filterText={filterText} />
       ))}
     </>
   );
 };
 
 const IconsForSize = ({ icons, size, filterText }) => {
-  const filteredIcons =
-    filterText.trim() !== ''
-      ? icons.filter((icon) => icon.name.includes(filterText))
-      : icons;
+  const filteredIcons = filterText.trim() !== '' ? icons.filter((icon) => icon.name.includes(filterText)) : icons;
 
   return (
     <section className="bg-gray-100 rounded-8 p-24 mb-24">

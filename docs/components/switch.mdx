@@ -1,6 +1,7 @@
 # Switch
 
-Switches allow users to turn an individual option on or off. They are usually used to activate or deactivate a specific setting
+Switches allow users to turn an individual option on or off. They are usually used to activate or deactivate a specific
+setting
 
 <AssetLinks>
   <AssetLink href="https://react.fabric-ds.io/switch" />
@@ -16,41 +17,53 @@ Switches allow users to turn an individual option on or off. They are usually us
 ## Options
 
 <Guideline title="Label">
-Switches should always have labels. When the label is not defined, a switch becomes standalone. Standalone switches should only be used when their connection to other components is clear and they give sufficient context — for example, in application panels.
+  Switches should always have labels. When the label is not defined, a switch becomes standalone. Standalone switches
+  should only be used when their connection to other components is clear and they give sufficient context — for example,
+  in application panels.
 </Guideline>
 
 <Guideline title="Selection">
-Switches can either be selected or not selected. They cannot be in an indeterminate state (unlike checkboxes). When a switch represents multiple values that are not identical, the switch should appear as not selected.
+  Switches can either be selected or not selected. They cannot be in an indeterminate state (unlike checkboxes). When a
+  switch represents multiple values that are not identical, the switch should appear as not selected.
+</Guideline>
 
 <Guideline title="Disabled">
-A switch in a disabled state shows that a selection exists, but is not available in that circumstance. This can be used to maintain layout continuity and communicate that an action may become available later.
-           
+  A switch in a disabled state shows that a selection exists, but is not available in that circumstance. This can be
+  used to maintain layout continuity and communicate that an action may become available later.
+</Guideline>
 
 ## Behaviors
 
 <Guideline title="Keyboard focus" image="switch-behaviors-keyboard-focus.svg">
-A switch can be navigated using a keyboard. The keyboard focus state takes the switch’s visual hover state and adds a blue ring to the switch in focus.
+  A switch can be navigated using a keyboard. The keyboard focus state takes the switch’s visual hover state and adds a
+  blue ring to the switch in focus.
 </Guideline>
 
 <Guideline title="Text overflow" image="switch-behaviors-text-overflow.svg">
-When the label is too long for the horizontal space available, it wraps to form another line.
+  When the label is too long for the horizontal space available, it wraps to form another line.
 </Guideline>
-
 
 ## Usage guidelines
 
 <Guideline title="When to use a standalone switch?">
-Standalone switches should be used in situations where the context is clear without an associated text label. For example, a switch located at the top of a panel next to the panel's title makes it clear that the switch will enable/disable the panel options.
+  Standalone switches should be used in situations where the context is clear without an associated text label. For
+  example, a switch located at the top of a panel next to the panel's title makes it clear that the switch will
+  enable/disable the panel options.
 </Guideline>
 
 <Guideline title="Switch or checkbox">
-Switches are best used for communicating activation (e.g., on/off states), while checkboxes are best used for communicating selection (e.g., multiple table rows). Switches, unlike checkboxes, can't have an error state.
+  Switches are best used for communicating activation (e.g., on/off states), while checkboxes are best used for
+  communicating selection (e.g., multiple table rows). Switches, unlike checkboxes, can't have an error state.
 </Guideline>
 
 <Guideline title="Representing mixed values">
-When a switch represents multiple values that are not identical, the switch should appear as not selected. Any subsequent click or tap should select the switch, and update all values to be selected. Another click or tap after that should deselect the switch, and update all values to be not selected.
+  When a switch represents multiple values that are not identical, the switch should appear as not selected. Any
+  subsequent click or tap should select the switch, and update all values to be selected. Another click or tap after
+  that should deselect the switch, and update all values to be not selected.
 </Guideline>
 
 <Guideline title="No partial state">
-Switches can only be on or off. When a parent switch represents a group of switches, it should be turned off unless all of the switches are on (turning the parent switch on turns all of the switches on). To show a partial state, use checkboxes instead.
+  Switches can only be on or off. When a parent switch represents a group of switches, it should be turned off unless
+  all of the switches are on (turning the parent switch on turns all of the switches on). To show a partial state, use
+  checkboxes instead.
 </Guideline>
