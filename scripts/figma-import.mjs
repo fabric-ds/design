@@ -9,15 +9,14 @@
  * 4. Fetch the SVGs from the URLs and save them to disk
  */
 
-const ora = require('ora');
-const fs = require('fs-extra');
-const path = require('path');
-const fetch = import('node-fetch');
-const prompts = require('prompts');
-const { promisify } = require('util');
-const { pipeline } = require('stream');
-const { createWriteStream } = require('fs');
-const slugify = require('@sindresorhus/slugify');
+import ora from 'ora';
+import fs from 'fs-extra';
+import fetch from 'node-fetch';
+import prompts from 'prompts';
+import { promisify } from 'util';
+import { pipeline } from 'stream';
+import { createWriteStream } from 'fs';
+import slugify from '@sindresorhus/slugify';
 
 const streamPipeline = promisify(pipeline);
 
@@ -26,7 +25,7 @@ const FIGMA_PROJECT_ID = 'GS0SUFtIEC0qnrXZjPlbZv';
 
 // Where we store the Figma token
 let { FIGMA_TOKEN } = process.env;
-const FIGMA_TOKEN_PATH = path.join(__dirname, '../', '.FIGMA_TOKEN');
+const FIGMA_TOKEN_PATH = new URL('../.FIGMA_TOKEN', import.meta.url).pathname;
 
 (async function main() {
   const spinner = ora('Begin Figma image importer').start();
@@ -125,7 +124,7 @@ async function downloadSvgImage({ imageName, url }) {
 
   const name = slugify(imageName);
 
-  const path = `${__dirname}/../public/figma/${name}.svg`;
+  const path = new URL(`../public/figma/${name}.svg`, import.meta.url).pathname;
 
   return streamPipeline(res.body, createWriteStream(path));
 }

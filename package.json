@@ -10,7 +10,7 @@
     "build": "next build && next export && touch ./out/.nojekyll",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install",
-    "import": "rm -rf public/figma && mkdir -p public/figma && ./scripts/figma-import.cjs"
+    "import": "rm -rf public/figma && mkdir -p public/figma && ./scripts/figma-import.mjs"
   },
   "repository": {
     "type": "git",
