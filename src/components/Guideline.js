@@ -5,7 +5,7 @@ import { Fig } from './Fig';
 import classes from '../components/Guideline.module.css';
 
 export function Guideline(props) {
-  const { title, children, image, good, bad } = props;
+  const { title, children, image, good, bad, goodImage, badImage } = props;
   let ImageComponent = () => <div></div>;
   if (image && good) ImageComponent = Good;
   else if (image && bad) ImageComponent = Bad;
@@ -21,6 +21,12 @@ export function Guideline(props) {
         <ImageComponent>
           <img src={`./figma/${image}`} alt="" />
         </ImageComponent>
+        {goodImage && <Good className="mb-16" >
+          <img src={`./figma/${goodImage}`} alt="" />
+        </Good> }
+         {badImage && <Bad>
+          <img src={`./figma/${badImage}`} alt="" />
+        </Bad> }
       </div>
     </div>
   );
