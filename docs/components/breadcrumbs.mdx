@@ -28,7 +28,7 @@ an app.
 <Guideline title="Overflow">
   Breadcrumbs truncate when there is not enough room to display all levels of
   the breadcrumb list, or as a way of managing relevance of the visible
-  breadcrumb items in a deeply nested hierarchy.
+  breadcrumb items in a deeply nested hierarchy. Always truncate at the top level, on the left, so that the current level and as many possible parent levels are visible.
 </Guideline>
 
 ## Usage guidelines
@@ -36,19 +36,6 @@ an app.
 <Guideline title="Use breadcrumbs to show hierarchy" image=" " good>
   Breadcrumbs need a consistent hierarchical structure because they create a
   path for discovery and context for a user’s current location.
-</Guideline>
-
-<Guideline title="Use breadcrumbs for hierarchical navigation">
-  Breadcrumbs should be a form of navigating a linear hierarchy. They should not
-  be used for any other interactions, such as displaying filters.
-</Guideline>
-
-<Guideline title="Don’t wrap breadcrumb list items" image=" " bad>
-  When list items are truncated into a menu but the label text is still too
-  large for the horizontal space, truncate the text with an ellipsis. By
-  default, truncation should occur at the end of the title. If your users need
-  to see the end of truncated titles, truncating the middle of the title is
-  acceptable.
 </Guideline>
 
 <Guideline title="Icons in breadcrumbs" image=" " bad>
