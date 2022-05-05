@@ -42,10 +42,6 @@ export default function App({ Component, pageProps }) {
                   open: true,
                   items: [
                     {
-                      title: 'Actions',
-                      open: false,
-                      items: [
-                        {
                           title: 'Button',
                           href: '/button',
                         },
@@ -53,19 +49,45 @@ export default function App({ Component, pageProps }) {
                           title: 'Button utlity',
                           href: '/utility-button',
                         },
-                      ],
-                    },
-                    {
-                      title: 'Forms',
-                      open: false,
-                      items: [
-                        {
+                          {
+                          title: 'Breadcrumbs',
+                          href: '/breadcrumbs',
+                        },
+                         {
+                          title: 'Box',
+                          href: '/box',
+                        },
+                         {
+                          title: 'Card',
+                          href: '/card',
+                        },
+                         {
                           title: 'Checkbox',
                           href: '/checkbox',
                         },
+                          {
+                          title: 'Data table',
+                          href: '/data-table',
+                        },
+                          {
+                          title: 'Expandable',
+                          href: '/expandable',
+                        },
                         {
+                          title: 'Icon',
+                          href: '/icons',
+                        },
+                         {
                           title: 'Input',
                           href: '/input',
+                        },
+                        {
+                          title: 'List',
+                          href: '/list',
+                        },
+                             {
+                          title: 'Modal',
+                          href: '/modal',
                         },
                         {
                           title: 'Radio',
@@ -75,39 +97,15 @@ export default function App({ Component, pageProps }) {
                           title: 'Search',
                           href: '/search',
                         },
-                        {
+                         {
                           title: 'Select',
                           href: '/select',
-                        },
-                        {
-                          title: 'Switch',
-                          href: '/switch',
                         },
                         {
                           title: 'Slider',
                           href: '/slider',
                         },
-                        {
-                          title: 'Text area',
-                          href: '/text-area',
-                        },
-                      ],
-                    },
-                    {
-                      title: 'Images and icons',
-                      open: false,
-                      items: [
-                        {
-                          title: 'Icon',
-                          href: '/icons',
-                        },
-                      ],
-                    },
-                    {
-                      title: 'Feedback indicators',
-                      open: false,
-                      items: [
-                        {
+                          {
                           title: 'Status ribbon',
                           href: '/status-ribbon',
                         },
@@ -116,71 +114,21 @@ export default function App({ Component, pageProps }) {
                           href: '/steps',
                         },
                         {
-                          title: 'Toast',
-                          href: '/toast',
-                        },
-                      ],
-                    },
-                    {
-                      title: 'Layout',
-                      open: false,
-                      items: [
-                        {
-                          title: 'Box',
-                          href: '/box',
-                        },
-                        {
-                          title: 'Card',
-                          href: '/card',
-                        },
-                        {
-                          title: 'Expandable',
-                          href: '/expandable',
+                          title: 'Switch',
+                          href: '/switch',
                         },
                         {
                           title: 'Tabs',
                           href: '/tabs',
                         },
-                      ],
-                    },
-                    {
-                      title: 'Lists and tables',
-                      open: false,
-                      items: [
                         {
-                          title: 'Data table',
-                          href: '/data-table',
+                          title: 'Text area',
+                          href: '/text-area',
                         },
                         {
-                          title: 'Description list',
-                          href: '/description-list',
+                          title: 'Toast',
+                          href: '/toast',
                         },
-                        {
-                          title: 'List',
-                          href: '/list',
-                        },
-                      ],
-                    },
-                    {
-                      title: 'Navigation',
-                      open: false,
-                      items: [
-                        {
-                          title: 'Breadcrumbs',
-                          href: '/breadcrumbs',
-                        },
-                      ],
-                    },
-                    {
-                      title: 'Overlays',
-                      open: false,
-                      items: [
-                        {
-                          title: 'Modal',
-                          href: '/modal',
-                        },
-                      ],
-                    },
                   ],
                 },
                 {
