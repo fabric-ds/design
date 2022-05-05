@@ -89,12 +89,19 @@ validation options supported by the text field component.
 
 ## Usage guidelines
 
-<Guideline title="Include a label" image="text-area-usage-guidelines-1-do.svg" good>
+<Guideline
+  title="Include a label"
+  goodImage="text-area-usage-guidelines-1-do.svg"
+  badImage="text-area-usage-guidelines-1-dont.svg"
+>
   Every text area should have a label. A field without a label is ambiguous and not accessible.
 </Guideline>
-<Guideline image="text-area-usage-guidelines-1-dont.svg" bad></Guideline>
 
-<Guideline title="Follow capitalization rules" goodImage="text-area-usage-guidelines-2-do.svg" badImage="text-area-usage-guidelines-2-dont.svg">
+<Guideline
+  title="Follow capitalization rules"
+  goodImage="text-area-usage-guidelines-2-do.svg"
+  badImage="text-area-usage-guidelines-2-dont.svg"
+>
   Text area labels and placeholder text should be in sentence case.
 </Guideline>
 
@@ -110,11 +117,10 @@ The help text’s message should not simply restate the same information in the 
 interact with it. Don’t add help text if it isn’t actually relevant or meaningful to a user in order to try to maintain
 layout continuity with other inputs that require help text.
 
-
 </Guideline>
 
-
-<Guideline title="Use help text instead of placeholder text" image="text-area-usage-guidelines-4-do.svg" good>
+<Guideline title="Use help text instead of placeholder text" goodImage="text-area-usage-guidelines-4-do.svg"
+badImage="text-area-usage-guidelines-4-dont.svg">
   Putting instructions for how to complete an input, requirements, or any other essential information into placeholder
 text is not accessible, and should be avoided if possible. Once a value is entered, placeholder text is no longer
 viewable; if someone is using an automatic form filler, they will never get the information in the placeholder text.
@@ -124,9 +130,8 @@ that would help user comprehension. If there's placeholder text and help text at
 distracting, and especially if they're communicating the same thing.
 
 </Guideline>
-<Guideline image="text-area-usage-guidelines-4-dont.svg" bad></Guideline>
 
-<Guideline title="Switch help text with error text" image="text-area-usage-guidelines-5-do.svg" good>
+<Guideline title="Switch help text with error text" goodImage="text-area-usage-guidelines-5-do.svg" badImage="text-area-usage-guidelines-5-dont.svg">
   The help text area also displays an error message. When a text field already includes help text and an error is
 triggered, the help text is replaced with error text. Once the error is resolved, the help text description reappears
 below the field.
@@ -138,15 +143,12 @@ interaction. Make sure that the help text and the error text include the same es
 lost if one replaces the other (e.g., password requirements).
 
 </Guideline>
-<Guideline image="text-area-usage-guidelines-5-dont.svg" bad></Guideline>
 
-<Guideline title="Write error text that shows a solution" image="text-area-usage-guidelines-6-do.svg" good>
-  
+<Guideline title="Write error text that shows a solution" goodImage="text-area-usage-guidelines-6-do.svg" badImage="text-area-usage-guidelines-6-dont.svg">
 Write error messaging in a human-centered way by guiding a user and showing them a solution — don’t simply state what’s
 wrong and then leave them guessing as to how to resolve it. Ambiguous error messages can be frustrating and even
 shame-inducing for users. Also, keep in mind that something that a system may deem an error may not actually be
 perceived as an error to a user.
-
 Error text should be written in 1-2 short, complete sentences and in a clear and straightforward way. End sentences with
 a period, and never with an exclamation point. For text areas, the nature of the error is often related to something
 that needs to be fixed for in-line validation, so a helpful tone is most appropriate. For example, if someone were to
@@ -154,5 +156,3 @@ miss filling out a required field that asks for their email address, write the e
 a tip to help guide them to understand what needs to go in the missing field: “Enter your email address.”
 
 </Guideline>
-<Guideline image="text-area-usage-guidelines-6-dont.svg" bad></Guideline>
-
