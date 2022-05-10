@@ -24,7 +24,8 @@ The list of options can change based on the context.
 
 <Guideline title="Label" image="select-options-label.svg">
   Selects should always have a label. The only exception to this rule is when a select is used in a row of filters. In
-  this case the label becomes the text inside the select. Labels should be placed on top of the select. This gives room for long copy, and responsive layouts.
+  this case the label becomes the text inside the select. Labels should be placed on top of the select. This gives room
+  for long copy, and responsive layouts.
 </Guideline>
 
 <Guideline title="Placeholder" image="select-options-placeholder.svg">
@@ -90,36 +91,53 @@ The list of options can change based on the context.
 
 ## Usage guidelines
 
-<Guideline title="Include a label" image="select-usage-guidelines-1-do.svg" good>
+<Guideline
+  title="Include a label"
+  goodImage="select-usage-guidelines-1-do.svg"
+  badImage="select-usage-guidelines-1-dont.svg"
+>
   Every picker should have a label. A picker without a label is ambiguous and not accessible.
 </Guideline>
-<Guideline image="select-usage-guidelines-1-dont.svg" bad></Guideline>
 
-<Guideline title="Keep menu items concise" image="select-usage-guidelines-2-do.svg" good>
+<Guideline
+  title="Keep menu items concise"
+  goodImage="select-usage-guidelines-2-do.svg"
+  badImage="select-usage-guidelines-2-dont.svg"
+>
   Keep menu items short and concise. Long menu items that cause text to wrap to multiple lines are discouraged. If text
   wrapping becomes a frequent concern, consider revising the text or use alternative UI patterns that will give your
   content more space.
 </Guideline>
-<Guideline image="select-usage-guidelines-2-dont.svg" bad></Guideline>
 
-<Guideline title="Choose an appropriate width" image="select-usage-guidelines-3-do.svg" good>
+<Guideline
+  title="Choose an appropriate width"
+  goodImage="select-usage-guidelines-3-do.svg"
+  badImage="select-usage-guidelines-3-dont.svg"
+>
   When possible, the field button width should be wide enough so that any chosen menu items can be displayed in full.
 </Guideline>
-<Guideline image="select-usage-guidelines-3-dont.svg" bad></Guideline>
 
-<Guideline title="Follow capitalization rules" image="select-usage-guidelines-4-do.svg" good>
+<Guideline
+  title="Follow capitalization rules"
+  goodImage="select-usage-guidelines-4-do.svg"
+  badImage="select-usage-guidelines-4-dont.svg"
+>
   Field labels, placeholder text, and menu items should be in sentence case.
 </Guideline>
-<Guideline image="select-usage-guidelines-4-dont.svg" bad></Guideline>
 
-<Guideline title="Mark fields that are not required as optional" image="select-usage-guidelines-5-do.svg" good>
+<Guideline
+  title="Mark fields that are not required as optional"
+  goodImage="select-usage-guidelines-5-do.svg"
+  badImage="select-usage-guidelines-5-dont.svg"
+>
   In a form, mark the fields that are not required as "optional". This lets the user know that they can choose whether
   to answer the questions or not, leaving it up to them how much extra information they want to share above the required
   information that is needed to complete the task.
 </Guideline>
-<Guideline image="select-usage-guidelines-5-dont.svg" bad></Guideline>
 
-<Guideline title="Use help text to show context" image="select-usage-guidelines-6-do.svg" good>
+<Guideline title="Use help text to show context" 
+goodImage="select-usage-guidelines-6-do.svg"
+badImage="select-usage-guidelines-6-dont.svg">
   A select’s description in the helps to communicate what to select or how to select an option. This includes information such as:
 
 - An overall description of the select options
@@ -130,9 +148,10 @@ The help text should add extra context or description to the label. Don’t incl
 relevant or meaningful to a user.
 
 </Guideline>
-<Guideline image="select-usage-guidelines-6-dont.svg" bad></Guideline>
 
-<Guideline title="Switch help text with error text" image="select-usage-guidelines-7-do.svg" good>
+<Guideline title="Switch help text with error text" 
+goodImage="select-usage-guidelines-7-do.svg"
+badImage="select-usage-guidelines-7-dont.svg">
   The help text area also displays an error message. When a select already includes help text and an error is triggered, the help text is replaced with error text. Once the error is resolved, the help text description reappears below the select.
 
 Since one gets replaced by the other, the language of the help text and error text need to work together to convey the
@@ -142,9 +161,10 @@ interaction. Make sure that the help text and the error text include the same es
 lost if one replaces the other (e.g., minimum requirements).
 
 </Guideline>
-<Guideline image="select-usage-guidelines-7-dont.svg" bad></Guideline>
 
-<Guideline title="Write error text that shows a solution" image="select-usage-guidelines-8-do.svg" good>
+<Guideline title="Write error text that shows a solution" 
+goodImage="select-usage-guidelines-8-do.svg"
+badImage="select-usage-guidelines-8-dont.svg">
 Write error messaging in a human-centered way that guide a user and show them a solution. Ambiguous error messages can be frustrating and even shame-inducing for users. Also, keep in mind that something that a system may deem an error may not actually be perceived as an error to a user.
 
 Error text should be written in 1-2 short, complete sentences and in a clear and straightforward way. End sentences with
@@ -154,4 +174,3 @@ selecting an option to note as their preferred contact method, write the error t
 to help guide them to understand what needs to be selected: “Select a contact method.”
 
 </Guideline>
-<Guideline image="select-usage-guidelines-8-dont.svg" bad></Guideline>

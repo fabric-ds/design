@@ -5,11 +5,7 @@ import { Fig } from './Fig';
 import classes from '../components/Guideline.module.css';
 
 export function Guideline(props) {
-  const { title, children, image, good, bad } = props;
-  let ImageComponent = () => <div></div>;
-  if (image && good) ImageComponent = Good;
-  else if (image && bad) ImageComponent = Bad;
-  else if (image) ImageComponent = Fig;
+  const { title, children, image, goodImage, badImage } = props;
 
   return (
     <div className={`grid md:grid-cols-2 mb-16 ${title ? 'mt-48' : ''}`}>
@@ -17,11 +13,27 @@ export function Guideline(props) {
         <h3>{title}</h3>
         {children}
       </div>
-      <div className="col-span1">
-        <ImageComponent>
-          <img src={`./figma/${image}`} alt="" />
-        </ImageComponent>
+
+      <div className="col-span1 pr-48">
+        {image && (
+          <div className="col-span1">
+            <Fig>
+              <img src={`./figma/${image}`} alt="" />
+            </Fig>
+          </div>
+        )}
+        {goodImage && (
+          <Good className="mb-16">
+            <img src={`./figma/${goodImage}`} alt="" />
+          </Good>
+        )}
+        {badImage && (
+          <Bad className="mb-16">
+            <img src={`./figma/${badImage}`} alt="" />
+          </Bad>
+        )}
       </div>
     </div>
   );
 }
+
