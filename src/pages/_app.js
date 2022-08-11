@@ -35,6 +35,20 @@ export default function App({ Component, pageProps }) {
                       title: 'Accessibility',
                       href: '/screenreaders',
                     },
+                    {
+                      title: 'Checklists for webpages',
+                      open: true,
+                      items: [
+                        {
+                          title: 'All webpages',
+                          href: '/checklist-web-all',
+                        },
+                        {
+                          title: 'Search results',
+                          href: '/checklist-web-results',
+                        },
+                      ],
+                    }
                   ],
                 },
                 {
