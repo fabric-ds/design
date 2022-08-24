@@ -35,6 +35,20 @@ export default function App({ Component, pageProps }) {
                       title: 'Accessibility',
                       href: '/screenreaders',
                     },
+                    {
+                      title: 'Checklists for webpages',
+                      open: true,
+                      items: [
+                        {
+                          title: 'All web pages',
+                          href: '/checklist-web-all',
+                        },
+                        {
+                          title: 'Search result pages',
+                          href: '/checklist-web-results',
+                        },
+                      ],
+                    }
                   ],
                 },
                 {
@@ -42,93 +56,93 @@ export default function App({ Component, pageProps }) {
                   open: true,
                   items: [
                     {
-                          title: 'Button',
-                          href: '/button',
-                        },
-                        {
-                          title: 'Button utlity',
-                          href: '/utility-button',
-                        },
-                          {
-                          title: 'Breadcrumbs',
-                          href: '/breadcrumbs',
-                        },
+                      title: 'Button',
+                      href: '/button',
+                    },
+                    {
+                      title: 'Button utlity',
+                      href: '/utility-button',
+                    },
+                      {
+                      title: 'Breadcrumbs',
+                      href: '/breadcrumbs',
+                    },
+                     {
+                      title: 'Box',
+                      href: '/box',
+                    },
+                     {
+                      title: 'Card',
+                      href: '/card',
+                    },
+                     {
+                      title: 'Checkbox',
+                      href: '/checkbox',
+                    },
+                      {
+                      title: 'Data table',
+                      href: '/data-table',
+                    },
+                      {
+                      title: 'Expandable',
+                      href: '/expandable',
+                    },
+                    {
+                      title: 'Icon',
+                      href: '/icons',
+                    },
+                     {
+                      title: 'Input',
+                      href: '/input',
+                    },
+                    {
+                      title: 'List',
+                      href: '/list',
+                    },
                          {
-                          title: 'Box',
-                          href: '/box',
-                        },
-                         {
-                          title: 'Card',
-                          href: '/card',
-                        },
-                         {
-                          title: 'Checkbox',
-                          href: '/checkbox',
-                        },
-                          {
-                          title: 'Data table',
-                          href: '/data-table',
-                        },
-                          {
-                          title: 'Expandable',
-                          href: '/expandable',
-                        },
-                        {
-                          title: 'Icon',
-                          href: '/icons',
-                        },
-                         {
-                          title: 'Input',
-                          href: '/input',
-                        },
-                        {
-                          title: 'List',
-                          href: '/list',
-                        },
-                             {
-                          title: 'Modal',
-                          href: '/modal',
-                        },
-                        {
-                          title: 'Radio',
-                          href: '/radio',
-                        },
-                        {
-                          title: 'Search',
-                          href: '/search',
-                        },
-                         {
-                          title: 'Select',
-                          href: '/select',
-                        },
-                        {
-                          title: 'Slider',
-                          href: '/slider',
-                        },
-                          {
-                          title: 'Status ribbon',
-                          href: '/status-ribbon',
-                        },
-                        {
-                          title: 'Steps',
-                          href: '/steps',
-                        },
-                        {
-                          title: 'Switch',
-                          href: '/switch',
-                        },
-                        {
-                          title: 'Tabs',
-                          href: '/tabs',
-                        },
-                        {
-                          title: 'Text area',
-                          href: '/text-area',
-                        },
-                        {
-                          title: 'Toast',
-                          href: '/toast',
-                        },
+                      title: 'Modal',
+                      href: '/modal',
+                    },
+                    {
+                      title: 'Radio',
+                      href: '/radio',
+                    },
+                    {
+                      title: 'Search',
+                      href: '/search',
+                    },
+                     {
+                      title: 'Select',
+                      href: '/select',
+                    },
+                    {
+                      title: 'Slider',
+                      href: '/slider',
+                    },
+                      {
+                      title: 'Status ribbon',
+                      href: '/status-ribbon',
+                    },
+                    {
+                      title: 'Steps',
+                      href: '/steps',
+                    },
+                    {
+                      title: 'Switch',
+                      href: '/switch',
+                    },
+                    {
+                      title: 'Tabs',
+                      href: '/tabs',
+                    },
+                    {
+                      title: 'Text area',
+                      href: '/text-area',
+                    },
+                    {
+                      title: 'Toast',
+                      href: '/toast',
+                    },
                   ],
                 },
                 {

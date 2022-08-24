@@ -1,0 +1,27 @@
+# General checklist for every web page on FINN
+
+This checklist applies to all web pages on [FINN.no](https://finn.no/).
+
+<TableOfContents />
+
+## 1. Document title
+Every page must have a non-empty [title element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title) located inside the [head element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head).
+
+The purpose of the title is to provide the end users with a clear and concise clue about what the page entails.
+
+### 1.1. Branding
+All pages belonging to a specific market must include the market name in the title. All other pages must include **FINN.no** in the title.
+
+The branding should be appended to the title with a vertical bar (|) as separator. For example: "Boliger i Oslo | FINN eiendom"
+
+### 1.2. Title length
+For static titles, the total length (including branding) must not exceed 60 characters. Titles containing user-generated content (such as ad titles) may be longer (i.e. don't truncate user-generated content in the title).
+
+## 2. Main element
+Every page must have exactly one [main element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main). Generally this element should wrap all content between Header and Footer. It must never include Header or Footer.
+
+## 3. H1 element
+Every page must have at least one main heading ([h1 element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements)) located inside the main element mentioned in §2. It can be hidden visually with sr-only class if necessary.
+
+## 4. Heading structure
+Make sure all headings on the page follow the [Heading guidelines for screen readers](/screenreaders#headings).
