@@ -40,11 +40,11 @@ export default function App({ Component, pageProps }) {
                       open: true,
                       items: [
                         {
-                          title: 'All webpages',
+                          title: 'All web pages',
                           href: '/checklist-web-all',
                         },
                         {
-                          title: 'Search results',
+                          title: 'Search result pages',
                           href: '/checklist-web-results',
                         },
                       ],
