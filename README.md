@@ -48,4 +48,3 @@ If the scripts authentication issues, you could try to create a new access token
 
 The script is probably not resilient to changes in the structure of the Figma project. Changes there will probably
 require an update of the import script.
-
