@@ -1,11 +1,12 @@
 import React from 'react';
 import Head from 'next/head';
-import { colors } from '@fabric-ds/tailwind-config/colors.js';
+import { colors as _colors } from '@fabric-ds/tailwind-config/colors.js';
 import mapObject from 'map-obj';
 import decamelize from 'decamelize';
 
 import { AssetLink, AssetLinks } from '../components/AssetLink';
 
+let colors = _colors
 export function getStaticProps() {
   // decamlize the color names and uppercase the first letter
   colors = mapObject(colors, (key, value) => [
