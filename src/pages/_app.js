@@ -41,7 +41,11 @@ export default function App({ Component, pageProps }) {
                   title: 'Components',
                   open: true,
                   items: [
-                    {
+                        {
+                          title: 'Badge',
+                          href: '/badge',
+                        },
+                        {
                           title: 'Button',
                           href: '/button',
                         },
@@ -104,10 +108,6 @@ export default function App({ Component, pageProps }) {
                         {
                           title: 'Slider',
                           href: '/slider',
-                        },
-                          {
-                          title: 'Status ribbon',
-                          href: '/status-ribbon',
                         },
                         {
                           title: 'Steps',
