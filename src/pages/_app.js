@@ -35,6 +35,10 @@ export default function App({ Component, pageProps }) {
                       title: 'Accessibility',
                       href: '/screenreaders',
                     },
+                    {
+                      title: 'Titles',
+                      href: '/titles',
+                    },
                   ],
                 },
                 {
