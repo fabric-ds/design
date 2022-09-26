@@ -36,7 +36,7 @@ export default function App({ Component, pageProps }) {
                       href: '/screenreaders',
                     },
                     {
-                      title: 'Titles',
+                      title: 'Page titles',
                       href: '/titles',
                     },
                   ],
