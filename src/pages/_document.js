@@ -23,7 +23,7 @@ export default class MyDocument extends Document {
             }}
           ></style>
           <link rel="icon" href="https://www.finn.no/favicon.ico" type="image/x-icon" />
-          <link href="https://assets.finn.no/pkg/@fabric-ds/css/v0/fabric.min.css" rel="stylesheet" />
+          <link href="https://assets.finn.no/pkg/@fabric-ds/css/v1/fabric.min.css" rel="stylesheet" />
           <link href="https://assets.finn.no/pkg/@fabric-ds/common/v1/css/markdown.css" rel="stylesheet" />
           <link href="https://assets.finn.no/pkg/@fabric-ds/common/v1/template/index.js?a=1" rel="modulepreload" />
           <link href="https://assets.finn.no/pkg/@fabric-ds/common/v1/asset-links/index.js" rel="modulepreload" />
