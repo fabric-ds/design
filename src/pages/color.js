@@ -46,7 +46,7 @@ export default function ColorPage({ colors }) {
               <dl className="m-0 text-12">
                 <div className="grid grid-cols-2 lg:grid-cols-2">
                   <dt className="m-0">HEX</dt>
-                  <dd className="m-0">#2563eb</dd>
+                  <dd className="m-0">#0063fb</dd>
                 </div>
                 <div className="grid grid-cols-2 lg:grid-cols-2">
                   <dt className="m-0">Alias of</dt>
@@ -63,7 +63,7 @@ export default function ColorPage({ colors }) {
               <dl className="m-0 text-12">
                 <div className="grid grid-cols-2 lg:grid-cols-2">
                   <dt className="m-0">HEX</dt>
-                  <dd className="m-0">#38bdf8</dd>
+                  <dd className="m-0">#06befb</dd>
                 </div>
                 <div className="grid grid-cols-2 lg:grid-cols-2">
                   <dt className="m-0">Alias of</dt>
@@ -83,7 +83,7 @@ export default function ColorPage({ colors }) {
               <dl className="m-0 text-12">
                 <div className="grid grid-cols-2 lg:grid-cols-2">
                   <dt className="m-0">HEX</dt>
-                  <dd className="m-0">#474445</dd>
+                  <dd className="m-0">#464646</dd>
                 </div>
                 <div className="grid grid-cols-2 lg:grid-cols-2">
                   <dt className="m-0">Alias of</dt>
@@ -205,11 +205,11 @@ export default function ColorPage({ colors }) {
               <dl className="m-0 text-12">
                 <div className="grid grid-cols-2 lg:grid-cols-2">
                   <dt className="m-0">HEX</dt>
-                  <dd className="m-0">#CCFFEC</dd>
+                  <dd className="m-0">#CDFEE5</dd>
                 </div>
                 <div className="grid grid-cols-2 lg:grid-cols-2">
                   <dt className="m-0">Alias of</dt>
-                  <dd className="m-0">green-200</dd>
+                  <dd className="m-0">green-100</dd>
                 </div>
               </dl>
             </div>
@@ -243,7 +243,7 @@ export default function ColorPage({ colors }) {
                 </div>
                 <div className="grid grid-cols-2 lg:grid-cols-2">
                   <dt className="m-0">Alias of</dt>
-                  <dd className="m-0">red-200</dd>
+                  <dd className="m-0">red-100</dd>
                 </div>
               </dl>
             </div>
@@ -259,7 +259,7 @@ export default function ColorPage({ colors }) {
               <dl className="m-0 text-12">
                 <div className="grid grid-cols-2 lg:grid-cols-2">
                   <dt className="m-0">HEX</dt>
-                  <dd className="m-0">#007200</dd>
+                  <dd className="m-0">#059E6F</dd>
                 </div>
                 <div className="grid grid-cols-2 lg:grid-cols-2">
                   <dt className="m-0">Alias of</dt>
@@ -293,7 +293,7 @@ export default function ColorPage({ colors }) {
               <dl className="m-0 text-12">
                 <div className="grid grid-cols-2 lg:grid-cols-2">
                   <dt className="m-0">HEX</dt>
-                  <dd className="m-0">#D9270A</dd>
+                  <dd className="m-0">#D91F0A</dd>
                 </div>
                 <div className="grid grid-cols-2 lg:grid-cols-2">
                   <dt className="m-0">Alias of</dt>
