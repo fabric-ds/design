@@ -21,7 +21,7 @@
     "@fabric-ds/icons": "^0.3.18",
     "@fabric-ds/react": "^1.0.4",
     "@jsdevtools/rehype-toc": "^3.0.2",
-    "@mdx-js/loader": "^1.6.22",
+    "@mdx-js/loader": "^2.0.0",
     "@next/mdx": "^11.1.2",
     "@sindresorhus/slugify": "^1.1.0",
     "autoprefixer": "^10.1.0",
