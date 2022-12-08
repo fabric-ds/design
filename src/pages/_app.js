@@ -39,6 +39,20 @@ export default function App({ Component, pageProps }) {
                       title: 'Page titles',
                       href: '/titles',
                     },
+                    {
+                      title: 'Data visualization',
+                      open: false,
+                      items: [
+//                        {
+//                          title: 'Colours',
+//                          href: '/data-viz-colours',
+//                       },
+                        {
+                          title: 'Colour guidelines',
+                          href: '/data-viz-guidelines',
+                        }
+                      ]
+                    },
                   ],
                 },
                 {

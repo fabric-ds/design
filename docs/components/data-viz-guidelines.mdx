@@ -1,0 +1,149 @@
+# Colour guidelines
+
+<Guideline title="Primary Colour" image="dataviz-primary.svg">
+  If you only need one colour hue, use <strong>viz-blue-400.</strong>
+  <br />
+  <br />
+  Note that this is not the same as the regular blue you find in the FINN colour palette.
+</Guideline>
+<br />
+<br />
+
+## Categorical colours
+
+<Guideline title="Categorical" image="dataviz-categorical.svg">
+  These colours work well for categorical data, and are colourblind-safe.
+  <br />
+  <br />
+  <ol>
+    <li>viz-indigo-400</li>
+    <li>viz-pink-600</li>
+    <li>viz-teal-400</li>
+    <li>viz-orange-400</li>
+  </ol>
+  <br />
+  <strong>viz-indigo-400</strong> can be swapped with <strong>viz-blue-400</strong> in cases where comparison is related
+  to "self" as <strong>viz-blue-400</strong> is perceived as a more "important" colour.
+</Guideline>
+
+<Guideline title="Categorical - bordered version" image="dataviz-categorical-bordered.svg">
+  Brighter colours can be used as long as the darker colour is used as a border, to create enough contrast against the
+  background.*
+  <br />
+  <br />
+  <ol>
+    <li>
+      fill: <strong>viz-indigo-300</strong>, border: <strong>viz-indigo-500</strong>
+    </li>
+    <li>
+      fill: <strong>viz-pink-200</strong>, border: <strong>viz-pink-500</strong>
+    </li>
+    <li>
+      fill: <strong>viz-teal-200</strong>, border: <strong>viz-teal-500</strong>
+    </li>
+    <li>
+      fill: <strong>viz-orange-200</strong>, border: <strong>viz-orange-500</strong>
+    </li>
+  </ol>
+</Guideline>
+
+<Guideline title="Categorical - Extended" image="dataviz-categorical-extended.svg">
+  Use these colours if you need more than four hues. These colours are not fully colourblind-safe, and should therefore
+  be used with caution.
+  <br />
+  <br />
+  <ol>
+    <li>viz-indigo-400</li>
+    <li>viz-pink-600</li>
+    <li>viz-teal-400</li>
+    <li>viz-orange-400</li>
+    <li>viz-indigo-600</li>
+    <li>viz-pink-400</li>
+    <li>viz-teal-600</li>
+    <li>viz-orange-600</li>
+  </ol>
+</Guideline>
+<br />
+<br />
+
+## Good vs bad
+
+<Guideline title="Good and bad numbers" image="dataviz-good-bad.svg">
+Colours can be used to indicate good and bad numbers. Blue and red is the safest combination:
+<ol>
+  <li>viz-blue-400</li>
+  <li>viz-red-500</li>
+  <li>
+    fill: <strong>viz-blue-200</strong>, border: <strong>viz-blue-500</strong>
+  </li>
+  <li>
+    fill: <strong>viz-red-200</strong>, border: <strong>viz-red-600</strong>
+  </li> 
+</ol>
+
+<br />
+
+or, with a neutral middle colour, with or without border:
+
+<ol>
+  <li>viz-blue-400</li>
+  <li>viz-WarmGray-400</li>
+  <li>viz-red-500</li>
+  <li>
+    fill: <strong>viz-blue-200</strong>, border: <strong>viz-blue-500</strong>
+  </li>
+  <li>
+    fill: <strong>viz-WarmGray-200</strong>, border: <strong>viz-WarmGray-600</strong>
+  </li>
+  <li>
+    fill: <strong>viz-red-200</strong>, border: <strong>viz-red-600</strong>
+  </li>
+</ol>
+
+<br />
+Teal and red should only be used if the brightness contrast is high:
+<ol>
+  <li>viz-teal-400</li>
+  <li>viz-red-600</li>
+</ol>
+
+<br/>
+Yellow needs an outline in order to have good enough contrast against a white background.
+<ol>
+  <li>
+    fill: <strong>viz-Green-200</strong>, border: <strong>viz-Green-500</strong> 
+  </li>
+  <li>
+    fill: <strong>viz-Yellow-400</strong>, border: <strong>viz-Yellow-600</strong>
+  </li>
+  <li>
+    fill: <strong>viz-red-300</strong>, border: <strong>viz-red-500</strong>
+  </li> 
+</ol>
+</Guideline>
+<br />
+<br />
+
+## Reference
+
+<Guideline title="For historical data" image="dataviz-reference.svg">
+  Use <strong>viz-warmGrey-400</strong> if you need to include data that is less important than the primary data, for
+  example reference data and historical data.
+</Guideline>
+<br />
+<br />
+
+## Utility colours
+
+<Guideline title="Supporting chart elements" image="dataviz-chart-elements.svg">
+  Utility colours are used for supporting chart elements like labels and grid lines.
+  <br />
+  <br />
+  Utility colours are colours from fabric:
+  <ul>
+    <li>Licorice (gray-700/#464646)</li>
+    <li>Stone (gray-500/#767676)</li>
+    <li>Sardine (bluegray-300/#C3CCD9)</li>
+    <li>Marble (bluegray-50/#F6F8FB)</li>
+  </ul>
+</Guideline>
