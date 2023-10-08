@@ -18,7 +18,7 @@
   },
   "license": "ISC",
   "dependencies": {
-    "@fabric-ds/icons": "^0.3.18",
+    "@fabric-ds/icons": "^0.6.0",
     "@fabric-ds/react": "^1.0.4",
     "@jsdevtools/rehype-toc": "^3.0.2",
     "@mdx-js/loader": "^1.6.22",

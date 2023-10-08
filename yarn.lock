@@ -234,10 +234,10 @@
   resolved "https://registry.yarnpkg.com/@chbphone55/classnames/-/classnames-2.0.0.tgz#fb0c6d122c3ba2030614613a5fe959b0e61f1a41"
   integrity sha512-tR9ph9yRNOHyZZveFs3hhUGmaeck5MTGvNKm6ACAy6+mKu46YeMN/1U1ZRcYfRNEmwV4iDAWQ839PFDmpZ3YnA==
 
-"@fabric-ds/icons@^0.3.18":
-  version "0.3.18"
-  resolved "https://registry.yarnpkg.com/@fabric-ds/icons/-/icons-0.3.18.tgz#b0ac813db9581a9587512f08d65a5238631715b8"
-  integrity sha512-HHisClvAJSBdP8iW4eMVmBjrgpFgnyRjcyEJmKfdrdTlR03I9KgZBNx9PeUTb0rC+7dstODmcTlYbtbhZoqqFg==
+"@fabric-ds/icons@^0.6.0":
+  version "0.6.7"
+  resolved "https://registry.yarnpkg.com/@fabric-ds/icons/-/icons-0.6.7.tgz#10cdd46998a69cf53bb6f5ac48d2515e6a37708b"
+  integrity sha512-1UYhIuvJz9d1c5d3WfuQJLtMc8GNgsFhhFd61PNvSgFbl2IxwuBStK1LqLO0ntrqF2CxxVenhl8ccx4rOql9+w==
 
 "@fabric-ds/react@^1.0.4":
   version "1.0.4"
