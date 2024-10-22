@@ -22,7 +22,7 @@
     "@fabric-ds/react": "^1.0.4",
     "@jsdevtools/rehype-toc": "^3.0.2",
     "@mdx-js/loader": "^1.6.22",
-    "@next/mdx": "^11.1.2",
+    "@next/mdx": "^15.0.0",
     "@sindresorhus/slugify": "^1.1.0",
     "autoprefixer": "^10.1.0",
     "decamelize": "^5.0.0",
