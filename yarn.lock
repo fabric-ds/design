@@ -315,9 +315,9 @@
   integrity sha512-nrIgY6t17FQ9xxwH3jj0a6EOiQ/WDHUos35Hghtr+SWN/ntHIQ7UpuvSi0vaLzZVHQWaDupKI+liO5vANcDeTQ==
 
 "@next/mdx@^11.1.2":
-  version "11.1.2"
-  resolved "https://registry.yarnpkg.com/@next/mdx/-/mdx-11.1.2.tgz#cf4fbbc453d827008e82daa97591755e1321c29f"
-  integrity sha512-uRodX0OGSWMGTzun1QGfpXisKjz4ptWoizYqhXWZubLFJsRG/GKbB9n9hh3l48KlzKMO2S1REAOKJd+x9h/nWw==
+  version "11.1.4"
+  resolved "https://registry.yarnpkg.com/@next/mdx/-/mdx-11.1.4.tgz#8c979db5c97f1e8475d5b300319821e08aa30f43"
+  integrity sha512-L6F4LRpGi3Y923KD3Sfpw9QdBycqynbVLQu//wIGQB8N41TLgBOHD3sTgEUChmiatW1e53OoEZbC/HNNWi8xJg==
 
 "@next/swc-android-arm64@12.1.0":
   version "12.1.0"
